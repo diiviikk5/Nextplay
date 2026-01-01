@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* NEW COLOR SCHEME - Dark Blue / Cyan / Orange Gaming */
+  --bg-dark: #0a0e17;
+  --bg-card: rgba(15, 23, 42, 0.9);
+  --accent-primary: #06b6d4;
+  /* Cyan */
+  --accent-secondary: #f97316;
+  /* Orange */
+  --accent-glow: rgba(6, 182, 212, 0.4);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(15, 23, 42, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --font-heading: 'Rajdhani', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(180deg, #0a0e17 0%, #0f172a 50%, #0a0e17 100%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+.glass-hover {
+  transition: var(--transition-smooth);
+}
+
+.glass-hover:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(6, 182, 212, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(6, 182, 212, 0.1);
+}
+
+/* Gradient Text - Cyan to Orange */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Layout */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Buttons - Cyan/Orange Theme */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-primary), #0891b2);
+  color: #0a0e17;
+  border: none;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+/* Form Elements */
+input[type="text"],
+input[type="search"],
+select {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+}
+
+/* Utility Classes */
+.flex {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+/* Responsive */
+/* Mobile-first: hide desktop nav by default */
+.md\:flex {
+  display: none !important;
+}
+
+.md\:hidden {
+  display: flex !important;
+}
+
+.md\:inline {
+  display: none !important;
+}
+
+/* Desktop: show desktop nav, hide mobile elements */
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex !important;
+  }
+
+  .md\:hidden {
+    display: none !important;
+  }
+
+  .md\:inline {
+    display: inline !important;
+  }
+}
+
+/* ===================================
+   MOBILE iOS OPTIMIZATIONS
+   =================================== */
+
+/* iOS Safe Area Support */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .container {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+}
+
+/* Prevent iOS zoom on input focus - minimum 16px font size */
+@media screen and (max-width: 767px) {
+
+  input[type="text"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Mobile-First Touch Optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+  /* Increase touch targets for iOS - minimum 44px Apple guideline */
+  .btn-primary,
+  .btn-secondary,
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects on touch devices to prevent sticky states */
+  .glass-hover:hover {
+    transform: none;
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    box-shadow: none;
+  }
+
+  /* Add active state instead for touch feedback */
+  .glass-hover:active {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: rgba(6, 182, 212, 0.3);
+    transform: scale(0.98);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+
+  .btn-secondary:active {
+    background: rgba(6, 182, 212, 0.15);
+  }
+}
+
+/* Mobile Breakpoint - General */
+@media screen and (max-width: 767px) {
+  html {
+    /* Prevent iOS rubber band effect causing layout shifts */
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    /* Smoother scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Prevent text size adjustment */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Better font scaling for mobile */
+  h1 {
+    font-size: clamp(1.75rem, 7vw, 2.5rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+  }
+
+  /* Improved touch targets */
+  a,
+  button {
+    -webkit-tap-highlight-color: rgba(6, 182, 212, 0.2);
+  }
+
+  /* Fix for iOS momentum scrolling in modals */
+  .modal-scroll {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+
+  /* Improve button readability on mobile */
+  .btn-primary {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.85rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-secondary {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  /* Better spacing for mobile forms */
+  input[type="text"],
+  input[type="search"] {
+    padding: 0.875rem 1rem;
+    border-radius: 10px;
+  }
+}
+
+/* Extra small mobile devices (iPhone SE, smaller phones) */
+@media screen and (max-width: 374px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* iOS Landscape Mode */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+
+  /* Reduce hero section height in landscape */
+  .hero-section {
+    min-height: 50vh;
+  }
+
+  /* Adjust safe areas for landscape notch */
+  @supports (padding: max(0px)) {
+    .container {
+      padding-left: max(1.5rem, env(safe-area-inset-left));
+      padding-right: max(1.5rem, env(safe-area-inset-right));
+    }
+  }
+}
+
+/* Fix iOS fixed positioning issues */
+@supports (-webkit-touch-callout: none) {
+
+  /* iOS-specific fixes */
+  .sticky-header {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
+  /* Prevent iOS scroll locking issues with fixed elements */
+  body.modal-open {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-primary);
+  color: #0a0e17;
+}
+
+/* Custom scrollbar for game cards */
+.game-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.game-grid::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 3px;
+}
+
+/* Hide scrollbar utility - for horizontal scroll areas */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scroll snap for mobile carousels */
+@media (max-width: 767px) {
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+  }
+
+  .scroll-snap-x>* {
+    scroll-snap-align: start;
+  }
+}
