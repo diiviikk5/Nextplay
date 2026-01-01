@@ -1,0 +1,14 @@
+# NextPlay 2026 - Upcoming Games Tracker
+# https://nextplaygame.me
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://nextplaygame.me/sitemap.xml
+
+# Crawl-delay for politeness
+Crawl-delay: 1
+
+# Disallow admin/internal routes (if any)
+Disallow: /api/
