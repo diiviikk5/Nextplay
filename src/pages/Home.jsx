@@ -1,17 +1,19 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import GameCard from '../components/GameCard';
 import { useWatchlist } from '../hooks/useWatchlist';
 import gamesData from '../data/games.json';
 import SEO from '../components/SEO';
 import { Search, Filter, Clock, TrendingUp, Calendar, ChevronRight, Zap, Crown, Tag, Monitor, Scale, ArrowRight, Swords, Code } from 'lucide-react';
+import { getCanonicalUrl, slugify } from '../utils/seoHelpers';
+import { PLATFORM_FILTERS } from '../utils/constants';
 
 const Home = () => {
     const { isWatched, toggleWatch } = useWatchlist();
     const [search, setSearch] = useState('');
     const [activePlatform, setActivePlatform] = useState('All');
 
-    const platforms = ['All', 'PlayStation 5', 'Xbox Series X/S', 'PC', 'Nintendo Switch'];
+    const platforms = PLATFORM_FILTERS;
 
     const filteredGames = useMemo(() => {
         return gamesData
@@ -23,12 +25,34 @@ const Home = () => {
     }, [search, activePlatform]);
 
     // Featured game
-    const featuredGame = gamesData.find(g => g.title.toLowerCase().includes('grand theft auto')) || gamesData[0];
+    const featuredGame = useMemo(() =>
+        gamesData.find(g => g.title.toLowerCase().includes('grand theft auto')) || gamesData[0]
+        , []);
 
     // Calculate countdown
     const today = new Date();
     const featuredDate = new Date(featuredGame.releaseDate);
     const daysLeft = Math.ceil((featuredDate - today) / (1000 * 60 * 60 * 24));
+
+    // FAQ data for SEO
+    const faqData = useMemo(() => [
+        {
+            question: 'When is GTA 6 coming out?',
+            answer: `Grand Theft Auto VI (GTA 6) is scheduled to release on ${featuredDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} for PlayStation 5 and Xbox Series X/S. Track the countdown at NextPlay 2026.`
+        },
+        {
+            question: 'What are the most anticipated games of 2026?',
+            answer: `The most anticipated games of 2026 include: ${gamesData.slice(0, 8).map(g => g.title).join(', ')}. Track all ${gamesData.length}+ games at NextPlay.`
+        },
+        {
+            question: 'What PS5 games are coming in 2026?',
+            answer: `Major PS5 games releasing in 2026 include ${gamesData.filter(g => g.platforms?.includes('PlayStation 5')).slice(0, 5).map(g => g.title).join(', ')} and more. Use NextPlay 2026 to track all upcoming PS5 releases.`
+        },
+        {
+            question: 'How many games are releasing in 2026?',
+            answer: `NextPlay tracks ${gamesData.length}+ video games releasing in 2026 across PlayStation 5, Xbox Series X/S, PC, and Nintendo Switch.`
+        }
+    ], [featuredDate]);
 
     // Coming soon sections
     const now = new Date();
@@ -72,7 +96,14 @@ const Home = () => {
             <SEO
                 title="NextPlay 2026 | GTA 6 Release Date Countdown & All 2026 Game Releases Calendar"
                 description={`The #1 tracker for 2026 video game releases. Live countdown to GTA VI, ${gamesData.length}+ games tracked. Create tier lists, compare games, and build your watchlist.`}
-                url="https://nextplaygame.me/"
+                url={getCanonicalUrl('/')}
+                keywords="GTA 6 release date 2026, GTA VI countdown timer, upcoming games 2026 list, 2026 game release calendar, PS5 games 2026, Xbox games 2026"
+                faqData={faqData}
+                gameList={{
+                    name: 'Most Anticipated 2026 Video Games',
+                    description: 'The top upcoming video games releasing in 2026',
+                    games: gamesData.slice(0, 10)
+                }}
             />
             {/* HERO SECTION */}
             <section style={{ position: 'relative', minHeight: '60vh', overflow: 'hidden' }} className="hero-section">

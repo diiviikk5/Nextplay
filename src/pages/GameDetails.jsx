@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback, memo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useWatchlist } from '../hooks/useWatchlist';
 import gamesData from '../data/games.json';
 import SEO from '../components/SEO';
+import Breadcrumb from '../components/Breadcrumb';
+import { RelatedLinks } from '../components/InternalLinks';
 import {
     ArrowLeft,
     Calendar,
@@ -24,7 +26,77 @@ import {
 } from 'lucide-react';
 import { parseISO } from 'date-fns';
 import { formatReleaseDate, isPlaceholderDate } from '../utils/dateHelpers';
+import { getCanonicalUrl, generateGameSEOTitle, generateGameSEODescription, slugify } from '../utils/seoHelpers';
+import { GENRE_COLORS, PLATFORM_CONFIG } from '../utils/constants';
 import HypeVoting from '../components/HypeVoting';
+
+// Memoized Screenshot Grid for performance
+const ScreenshotGrid = memo(({ screenshots, gameTitle, onOpenLightbox }) => (
+    <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(min(250px, 100%), 1fr))',
+        gap: '0.75rem'
+    }}>
+        {screenshots.map((url, idx) => (
+            <div
+                key={idx}
+                onClick={() => onOpenLightbox(idx)}
+                style={{
+                    aspectRatio: '16/9',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    border: '2px solid rgba(255,255,255,0.1)',
+                    transition: 'transform 0.2s, border-color 0.2s'
+                }}
+                className="glass-hover"
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${gameTitle} screenshot ${idx + 1}`}
+            >
+                <img
+                    src={url}
+                    alt={`${gameTitle} screenshot ${idx + 1}`}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    loading="lazy"
+                />
+            </div>
+        ))}
+    </div>
+));
+
+// Memoized Video Grid for performance
+const VideoGrid = memo(({ videos, gameTitle }) => (
+    <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(min(350px, 100%), 1fr))',
+        gap: '1rem'
+    }}>
+        {videos.map((videoId, idx) => (
+            <div
+                key={idx}
+                style={{
+                    aspectRatio: '16/9',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    border: '2px solid rgba(255,255,255,0.1)'
+                }}
+            >
+                <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                    title={`${gameTitle} video ${idx + 1}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{ border: 'none' }}
+                />
+            </div>
+        ))}
+    </div>
+));
 
 const GameDetails = () => {
     const { slug } = useParams();
@@ -33,89 +105,130 @@ const GameDetails = () => {
     const [imageError, setImageError] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
-    const [activeTab, setActiveTab] = useState('screenshots'); // screenshots | videos
+    const [activeTab, setActiveTab] = useState('screenshots');
 
-    const game = gamesData.find(g => g.slug === slug);
+    // Find game with memoization
+    const game = useMemo(() => gamesData.find(g => g.slug === slug), [slug]);
 
+    // Calculate derived values with memoization
+    const gameData = useMemo(() => {
+        if (!game) return null;
+
+        const date = parseISO(game.releaseDate);
+        const formattedDate = formatReleaseDate(game.releaseDate);
+        const isPlaceholder = isPlaceholderDate(game.releaseDate);
+        const today = new Date();
+        const daysLeft = Math.ceil((date - today) / (1000 * 60 * 60 * 24));
+        const shareUrl = getCanonicalUrl(`/game/${game.slug}`);
+        const shareText = `${game.title} releases ${formattedDate}! 🎮`;
+
+        return {
+            date,
+            formattedDate,
+            isPlaceholder,
+            daysLeft,
+            shareUrl,
+            shareText,
+            screenshots: game.screenshots || [],
+            videos: game.videos || []
+        };
+    }, [game]);
+
+    // SEO data
+    const seoData = useMemo(() => {
+        if (!game || !gameData) return null;
+
+        return {
+            title: generateGameSEOTitle(game, gameData.formattedDate),
+            description: generateGameSEODescription(game, gameData.formattedDate, gameData.daysLeft),
+            breadcrumbs: [
+                { name: 'Games', path: '/' },
+                ...(game.genres?.[0] ? [{ name: game.genres[0], path: `/genre/${slugify(game.genres[0])}` }] : []),
+                { name: game.title, path: `/game/${game.slug}` }
+            ],
+            faqData: [
+                {
+                    question: `When does ${game.title} release?`,
+                    answer: `${game.title} is scheduled to release on ${gameData.formattedDate} for ${game.platforms?.join(', ') || 'multiple platforms'}.`
+                },
+                {
+                    question: `What platforms is ${game.title} available on?`,
+                    answer: `${game.title} will be available on ${game.platforms?.join(', ') || 'TBA'}.`
+                },
+                ...(game.developers?.length > 0 ? [{
+                    question: `Who is developing ${game.title}?`,
+                    answer: `${game.title} is being developed by ${game.developers.join(', ')}.`
+                }] : [])
+            ]
+        };
+    }, [game, gameData]);
+
+    // Callbacks
+    const copyLink = useCallback(() => {
+        if (gameData) {
+            navigator.clipboard.writeText(gameData.shareUrl);
+            alert('Link copied!');
+        }
+    }, [gameData]);
+
+    const openLightbox = useCallback((index) => {
+        setLightboxIndex(index);
+        setLightboxOpen(true);
+    }, []);
+
+    const nextImage = useCallback(() => {
+        if (gameData) {
+            setLightboxIndex((prev) => (prev + 1) % gameData.screenshots.length);
+        }
+    }, [gameData]);
+
+    const prevImage = useCallback(() => {
+        if (gameData) {
+            setLightboxIndex((prev) => (prev - 1 + gameData.screenshots.length) % gameData.screenshots.length);
+        }
+    }, [gameData]);
+
+    // Not found state
     if (!game) {
         return (
             <div className="container" style={{ padding: '5rem 1.5rem', textAlign: 'center' }}>
                 <SEO
                     title="Game Not Found | NextPlay 2026"
                     description="This game doesn't exist in our 2026 database."
+                    noIndex={true}
                 />
-                <h1 className="font-heading" style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1rem' }}>GAME NOT FOUND</h1>
-                <p style={{ color: '#94a3b8', marginBottom: '2rem' }}>This game doesn't exist in our 2026 database.</p>
-                <Link to="/" className="btn-primary" style={{ display: 'inline-flex' }}>Back to Home</Link>
+                <h1 className="font-heading" style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    GAME NOT FOUND
+                </h1>
+                <p style={{ color: '#94a3b8', marginBottom: '2rem' }}>
+                    This game doesn't exist in our 2026 database.
+                </p>
+                <Link to="/" className="btn-primary" style={{ display: 'inline-flex' }}>
+                    Back to Home
+                </Link>
             </div>
         );
     }
 
-    const date = parseISO(game.releaseDate);
-    const formattedDate = formatReleaseDate(game.releaseDate);
-    const isPlaceholder = isPlaceholderDate(game.releaseDate);
     const watched = isWatched(game.id);
 
-    // Days until release
-    const today = new Date();
-    const daysLeft = Math.ceil((date - today) / (1000 * 60 * 60 * 24));
-
-    // Similar games - prefer IGDB similar games, fallback to same genre
-    const similarGames = game.similarGames?.length > 0
-        ? game.similarGames.map(sg => {
-            const found = gamesData.find(g => g.slug === sg.slug);
-            return found || sg;
-        }).filter(Boolean).slice(0, 4)
-        : gamesData
-            .filter(g => g.id !== game.id && g.genres?.some(genre => game.genres?.includes(genre)))
-            .slice(0, 4);
-
-    // Share
-    const shareUrl = `https://nextplaygame.me/game/${game.slug}`;
-    const shareText = `${game.title} releases ${formattedDate}! 🎮`;
-
-    const copyLink = () => {
-        navigator.clipboard.writeText(shareUrl);
-        alert('Link copied!');
-    };
-
-    // Screenshots/Media
-    const screenshots = game.screenshots || [];
-    const videos = game.videos || [];
-
-    // Lightbox navigation
-    const openLightbox = (index) => {
-        setLightboxIndex(index);
-        setLightboxOpen(true);
-    };
-
-    const nextImage = () => {
-        setLightboxIndex((prev) => (prev + 1) % screenshots.length);
-    };
-
-    const prevImage = () => {
-        setLightboxIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
-    };
-
-    // SEO data
-    const seoTitle = `${game.title} Release Date ${formattedDate} | Countdown & Info | NextPlay`;
-    const seoDescription = game.description
-        ? `${game.description.slice(0, 140)}... Track release countdown, platforms & more.`
-        : `${game.title} releases ${formattedDate} on ${game.platforms?.slice(0, 2).join(', ') || 'multiple platforms'}. ${daysLeft} days countdown. Add to your watchlist!`;
-
     return (
-        <div>
+        <article itemScope itemType="https://schema.org/VideoGame">
             <SEO
-                title={seoTitle}
-                description={seoDescription}
+                title={seoData.title}
+                description={seoData.description}
                 image={game.image}
-                url={shareUrl}
+                url={gameData.shareUrl}
                 type="article"
                 gameData={game}
+                breadcrumbs={seoData.breadcrumbs}
+                faqData={seoData.faqData}
+                publishedTime={game.releaseDate}
             />
+
             {/* Hero Header */}
-            <section style={{ position: 'relative', minHeight: '50vh', overflow: 'hidden' }} className="hero-section">
-                {/* Background - Real Image */}
+            <header style={{ position: 'relative', minHeight: '50vh', overflow: 'hidden' }} className="hero-section">
+                {/* Background Image */}
                 {!imageError && game.image ? (
                     <img
                         src={game.image}
@@ -129,12 +242,20 @@ const GameDetails = () => {
                             objectFit: 'cover',
                             filter: 'brightness(0.3)'
                         }}
+                        aria-hidden="true"
                     />
                 ) : (
-                    <div style={{ position: 'absolute', inset: 0, background: '#0f172a' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: '#0f172a' }} aria-hidden="true" />
                 )}
 
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0a0e17 0%, rgba(10,14,23,0.8) 50%, rgba(10,14,23,0.5) 100%)' }} />
+                <div
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'linear-gradient(to top, #0a0e17 0%, rgba(10,14,23,0.8) 50%, rgba(10,14,23,0.5) 100%)'
+                    }}
+                    aria-hidden="true"
+                />
 
                 {/* Content */}
                 <div className="container" style={{ position: 'relative', padding: '2rem 1rem', minHeight: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
@@ -186,16 +307,26 @@ const GameDetails = () => {
                         <Zap size={14} /> {game.hype}% HYPE
                     </div>
 
-                    <h1 className="font-heading" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 700, marginBottom: '1rem', lineHeight: 1.1, letterSpacing: '0.02em' }}>
+                    <h1
+                        className="font-heading"
+                        itemProp="name"
+                        style={{
+                            fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+                            fontWeight: 700,
+                            marginBottom: '1rem',
+                            lineHeight: 1.1,
+                            letterSpacing: '0.02em'
+                        }}
+                    >
                         {game.title.toUpperCase()}
                     </h1>
 
-                    {/* Platforms */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                    {/* Platforms as internal links */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }} itemProp="gamePlatform">
                         {game.platforms.map(p => (
                             <Link
                                 key={p}
-                                to={`/platform/${p.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                                to={`/platform/${slugify(p)}`}
                                 style={{
                                     padding: '0.5rem 1rem',
                                     background: 'rgba(6, 182, 212, 0.15)',
@@ -215,25 +346,42 @@ const GameDetails = () => {
                     {/* Release Info */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
                         <div>
-                            <div style={{ fontSize: '0.65rem', color: '#64748b', marginBottom: '0.25rem', fontWeight: 600, letterSpacing: '0.1em' }}>RELEASE DATE</div>
-                            <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                <Calendar size={16} color="#06b6d4" /> {formattedDate}
+                            <div style={{ fontSize: '0.65rem', color: '#64748b', marginBottom: '0.25rem', fontWeight: 600, letterSpacing: '0.1em' }}>
+                                RELEASE DATE
                             </div>
+                            <time
+                                dateTime={game.releaseDate}
+                                itemProp="datePublished"
+                                style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                            >
+                                <Calendar size={16} color="#06b6d4" /> {gameData.formattedDate}
+                            </time>
                         </div>
-                        <div style={{ width: '1px', height: '35px', background: 'rgba(255,255,255,0.1)' }} />
+                        <div style={{ width: '1px', height: '35px', background: 'rgba(255,255,255,0.1)' }} aria-hidden="true" />
                         <div>
-                            <div style={{ fontSize: '0.65rem', color: '#64748b', marginBottom: '0.25rem', fontWeight: 600, letterSpacing: '0.1em' }}>COUNTDOWN</div>
-                            <div style={{ fontSize: '1.1rem', fontWeight: 700, color: daysLeft > 0 ? '#f97316' : '#22c55e', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                <Clock size={16} /> {daysLeft > 0 ? `${daysLeft} DAYS` : 'RELEASED!'}
+                            <div style={{ fontSize: '0.65rem', color: '#64748b', marginBottom: '0.25rem', fontWeight: 600, letterSpacing: '0.1em' }}>
+                                COUNTDOWN
+                            </div>
+                            <div style={{ fontSize: '1.1rem', fontWeight: 700, color: gameData.daysLeft > 0 ? '#f97316' : '#22c55e', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                <Clock size={16} /> {gameData.daysLeft > 0 ? `${gameData.daysLeft} DAYS` : 'RELEASED!'}
                             </div>
                         </div>
                         {game.totalRating && (
                             <>
-                                <div style={{ width: '1px', height: '35px', background: 'rgba(255,255,255,0.1)' }} />
+                                <div style={{ width: '1px', height: '35px', background: 'rgba(255,255,255,0.1)' }} aria-hidden="true" />
                                 <div>
-                                    <div style={{ fontSize: '0.65rem', color: '#64748b', marginBottom: '0.25rem', fontWeight: 600, letterSpacing: '0.1em' }}>RATING</div>
-                                    <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#facc15', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                        <Star size={16} fill="#facc15" /> {Math.round(game.totalRating)}/100
+                                    <div style={{ fontSize: '0.65rem', color: '#64748b', marginBottom: '0.25rem', fontWeight: 600, letterSpacing: '0.1em' }}>
+                                        RATING
+                                    </div>
+                                    <div
+                                        itemProp="aggregateRating"
+                                        itemScope
+                                        itemType="https://schema.org/AggregateRating"
+                                        style={{ fontSize: '1.1rem', fontWeight: 700, color: '#facc15', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                                    >
+                                        <Star size={16} fill="#facc15" />
+                                        <span itemProp="ratingValue">{Math.round(game.totalRating)}</span>/
+                                        <span itemProp="bestRating">100</span>
                                     </div>
                                 </div>
                             </>
@@ -255,10 +403,10 @@ const GameDetails = () => {
                             {watched ? 'WATCHING' : 'ADD TO WATCHLIST'}
                         </button>
 
-                        {/* Share */}
+                        {/* Share buttons */}
                         <div style={{ display: 'flex', gap: '0.5rem' }}>
                             <a
-                                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
+                                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(gameData.shareText)}&url=${encodeURIComponent(gameData.shareUrl)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Share on Twitter"
@@ -316,19 +464,31 @@ const GameDetails = () => {
                         </div>
                     </div>
                 </div>
+            </header>
+
+            {/* Breadcrumb Navigation */}
+            <section className="container" style={{ padding: '1.5rem 1rem 0' }}>
+                <Breadcrumb items={[
+                    ...(game.genres?.[0] ? [{ name: game.genres[0], path: `/genre/${slugify(game.genres[0])}` }] : []),
+                    { name: game.title, path: `/game/${game.slug}` }
+                ]} />
             </section>
 
-            {/* Content */}
-            <section className="container" style={{ padding: '2rem 1rem' }}>
+            {/* Main Content */}
+            <section className="container" style={{ padding: '1rem 1rem 2rem' }}>
                 {/* Description & Storyline */}
                 <div className="glass" style={{ padding: '1.5rem', marginBottom: '1.25rem' }}>
-                    <h2 className="font-heading" style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', color: '#64748b', letterSpacing: '0.1em' }}>ABOUT</h2>
-                    <p style={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: '1rem', marginBottom: game.storyline ? '1.5rem' : 0 }}>
+                    <h2 className="font-heading" style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', color: '#64748b', letterSpacing: '0.1em' }}>
+                        ABOUT
+                    </h2>
+                    <p itemProp="description" style={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: '1rem', marginBottom: game.storyline ? '1.5rem' : 0 }}>
                         {game.description || `${game.title} is an upcoming ${game.genres?.[0] || 'action'} game releasing in 2026 on ${game.platforms?.slice(0, 2).join(' and ') || 'multiple platforms'}.`}
                     </p>
                     {game.storyline && (
                         <>
-                            <h3 style={{ fontSize: '0.8rem', fontWeight: 700, marginBottom: '0.75rem', color: '#64748b', letterSpacing: '0.1em' }}>STORYLINE</h3>
+                            <h3 style={{ fontSize: '0.8rem', fontWeight: 700, marginBottom: '0.75rem', color: '#64748b', letterSpacing: '0.1em' }}>
+                                STORYLINE
+                            </h3>
                             <p style={{ color: '#94a3b8', lineHeight: 1.8, fontSize: '0.95rem', fontStyle: 'italic' }}>
                                 {game.storyline}
                             </p>
@@ -344,41 +504,70 @@ const GameDetails = () => {
                 {/* Details Grid */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(160px, 100%), 1fr))', gap: '0.75rem', marginBottom: '2rem' }}>
                     <div className="glass" style={{ padding: '1.25rem' }}>
-                        <h3 style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '0.1em' }}>GENRES</h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                            {game.genres && game.genres.length > 0 ? game.genres.map(g => (
-                                <Link
-                                    key={g}
-                                    to={`/genre/${g.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                                    style={{ padding: '0.4rem 0.75rem', background: 'rgba(6, 182, 212, 0.15)', border: '1px solid rgba(6, 182, 212, 0.3)', borderRadius: '4px', fontSize: '0.8rem', color: '#06b6d4', textDecoration: 'none' }}
-                                >
-                                    {g}
-                                </Link>
-                            )) : <span style={{ color: '#64748b' }}>TBA</span>}
+                        <h3 style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '0.1em' }}>
+                            GENRES
+                        </h3>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }} itemProp="genre">
+                            {game.genres && game.genres.length > 0 ? game.genres.map(g => {
+                                const color = GENRE_COLORS[g] || GENRE_COLORS.default;
+                                return (
+                                    <Link
+                                        key={g}
+                                        to={`/genre/${slugify(g)}`}
+                                        style={{
+                                            padding: '0.4rem 0.75rem',
+                                            background: `${color}22`,
+                                            border: `1px solid ${color}44`,
+                                            borderRadius: '4px',
+                                            fontSize: '0.8rem',
+                                            color: color,
+                                            textDecoration: 'none'
+                                        }}
+                                    >
+                                        {g}
+                                    </Link>
+                                );
+                            }) : <span style={{ color: '#64748b' }}>TBA</span>}
                         </div>
                     </div>
+
                     <div className="glass" style={{ padding: '1.25rem' }}>
-                        <h3 style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '0.1em' }}>DEVELOPER</h3>
-                        <p style={{ fontSize: '0.95rem', color: '#e2e8f0' }}>{game.developers && game.developers.length > 0 ? game.developers.join(', ') : 'TBA'}</p>
+                        <h3 style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '0.1em' }}>
+                            DEVELOPER
+                        </h3>
+                        <p itemProp="author" style={{ fontSize: '0.95rem', color: '#e2e8f0' }}>
+                            {game.developers && game.developers.length > 0 ? game.developers.join(', ') : 'TBA'}
+                        </p>
                     </div>
+
                     <div className="glass" style={{ padding: '1.25rem' }}>
-                        <h3 style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '0.1em' }}>PUBLISHER</h3>
-                        <p style={{ fontSize: '0.95rem', color: '#e2e8f0' }}>{game.publishers && game.publishers.length > 0 ? game.publishers.join(', ') : 'TBA'}</p>
+                        <h3 style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '0.1em' }}>
+                            PUBLISHER
+                        </h3>
+                        <p itemProp="publisher" style={{ fontSize: '0.95rem', color: '#e2e8f0' }}>
+                            {game.publishers && game.publishers.length > 0 ? game.publishers.join(', ') : 'TBA'}
+                        </p>
                     </div>
+
                     {game.gameModes && game.gameModes.length > 0 && (
                         <div className="glass" style={{ padding: '1.25rem' }}>
                             <h3 style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                                 <Users size={12} /> GAME MODES
                             </h3>
-                            <p style={{ fontSize: '0.95rem', color: '#e2e8f0' }}>{game.gameModes.join(', ')}</p>
+                            <p itemProp="playMode" style={{ fontSize: '0.95rem', color: '#e2e8f0' }}>
+                                {game.gameModes.join(', ')}
+                            </p>
                         </div>
                     )}
+
                     {game.ageRatings && game.ageRatings.length > 0 && (
                         <div className="glass" style={{ padding: '1.25rem' }}>
                             <h3 style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                                 <Shield size={12} /> AGE RATING
                             </h3>
-                            <p style={{ fontSize: '0.95rem', color: '#e2e8f0' }}>{game.ageRatings.join(' | ')}</p>
+                            <p itemProp="contentRating" style={{ fontSize: '0.95rem', color: '#e2e8f0' }}>
+                                {game.ageRatings.join(' | ')}
+                            </p>
                         </div>
                     )}
                 </div>
@@ -389,7 +578,7 @@ const GameDetails = () => {
                         <h3 style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                             <Tag size={12} /> THEMES & TAGS
                         </h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }} itemProp="keywords">
                             {game.themes.map(theme => (
                                 <span
                                     key={theme}
@@ -409,11 +598,11 @@ const GameDetails = () => {
                     </div>
                 )}
 
-                {/* Media Section - Screenshots & Videos */}
-                {(screenshots.length > 0 || videos.length > 0) && (
+                {/* Media Section */}
+                {(gameData.screenshots.length > 0 || gameData.videos.length > 0) && (
                     <div style={{ marginBottom: '2.5rem' }}>
                         <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-                            {screenshots.length > 0 && (
+                            {gameData.screenshots.length > 0 && (
                                 <button
                                     onClick={() => setActiveTab('screenshots')}
                                     style={{
@@ -429,10 +618,10 @@ const GameDetails = () => {
                                         gap: '0.5rem'
                                     }}
                                 >
-                                    <ImageIcon size={16} /> Screenshots ({screenshots.length})
+                                    <ImageIcon size={16} /> Screenshots ({gameData.screenshots.length})
                                 </button>
                             )}
-                            {videos.length > 0 && (
+                            {gameData.videos.length > 0 && (
                                 <button
                                     onClick={() => setActiveTab('videos')}
                                     style={{
@@ -448,118 +637,31 @@ const GameDetails = () => {
                                         gap: '0.5rem'
                                     }}
                                 >
-                                    <Play size={16} /> Videos ({videos.length})
+                                    <Play size={16} /> Videos ({gameData.videos.length})
                                 </button>
                             )}
                         </div>
 
-                        {activeTab === 'screenshots' && screenshots.length > 0 && (
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(250px, 100%), 1fr))', gap: '0.75rem' }}>
-                                {screenshots.map((url, idx) => (
-                                    <div
-                                        key={idx}
-                                        onClick={() => openLightbox(idx)}
-                                        style={{
-                                            aspectRatio: '16/9',
-                                            borderRadius: '8px',
-                                            overflow: 'hidden',
-                                            cursor: 'pointer',
-                                            border: '2px solid rgba(255,255,255,0.1)',
-                                            transition: 'transform 0.2s, border-color 0.2s'
-                                        }}
-                                        className="glass-hover"
-                                    >
-                                        <img
-                                            src={url}
-                                            alt={`${game.title} screenshot ${idx + 1}`}
-                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                            loading="lazy"
-                                        />
-                                    </div>
-                                ))}
-                            </div>
+                        {activeTab === 'screenshots' && gameData.screenshots.length > 0 && (
+                            <ScreenshotGrid
+                                screenshots={gameData.screenshots}
+                                gameTitle={game.title}
+                                onOpenLightbox={openLightbox}
+                            />
                         )}
 
-                        {activeTab === 'videos' && videos.length > 0 && (
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(350px, 100%), 1fr))', gap: '1rem' }}>
-                                {videos.map((videoId, idx) => (
-                                    <div
-                                        key={idx}
-                                        style={{
-                                            aspectRatio: '16/9',
-                                            borderRadius: '8px',
-                                            overflow: 'hidden',
-                                            border: '2px solid rgba(255,255,255,0.1)'
-                                        }}
-                                    >
-                                        <iframe
-                                            width="100%"
-                                            height="100%"
-                                            src={`https://www.youtube.com/embed/${videoId}`}
-                                            title={`${game.title} video ${idx + 1}`}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            style={{ border: 'none' }}
-                                        />
-                                    </div>
-                                ))}
-                            </div>
+                        {activeTab === 'videos' && gameData.videos.length > 0 && (
+                            <VideoGrid videos={gameData.videos} gameTitle={game.title} />
                         )}
                     </div>
                 )}
 
-                {/* Similar Games */}
-                {similarGames.length > 0 && (
-                    <div>
-                        <h3 className="font-heading" style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', color: '#64748b', letterSpacing: '0.1em' }}>YOU MIGHT ALSO LIKE</h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(200px, 100%), 1fr))', gap: '0.75rem' }}>
-                            {similarGames.map(sg => (
-                                <Link
-                                    key={sg.id || sg.slug}
-                                    to={`/game/${sg.slug}`}
-                                    className="glass glass-hover"
-                                    style={{ padding: '0.75rem', textDecoration: 'none', display: 'flex', gap: '1rem', alignItems: 'center' }}
-                                >
-                                    <div
-                                        style={{
-                                            width: '70px',
-                                            height: '70px',
-                                            borderRadius: '8px',
-                                            flexShrink: 0,
-                                            overflow: 'hidden',
-                                            background: '#1e293b'
-                                        }}
-                                    >
-                                        {(sg.image || sg.cover) ? (
-                                            <img
-                                                src={sg.image || sg.cover}
-                                                alt={sg.title || sg.name}
-                                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                                loading="lazy"
-                                            />
-                                        ) : (
-                                            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#475569', fontWeight: 700 }}>
-                                                {(sg.title || sg.name || '?')[0]}
-                                            </div>
-                                        )}
-                                    </div>
-                                    <div style={{ overflow: 'hidden' }}>
-                                        <h4 className="font-heading" style={{ fontSize: '0.85rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', letterSpacing: '0.02em' }}>
-                                            {(sg.title || sg.name || 'Unknown').toUpperCase()}
-                                        </h4>
-                                        <p style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '0.25rem' }}>{sg.genres?.[0] || 'Game'}</p>
-                                        {sg.hype && <p style={{ fontSize: '0.75rem', color: '#f97316', marginTop: '0.25rem', fontWeight: 600 }}>{sg.hype}% Hype</p>}
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                )}
+                {/* Related Links - Internal Linking for SEO */}
+                <RelatedLinks game={game} allGames={gamesData} />
             </section>
 
             {/* Lightbox */}
-            {lightboxOpen && screenshots.length > 0 && (
+            {lightboxOpen && gameData.screenshots.length > 0 && (
                 <div
                     style={{
                         position: 'fixed',
@@ -572,9 +674,12 @@ const GameDetails = () => {
                         padding: '1rem'
                     }}
                     onClick={() => setLightboxOpen(false)}
+                    role="dialog"
+                    aria-label="Image lightbox"
                 >
                     <button
                         onClick={() => setLightboxOpen(false)}
+                        aria-label="Close lightbox"
                         style={{
                             position: 'absolute',
                             top: '1rem',
@@ -594,10 +699,11 @@ const GameDetails = () => {
                         <X size={24} />
                     </button>
 
-                    {screenshots.length > 1 && (
+                    {gameData.screenshots.length > 1 && (
                         <>
                             <button
                                 onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                                aria-label="Previous image"
                                 style={{
                                     position: 'absolute',
                                     left: '1rem',
@@ -617,6 +723,7 @@ const GameDetails = () => {
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                                aria-label="Next image"
                                 style={{
                                     position: 'absolute',
                                     right: '1rem',
@@ -638,7 +745,7 @@ const GameDetails = () => {
                     )}
 
                     <img
-                        src={screenshots[lightboxIndex]}
+                        src={gameData.screenshots[lightboxIndex]}
                         alt={`${game.title} screenshot ${lightboxIndex + 1}`}
                         style={{
                             maxWidth: '90vw',
@@ -655,11 +762,11 @@ const GameDetails = () => {
                         color: '#94a3b8',
                         fontSize: '0.875rem'
                     }}>
-                        {lightboxIndex + 1} / {screenshots.length}
+                        {lightboxIndex + 1} / {gameData.screenshots.length}
                     </div>
                 </div>
             )}
-        </div>
+        </article>
     );
 };
 

@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gamesData from '../data/games.json';
 import SEO from '../components/SEO';
+import Breadcrumb from '../components/Breadcrumb';
 import { Crown, Share2, Twitter, Link2, X, Plus, GripVertical, Download, Trash2, RotateCcw } from 'lucide-react';
+import { getCanonicalUrl } from '../utils/seoHelpers';
 
 const TIER_CONFIG = [
     { tier: 'S', label: 'S Tier', color: '#ff7f7f', bg: 'rgba(255, 127, 127, 0.15)', border: 'rgba(255, 127, 127, 0.4)' },
@@ -163,8 +165,22 @@ const TierList = () => {
             <SEO
                 title="2026 Game Tier List Creator | Rank Your Most Anticipated Games | NextPlay"
                 description="Create and share your ultimate 2026 video game tier list! Rank GTA 6, Crimson Desert, RE9 and more in S/A/B/C/D/F tiers. Export as image or share on Twitter."
-                url="https://nextplaygame.me/tier-list"
+                url={getCanonicalUrl('/tier-list')}
+                breadcrumbs={[{ name: 'Tier List', path: '/tier-list' }]}
+                faqData={[
+                    {
+                        question: 'How do I create a 2026 game tier list?',
+                        answer: 'Use NextPlay Tier List Creator to drag and drop games into S, A, B, C, D, or F tiers. Export your tier list as an image to share on social media!'
+                    },
+                    {
+                        question: 'What games can I rank in the tier list?',
+                        answer: `You can rank any of the ${gamesData.length}+ upcoming 2026 games including GTA 6, Crimson Desert, Resident Evil 9, and more.`
+                    }
+                ]}
             />
+
+            {/* Breadcrumb */}
+            <Breadcrumb items={[{ name: 'Tier List', path: '/tier-list' }]} />
 
             {/* Header */}
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>

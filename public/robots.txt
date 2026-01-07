@@ -1,14 +1,35 @@
 # NextPlay 2026 - Upcoming Games Tracker
 # https://nextplaygame.me
 
+# Allow all crawlers full access
 User-agent: *
+Allow: /
+
+# Googlebot specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bingbot specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Social media crawlers (for rich previews)
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
 Allow: /
 
 # Sitemaps
 Sitemap: https://nextplaygame.me/sitemap.xml
 
-# Crawl-delay for politeness
-Crawl-delay: 1
+# Host directive
+Host: https://nextplaygame.me
 
-# Disallow admin/internal routes (if any)
+# Disallow internal/API routes only
 Disallow: /api/

@@ -2,24 +2,12 @@ import React, { useState, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import gamesData from '../data/games.json';
 import SEO from '../components/SEO';
+import Breadcrumb from '../components/Breadcrumb';
 import GameCard from '../components/GameCard';
 import { useWatchlist } from '../hooks/useWatchlist';
 import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Download, Filter } from 'lucide-react';
-
-const MONTHS = [
-    { name: 'January', short: 'Jan', num: '01' },
-    { name: 'February', short: 'Feb', num: '02' },
-    { name: 'March', short: 'Mar', num: '03' },
-    { name: 'April', short: 'Apr', num: '04' },
-    { name: 'May', short: 'May', num: '05' },
-    { name: 'June', short: 'Jun', num: '06' },
-    { name: 'July', short: 'Jul', num: '07' },
-    { name: 'August', short: 'Aug', num: '08' },
-    { name: 'September', short: 'Sep', num: '09' },
-    { name: 'October', short: 'Oct', num: '10' },
-    { name: 'November', short: 'Nov', num: '11' },
-    { name: 'December', short: 'Dec', num: '12' },
-];
+import { MONTHS, PLATFORM_FILTERS } from '../utils/constants';
+import { getCanonicalUrl, generateCalendarSEO } from '../utils/seoHelpers';
 
 const Calendar = () => {
     const { month: urlMonth } = useParams();
@@ -27,7 +15,7 @@ const Calendar = () => {
     const [selectedMonth, setSelectedMonth] = useState(urlMonth || null);
     const [platformFilter, setPlatformFilter] = useState('All');
 
-    const platforms = ['All', 'PlayStation 5', 'Xbox Series X/S', 'PC', 'Nintendo Switch'];
+    const platforms = PLATFORM_FILTERS;
 
     // Group games by month
     const gamesByMonth = useMemo(() => {
@@ -100,8 +88,27 @@ END:VCALENDAR`;
                     ? `All video games releasing in ${selectedMonthData.name} 2026. ${selectedGames.length} games including major titles. Add to your calendar!`
                     : "Complete 2026 video game release calendar. Browse all months, filter by platform, and add releases to Google Calendar or iCal."
                 }
-                url={`https://nextplaygame.me/calendar${selectedMonth ? `/${selectedMonth}` : ''}`}
+                url={getCanonicalUrl(`/calendar${selectedMonth ? `/${selectedMonth}` : ''}`)}
+                breadcrumbs={selectedMonthData ? [
+                    { name: 'Calendar', path: '/calendar' },
+                    { name: `${selectedMonthData.name} 2026`, path: `/calendar/${selectedMonth}` }
+                ] : [
+                    { name: 'Calendar', path: '/calendar' }
+                ]}
+                gameList={selectedGames.length > 0 ? {
+                    name: selectedMonthData ? `${selectedMonthData.name} 2026 Releases` : '2026 Game Releases',
+                    description: `Video games releasing ${selectedMonthData ? `in ${selectedMonthData.name}` : 'throughout'} 2026`,
+                    games: selectedGames.slice(0, 10)
+                } : null}
             />
+
+            {/* Breadcrumb */}
+            <Breadcrumb items={selectedMonthData ? [
+                { name: 'Calendar', path: '/calendar' },
+                { name: `${selectedMonthData.name} 2026`, path: `/calendar/${selectedMonth}` }
+            ] : [
+                { name: 'Calendar', path: '/calendar' }
+            ]} />
 
             {/* Header */}
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
