@@ -300,6 +300,48 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* LATEST NEWS - Prominent section for original content */}
+            <section className="container" style={{ padding: '2rem 1rem 0' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    <h2 className="font-heading" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f97316', letterSpacing: '0.1em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <TrendingUp size={18} /> LATEST NEWS
+                    </h2>
+                    <Link to="/news" style={{ fontSize: '0.8rem', color: '#f97316', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600 }}>
+                        All News <ChevronRight size={14} />
+                    </Link>
+                </div>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                    gap: '1rem'
+                }}>
+                    <Link to="/news/hollow-knight-silksong-release-date-update" className="glass glass-hover" style={{ textDecoration: 'none', overflow: 'hidden' }}>
+                        <div style={{ height: '120px', background: 'url(https://images.igdb.com/igdb/image/upload/t_cover_big/co1iu5.jpg) center/cover' }} />
+                        <div style={{ padding: '1rem' }}>
+                            <span style={{ fontSize: '0.7rem', color: '#f97316', fontWeight: 600 }}>Feature</span>
+                            <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginTop: '0.35rem', lineHeight: 1.3 }}>Hollow Knight Silksong: Where Is It and When Can We Play</div>
+                            <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.5rem' }}>5 min read</div>
+                        </div>
+                    </Link>
+                    <Link to="/news/hades-2-early-access-review-supergiant" className="glass glass-hover" style={{ textDecoration: 'none', overflow: 'hidden' }}>
+                        <div style={{ height: '120px', background: 'url(https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg) center/cover' }} />
+                        <div style={{ padding: '1rem' }}>
+                            <span style={{ fontSize: '0.7rem', color: '#f97316', fontWeight: 600 }}>Review</span>
+                            <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginTop: '0.35rem', lineHeight: 1.3 }}>Hades II Early Access: Is It Worth Playing Now</div>
+                            <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.5rem' }}>6 min read</div>
+                        </div>
+                    </Link>
+                    <Link to="/news/clair-obscur-expedition-33-release-preview" className="glass glass-hover" style={{ textDecoration: 'none', overflow: 'hidden' }}>
+                        <div style={{ height: '120px', background: 'url(https://images.igdb.com/igdb/image/upload/t_cover_big/co7r1d.jpg) center/cover' }} />
+                        <div style={{ padding: '1rem' }}>
+                            <span style={{ fontSize: '0.7rem', color: '#f97316', fontWeight: 600 }}>Preview</span>
+                            <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginTop: '0.35rem', lineHeight: 1.3 }}>Clair Obscur Expedition 33: Why This RPG Has Everyone Talking</div>
+                            <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.5rem' }}>5 min read</div>
+                        </div>
+                    </Link>
+                </div>
+            </section>
+
             {/* Coming This Month */}
             {comingThisMonth.length > 0 && (
                 <section className="container" style={{ padding: '2rem 1rem 0' }}>

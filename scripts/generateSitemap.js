@@ -103,7 +103,12 @@ const newsArticles = [
   'fallout-new-vegas-remaster-rumors-what-we-know',
   'nintendo-switch-2-gamecube-games-fire-emblem',
   'gta-6-rockstar-games-latest-updates-january-2026',
-  'marvel-rivals-season-2-whats-coming'
+  'marvel-rivals-season-2-whats-coming',
+  'hollow-knight-silksong-release-date-update',
+  'hades-2-early-access-review-supergiant',
+  'clair-obscur-expedition-33-release-preview',
+  'arena-breakout-infinite-everything-you-need',
+  'cyberpunk-2077-state-of-game-2026'
 ];
 newsArticles.forEach(slug => {
   urls.push(urlEntry(`${SITE_URL}/news/${slug}`, 0.85, 'daily'));

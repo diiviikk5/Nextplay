@@ -433,6 +433,349 @@ If you're into hero shooters and like Marvel, it's worth trying. It's free-to-pl
 
 Season 2 is adding enough content to bring lapsed players back and give current players reasons to keep going. Whether it has long-term staying power remains to be seen, but for now, it's in a healthy spot.
         `
+    },
+    {
+        slug: 'hollow-knight-silksong-release-date-update',
+        title: 'Hollow Knight Silksong: Where Is It and When Can We Play',
+        excerpt: 'Team Cherry has been quiet, but fans remain hopeful. Here is everything we know about the long-awaited sequel.',
+        author: 'Divik',
+        publishedDate: '2026-01-11',
+        readTime: '5 min read',
+        category: 'Feature',
+        tags: ['Hollow Knight', 'Silksong', 'Team Cherry', 'Indie', 'Metroidvania'],
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1iu5.jpg',
+        trending: true,
+        content: `
+Hollow Knight: Silksong has become one of gaming's most anticipated releases, and also one of its biggest mysteries. Team Cherry, the small Australian studio behind the original, has been notoriously quiet about development progress. Here is what we actually know.
+
+## The Last Official Update
+
+Team Cherry's most recent substantial update came months ago. They confirmed the game is still in active development and that they're focused on making it right rather than rushing to meet a deadline. Beyond that, specifics have been scarce.
+
+This silence has led to endless speculation, but the studio has asked fans for patience multiple times. They're a small team working on something ambitious.
+
+## What Is Silksong
+
+For those unfamiliar, Silksong started as DLC for the original Hollow Knight. It grew in scope until Team Cherry decided it deserved to be a full standalone game.
+
+You play as Hornet, the mysterious warrior from the first game. She's faster and more agile than the Knight, with a combat style focused on mobility and silk-based abilities.
+
+The game takes place in a new kingdom called Pharloom. Early footage showed varied environments, from overgrown ruins to bustling towns. The world looks significantly larger and more diverse than Hallownest.
+
+## Gameplay Changes
+
+Based on trailers and demos from years past, Silksong makes notable changes to the formula:
+
+**Speed and Mobility** - Hornet moves faster than the Knight. Combat is quicker and more aerial. The platforming looks more demanding.
+
+**Tools and Abilities** - Instead of the Knight's spells, Hornet uses tools she crafts from materials found in the world. This adds a resource management element.
+
+**Quest System** - NPCs can give Hornet quests. The original had some of this, but Silksong appears to expand it significantly.
+
+**Boss Fights** - What we have seen of boss encounters looks intense. Expect challenging fights that test your mastery of Hornet's moveset.
+
+## Why the Wait
+
+The original Hollow Knight was made by three people. It was massively successful, selling millions of copies and winning critical acclaim. That success meant higher expectations for the sequel.
+
+Team Cherry has expanded slightly but remains small. They're perfectionists who spent years adding free content to the original game. That same dedication to quality is presumably why Silksong is taking so long.
+
+The gaming industry has also seen several high-profile releases that suffered from being rushed. Team Cherry seems determined to avoid that fate.
+
+## Release Window
+
+There is no confirmed release date. Team Cherry has not announced platforms beyond PC and Nintendo Switch, though Xbox was mentioned at one point.
+
+When it does release, expect it to dominate conversation among indie game fans. The first game developed a devoted community, and anticipation for Silksong has only grown during the wait.
+
+## Should You Play the Original
+
+If you haven't played Hollow Knight, now is a good time. It regularly goes on sale for a few dollars and offers dozens of hours of content. Understanding the original will make Silksong more meaningful when it finally arrives.
+
+The game is challenging but fair. It rewards exploration and persistence. If you enjoy Metroidvania games, it is one of the best in the genre.
+
+## Our Take
+
+The wait for Silksong has been long, sometimes frustrating. But the original Hollow Knight was worth the patience Team Cherry put into it. There is no reason to think the sequel will be different.
+
+When it releases, we will cover it extensively. Until then, the best approach is to keep it on your radar without driving yourself crazy checking for news daily.
+        `
+    },
+    {
+        slug: 'hades-2-early-access-review-supergiant',
+        title: 'Hades II Early Access: Is It Worth Playing Now',
+        excerpt: 'Supergiant Games released the sequel in early access. Here is how it compares to the original and whether you should jump in.',
+        author: 'Divik',
+        publishedDate: '2026-01-10',
+        readTime: '6 min read',
+        category: 'Review',
+        tags: ['Hades II', 'Supergiant Games', 'Roguelike', 'Early Access', 'Indie'],
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg',
+        trending: true,
+        content: `
+Hades II arrived in early access last year, and Supergiant Games has been steadily adding content since. The question many players are asking: should you play it now or wait for the full release?
+
+## What Is Different
+
+Hades II puts you in the role of Melinoe, sister to the original game's Zagreus. The story involves rescuing Hades himself from the Titan of Time. The tone is darker, though Supergiant's signature humor and heart remain.
+
+Combat feels familiar but distinct. Melinoe uses different weapons and has access to magic in ways Zagreus did not. The new Arcana system replaces the Mirror of Night, offering different progression choices.
+
+The structure is similar: fight through chambers, collect boons from gods, die, repeat. But the details have changed enough to feel fresh rather than recycled.
+
+## New Gods and Boons
+
+The Olympian gods return, but you also get help from new faces. Apollo joins the roster, and there are interactions between gods that feel different from the first game.
+
+Boon synergies remain the core of build variety. Finding combinations that work together is still satisfying. Some new effects play with time and lunar magic, fitting the game's themes.
+
+## The Crossroads Hub
+
+Instead of the House of Hades, Melinoe operates from a camp called the Crossroads. You interact with allies, unlock upgrades, and prepare for runs. The vibe is different from the underworld palace but serves the same function.
+
+Characters are memorable. Writing quality matches Supergiant's standards. Relationships develop over many runs, encouraging you to keep playing even after tough losses.
+
+## Early Access State
+
+This is genuinely early access. Content is not complete. Story threads are unfinished. Balance is still being adjusted. Supergiant is transparent about this.
+
+What exists is polished and fun. You can sink many hours into the current build. But if you want the complete experience, waiting is reasonable.
+
+The studio has a good track record with early access. Hades 1 spent two years in early access and emerged as one of the best games of its decade. Expect similar patience and iteration here.
+
+## Performance and Polish
+
+Even in early access, the game runs well. Art direction is gorgeous, building on the first game's distinct style. Music is excellent, though the full soundtrack is not complete.
+
+Bugs are rare. When they occur, Supergiant patches quickly. This does not feel like a broken early access release.
+
+## Should You Buy Now
+
+If you loved Hades and want more, yes. What exists is substantial and satisfying. You can always replay once the full version releases.
+
+If you bounced off the first game, waiting makes sense. Hades II shares its predecessor's DNA. The changes are iterations, not reinventions.
+
+If you have never played a Supergiant game, consider starting with the finished Hades. It represents the complete vision and often goes on sale.
+
+## Looking Ahead
+
+Supergiant has not announced a full release date. Based on their history, the early access period could last another year or more. They prioritize quality over speed.
+
+Regular updates add content and address feedback. The community is active and mostly patient. This feels like a healthy development cycle.
+
+## Our Take
+
+Hades II in early access is already better than many finished games. If you can accept incomplete content, it is worth your time. If not, waiting guarantees an excellent experience eventually.
+
+Supergiant has not missed yet. There is no reason to think they will start now.
+        `
+    },
+    {
+        slug: 'clair-obscur-expedition-33-release-preview',
+        title: 'Clair Obscur Expedition 33: Why This RPG Has Everyone Talking',
+        excerpt: 'A new studio is making waves with an ambitious turn-based RPG. Here is what makes Expedition 33 stand out.',
+        author: 'Divik',
+        publishedDate: '2026-01-11',
+        readTime: '5 min read',
+        category: 'Preview',
+        tags: ['Clair Obscur', 'Expedition 33', 'Sandfall Interactive', 'RPG', 'Turn-Based'],
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co7r1d.jpg',
+        trending: true,
+        content: `
+Clair Obscur: Expedition 33 appeared at major gaming events and immediately captured attention. Developed by Sandfall Interactive, a new French studio, this turn-based RPG looks like something special.
+
+## The Premise
+
+Every year, a mysterious entity called the Paintress marks a number. Everyone above that age dies. When the game begins, she has reached 33. Your party of survivors sets out to stop her before the next counting.
+
+It is a striking premise that creates immediate stakes. The threat is existential but also personal. Characters you meet know their time might end at any moment.
+
+## Visual Style
+
+The game looks stunning. Art direction blends realistic character models with painterly, almost impressionist environments. It is visually distinct from typical RPG aesthetics.
+
+Unreal Engine 5 powers the graphics. Lighting and environmental detail rival anything in the genre. This is a game that will look great in screenshots and better in motion.
+
+## Combat System
+
+Expedition 33 uses turn-based combat with active elements. You pick actions from menus but execute them through timing-based inputs. Think of it as blending classic JRPG structure with action game responsiveness.
+
+Dodging and countering enemy attacks requires skill. Positioning matters. The system rewards both strategic planning and mechanical execution.
+
+Early footage shows boss fights that look challenging and dynamic. This is not passive menu-selecting combat.
+
+## The Party
+
+Your group includes distinct characters with their own reasons for joining the expedition. Voice acting sounds strong in footage shown so far. Sandfall Interactive has emphasized narrative and character development.
+
+Relationships develop through story and optional interactions. The studio cites classic RPGs as inspiration but wants to bring modern storytelling techniques.
+
+## Why The Hype
+
+Several factors have driven interest:
+
+First, the game looks incredible. In an era of indie pixel art and AA reused assets, seeing a new studio swing for AAA visuals is refreshing.
+
+Second, the combat system promises something different. Turn-based RPGs can feel passive. Adding skill-based elements addresses that without abandoning the genre's strategic depth.
+
+Third, the premise hooks people immediately. "Everyone over 33 dies" is a concept that sticks in your mind.
+
+## Development Status
+
+Sandfall Interactive has not announced a specific release date. The game is confirmed for PC, PlayStation 5, and Xbox Series X. It will launch day one on Game Pass.
+
+Based on footage and developer comments, the game appears well into development. A 2026 release seems possible, but nothing is confirmed.
+
+## Concerns
+
+As always with new studios, there are questions. Can Sandfall deliver on their ambitions? Will the final product match the polished trailers?
+
+The gaming industry has seen promising projects stumble at the finish line. Healthy skepticism is warranted until reviews arrive.
+
+## Our Take
+
+Clair Obscur: Expedition 33 is one of the most intriguing RPGs in development. The combination of visual ambition, interesting combat, and compelling premise makes it worth watching.
+
+Whether it delivers on its promise remains to be seen. But the potential is clear. If you like turn-based RPGs, keep this on your radar.
+        `
+    },
+    {
+        slug: 'arena-breakout-infinite-everything-you-need',
+        title: 'Arena Breakout Infinite: The Extraction Shooter Taking On Tarkov',
+        excerpt: 'A new competitor enters the extraction shooter space. Here is what Arena Breakout Infinite offers and how it compares.',
+        author: 'Divik',
+        publishedDate: '2026-01-10',
+        readTime: '5 min read',
+        category: 'Preview',
+        tags: ['Arena Breakout', 'Extraction Shooter', 'FPS', 'PC Gaming', 'Free to Play'],
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co7k4n.jpg',
+        trending: false,
+        content: `
+Extraction shooters have grown from niche to mainstream. Escape from Tarkov pioneered the format. Now Arena Breakout Infinite wants a piece of that market. Here is what you need to know.
+
+## What Is It
+
+Arena Breakout started as a mobile game in China. Infinite is the PC version, rebuilt for the platform with upgraded graphics and expanded features. It is free to play, which immediately differentiates it from premium competitors.
+
+The core loop is familiar: enter maps with your gear, fight AI and players, loot valuable items, extract safely. Death means losing what you brought. Success means profit and progression.
+
+## How It Plays
+
+Gunplay feels solid. Weapons have realistic handling, recoil patterns to learn, and meaningful customization. The shooting compares favorably to established games in the genre.
+
+Movement is weighty but responsive. Sound design emphasizes spatial awareness. You hear footsteps, gunshots, and environmental cues that matter for survival.
+
+Maps offer varied environments with multiple extraction points. Learning layouts, loot spawns, and dangerous areas takes time but rewards investment.
+
+## Key Differences From Tarkov
+
+Several things set Arena Breakout Infinite apart:
+
+**Free to Play** - No upfront cost to try. Monetization focuses on cosmetics and convenience. Concerns exist about pay-to-win potential, but the studio claims competitive fairness.
+
+**Accessibility** - Tutorials and onboarding are better. New players can learn without relying entirely on external guides. This lowers the notoriously steep genre learning curve.
+
+**Performance** - The game runs well on mid-range hardware. Optimization has been a priority during development.
+
+**Less Punishing** - While death still hurts, some systems soften the blow compared to Tarkov's hardcore approach. This trades authenticity for broader appeal.
+
+## Concerns
+
+The extraction shooter genre demands trust. Players invest many hours building inventories. If the game dies or pivots aggressively to monetization, that investment evaporates.
+
+Tencent's involvement raises questions for some players. Data privacy concerns exist, as do worries about long-term support priorities.
+
+Competition is fierce. Tarkov, The Cycle, and other games have established communities. Breaking into this space requires sustained effort.
+
+## Current State
+
+Arena Breakout Infinite is in various testing phases depending on region. PC players in some markets can already try it. Full global release details remain unclear.
+
+What exists shows promise. Technical performance is good. Core gameplay is satisfying. Whether the free-to-play model works long-term is the main question.
+
+## Should You Try It
+
+If extraction shooters interest you but Tarkov feels too punishing or expensive, Arena Breakout Infinite is worth watching. Free-to-play removes the financial barrier to trying it.
+
+If you already have a game in this genre you enjoy, switching requires compelling reasons. Infinite is good but not revolutionary.
+
+## Our Take
+
+Arena Breakout Infinite is a competent extraction shooter that trades some hardcore elements for accessibility. Whether that trade-off works depends on what you want from the genre.
+
+It is not a Tarkov killer. It is an alternative for a different audience. That is a valid position to occupy.
+        `
+    },
+    {
+        slug: 'cyberpunk-2077-state-of-game-2026',
+        title: 'Cyberpunk 2077 in 2026: Is It Finally the Game We Were Promised',
+        excerpt: 'Years after its rocky launch, Cyberpunk has changed dramatically. Here is how the game stands today.',
+        author: 'Divik',
+        publishedDate: '2026-01-09',
+        readTime: '6 min read',
+        category: 'Feature',
+        tags: ['Cyberpunk 2077', 'CD Projekt Red', 'RPG', 'Open World', 'PC'],
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co4hk1.jpg',
+        trending: false,
+        content: `
+Cyberpunk 2077's launch was a disaster. Performance issues, bugs, and missing features made headlines. Sony pulled it from the PlayStation Store. CD Projekt Red's reputation took a hit.
+
+Years later, the situation has changed. Multiple major updates and the Phantom Liberty expansion have transformed the game. Is it now what players expected at launch?
+
+## The Fixes
+
+Update after update addressed problems:
+
+**Performance** - The game runs reasonably on current hardware. Last-gen consoles are still rough, but PC, PS5, and Xbox Series X offer stable experiences.
+
+**Bugs** - Most game-breaking issues are gone. You might still encounter weirdness, but nothing like launch. Playing through the story is now reliable.
+
+**AI Improvements** - Police no longer spawn behind you instantly. NPCs behave more believably. Driving AI is better. These were major complaints that took time to address.
+
+**Quality of Life** - New features like an improved transmog system, apartment customization, and vehicle combat make the moment-to-moment experience better.
+
+## Phantom Liberty
+
+The expansion added substantial content. A new district, new storyline with Idris Elba, and significant gameplay changes came together as a separate experience rivaling the quality of The Witcher 3's expansions.
+
+If you buy Cyberpunk now, you get years of improvements plus an expansion that represents CD Projekt at their best. The total package is significantly more complete than what launched.
+
+## What Works
+
+Night City remains the star. The city design is exceptional. Exploring streets and alleys reveals detail and atmosphere unmatched in open-world games.
+
+Story and characters hold up. The main narrative, particularly the relationship with Johnny Silverhand, lands emotionally. Side quests often surprise with depth and consequences.
+
+Combat has more variety now. Builds feel distinct. Stealth, hacking, and gunplay all work as primary playstyles. The RPG systems that seemed shallow have more impact.
+
+## What Still Falls Short
+
+Cyberpunk is not a life simulator. Features like meaningful gang relationships, apartment variety, and dynamic world events remain limited compared to what was marketed.
+
+The open world can feel static. Beyond scripted content, emergent gameplay is limited. Once you finish quests, the city becomes a backdrop rather than a living place.
+
+Multiplayer never happened. CDPR abandoned those plans entirely. If you wanted an online Night City experience, it is not coming.
+
+## Should You Play Now
+
+If you wanted Cyberpunk at launch and held off, the answer is probably yes. The game available now is dramatically better. Combine it with Phantom Liberty for the best experience.
+
+If you played at launch and bounced, returning is worthwhile. Changes are significant enough to warrant a fresh start.
+
+If you want a GTA-style sandbox with deep systemic gameplay, adjust expectations. Cyberpunk is more of a narrative-driven RPG in an open world than a true sandbox.
+
+## Looking Forward
+
+CD Projekt is working on a sequel. They have also announced new Witcher projects. Cyberpunk 2077 received its final major update. What exists now is the finished version.
+
+The redemption arc worked. Cyberpunk 2077 is now remembered as a good game with a terrible launch, rather than a failure. That is a significant achievement.
+
+## Our Take
+
+Cyberpunk 2077 in 2026 delivers on much of its original promise. Night City is worth exploring. The story is worth experiencing. Just understand it is an improved version of a flawed game, not a reinvention.
+
+If you have Game Pass or find it on sale, absolutely try it. At this point, it is easy to recommend with appropriate caveats.
+        `
     }
 ];
 
