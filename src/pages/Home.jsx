@@ -316,7 +316,7 @@ const Home = () => {
                     gap: '1rem'
                 }}>
                     <Link to="/news/hollow-knight-silksong-release-date-update" className="glass glass-hover" style={{ textDecoration: 'none', overflow: 'hidden' }}>
-                        <div style={{ height: '120px', background: 'url(https://images.igdb.com/igdb/image/upload/t_cover_big/co1iu5.jpg) center/cover' }} />
+                        <div style={{ height: '120px', background: 'url(https://images.igdb.com/igdb/image/upload/t_1080p/sc8hnh.jpg) center/cover' }} />
                         <div style={{ padding: '1rem' }}>
                             <span style={{ fontSize: '0.7rem', color: '#f97316', fontWeight: 600 }}>Feature</span>
                             <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginTop: '0.35rem', lineHeight: 1.3 }}>Hollow Knight Silksong: Where Is It and When Can We Play</div>
@@ -324,7 +324,7 @@ const Home = () => {
                         </div>
                     </Link>
                     <Link to="/news/hades-2-early-access-review-supergiant" className="glass glass-hover" style={{ textDecoration: 'none', overflow: 'hidden' }}>
-                        <div style={{ height: '120px', background: 'url(https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg) center/cover' }} />
+                        <div style={{ height: '120px', background: 'url(https://images.igdb.com/igdb/image/upload/t_1080p/scptcd.jpg) center/cover' }} />
                         <div style={{ padding: '1rem' }}>
                             <span style={{ fontSize: '0.7rem', color: '#f97316', fontWeight: 600 }}>Review</span>
                             <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginTop: '0.35rem', lineHeight: 1.3 }}>Hades II Early Access: Is It Worth Playing Now</div>
@@ -332,7 +332,7 @@ const Home = () => {
                         </div>
                     </Link>
                     <Link to="/news/clair-obscur-expedition-33-release-preview" className="glass glass-hover" style={{ textDecoration: 'none', overflow: 'hidden' }}>
-                        <div style={{ height: '120px', background: 'url(https://images.igdb.com/igdb/image/upload/t_cover_big/co7r1d.jpg) center/cover' }} />
+                        <div style={{ height: '120px', background: 'url(https://images.igdb.com/igdb/image/upload/t_1080p/scmm2f.jpg) center/cover' }} />
                         <div style={{ padding: '1rem' }}>
                             <span style={{ fontSize: '0.7rem', color: '#f97316', fontWeight: 600 }}>Preview</span>
                             <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginTop: '0.35rem', lineHeight: 1.3 }}>Clair Obscur Expedition 33: Why This RPG Has Everyone Talking</div>

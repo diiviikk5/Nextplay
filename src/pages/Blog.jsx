@@ -16,7 +16,7 @@ const articles = [
         readTime: '8 min read',
         category: 'Feature',
         tags: ['GTA 6', 'Rockstar Games', 'Open World', 'PS5', 'Xbox'],
-        image: 'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/sc92mx.jpg',
         content: `
 ## The Wait is Almost Over
 
@@ -87,7 +87,7 @@ Don't miss the launch! Add GTA VI to your [NextPlay watchlist](/game/grand-theft
         readTime: '12 min read',
         category: 'List',
         tags: ['2026 Games', 'Upcoming Games', 'PS5', 'Xbox', 'PC'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/cob0he.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scfhn6.jpg',
         content: `
 ## 2026: A Landmark Year for Gaming
 
@@ -187,7 +187,7 @@ Use NextPlay's [Calendar](/calendar) to see release dates at a glance, or browse
         readTime: '6 min read',
         category: 'Monthly Roundup',
         tags: ['February 2026', 'Game Releases', 'Resident Evil 9'],
-        image: 'https://media.rawg.io/media/games/ed6/ed613937e113a4d43fa0db771e527a2f.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/sco425.jpg',
         content: `
 ## February 2026 Game Releases
 
@@ -233,7 +233,7 @@ Add games to your [Watchlist](/watchlist) to get notified when they're about to 
         readTime: '5 min read',
         category: 'Guide',
         tags: ['Guide', 'Tutorial', 'Features'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/cob1kg.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scgfl4.jpg',
         content: `
 ## Welcome to NextPlay 2026
 
@@ -314,7 +314,7 @@ If you have questions or suggestions, [contact us](/contact)!
         readTime: '10 min read',
         category: 'Platform Guide',
         tags: ['PS5', 'PlayStation', 'Sony', '2026 Games'],
-        image: 'https://media.rawg.io/media/games/041/041e04184322bc859d617b790d8bfab9.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scfhn6.jpg',
         content: `
 ## PlayStation 5 Games in 2026
 
