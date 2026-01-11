@@ -16,7 +16,7 @@ const newsArticles = [
         readTime: '6 min read',
         category: 'Release Info',
         tags: ['Crimson Desert', 'Pearl Abyss', 'Action RPG', 'PS5', 'Xbox', 'PC'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scfhn6.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/coaqai.jpg',
         trending: true,
         content: `
 After years of development and several delays, Crimson Desert is finally approaching release. Pearl Abyss, the studio behind Black Desert Online, has been working on this ambitious action RPG since 2018, and players are eager to get their hands on it.
@@ -100,7 +100,7 @@ We'll update this page as Pearl Abyss reveals more information. For now, add it 
         readTime: '5 min read',
         category: 'Rumors',
         tags: ['Fallout', 'Bethesda', 'Obsidian', 'Remaster', 'New Vegas'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/sc6pxo.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1u60.jpg',
         trending: true,
         content: `
 Every few months, the gaming community gets itself worked up about a Fallout: New Vegas remaster. This week is no different, with search interest spiking after some cryptic social media posts and a supposed countdown on Bethesda's website.
@@ -198,7 +198,7 @@ We'll update this page if and when Bethesda or Microsoft makes an announcement. 
         readTime: '4 min read',
         category: 'News',
         tags: ['Nintendo', 'Switch', 'GameCube', 'Fire Emblem', 'Nintendo Switch Online'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scf6v1.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1ofh.jpg',
         trending: true,
         content: `
 Nintendo finally did it. After years of fan requests, GameCube games are coming to Nintendo Switch Online. The announcement confirms what many suspected: the Expansion Pack tier is about to get a lot more valuable.
@@ -279,7 +279,7 @@ We'll update with performance impressions once the games go live.
         readTime: '7 min read',
         category: 'Feature',
         tags: ['GTA 6', 'GTA VI', 'Rockstar Games', 'PS5', 'Xbox Series X'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/sc92mx.jpg',
+        image: 'https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg',
         trending: true,
         content: `
 Grand Theft Auto VI is coming this fall, and it's probably the most anticipated game in history. The reveal trailer broke YouTube records, and interest has only grown since. Here's everything Rockstar has officially told us.
@@ -380,7 +380,7 @@ We'll continue covering GTA VI as more information becomes available. In the mea
         readTime: '4 min read',
         category: 'Updates',
         tags: ['Marvel Rivals', 'Hero Shooter', 'Season 2', 'Updates'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scprg7.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/coaufr.jpg',
         trending: false,
         content: `
 Marvel Rivals launched to strong player numbers, and Season 2 is keeping the momentum going. NetEase has outlined what's coming in the new season, and there's plenty for both new and returning players.
@@ -443,7 +443,7 @@ Season 2 is adding enough content to bring lapsed players back and give current 
         readTime: '5 min read',
         category: 'Feature',
         tags: ['Hollow Knight', 'Silksong', 'Team Cherry', 'Indie', 'Metroidvania'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/sc8hnh.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/coaob9.jpg',
         trending: true,
         content: `
 Hollow Knight: Silksong has become one of gaming's most anticipated releases, and also one of its biggest mysteries. Team Cherry, the small Australian studio behind the original, has been notoriously quiet about development progress. Here is what we actually know.
@@ -510,7 +510,7 @@ When it releases, we will cover it extensively. Until then, the best approach is
         readTime: '6 min read',
         category: 'Review',
         tags: ['Hades II', 'Supergiant Games', 'Roguelike', 'Early Access', 'Indie'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scptcd.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/coaknx.jpg',
         trending: true,
         content: `
 Hades II arrived in early access last year, and Supergiant Games has been steadily adding content since. The question many players are asking: should you play it now or wait for the full release?
@@ -579,7 +579,7 @@ Supergiant has not missed yet. There is no reason to think they will start now.
         readTime: '5 min read',
         category: 'Preview',
         tags: ['Clair Obscur', 'Expedition 33', 'Sandfall Interactive', 'RPG', 'Turn-Based'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scmm2f.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co9gam.jpg',
         trending: true,
         content: `
 Clair Obscur: Expedition 33 appeared at major gaming events and immediately captured attention. Developed by Sandfall Interactive, a new French studio, this turn-based RPG looks like something special.
@@ -648,7 +648,7 @@ Whether it delivers on its promise remains to be seen. But the potential is clea
         readTime: '5 min read',
         category: 'Preview',
         tags: ['Arena Breakout', 'Extraction Shooter', 'FPS', 'PC Gaming', 'Free to Play'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scnzqs.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/cob7gh.jpg',
         trending: false,
         content: `
 Extraction shooters have grown from niche to mainstream. Escape from Tarkov pioneered the format. Now Arena Breakout Infinite wants a piece of that market. Here is what you need to know.
@@ -715,7 +715,7 @@ It is not a Tarkov killer. It is an alternative for a different audience. That i
         readTime: '6 min read',
         category: 'Feature',
         tags: ['Cyberpunk 2077', 'CD Projekt Red', 'RPG', 'Open World', 'PC'],
-        image: 'https://images.igdb.com/igdb/image/upload/t_1080p/scn1ax.jpg',
+        image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co7iy1.jpg',
         trending: false,
         content: `
 Cyberpunk 2077's launch was a disaster. Performance issues, bugs, and missing features made headlines. Sony pulled it from the PlayStation Store. CD Projekt Red's reputation took a hit.
