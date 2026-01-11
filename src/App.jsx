@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Target, Star, Menu, X, Trophy, Crown, Calendar as CalendarIcon, Tag, Monitor, Scale, Swords, Code } from 'lucide-react';
+import { Target, Star, Menu, X, Trophy, Crown, Calendar as CalendarIcon, Tag, Monitor, Scale, Swords, Code, BookOpen } from 'lucide-react';
 import Home from './pages/Home';
 import GameDetails from './pages/GameDetails';
 import Watchlist from './pages/Watchlist';
@@ -13,6 +13,16 @@ import PlatformPage from './pages/PlatformPage';
 import CompareGames from './pages/CompareGames';
 import GameBracket from './pages/GameBracket';
 import EmbedWidget from './pages/EmbedWidget';
+// Policy & Legal Pages (Required for AdSense)
+import About from './pages/About';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Terms from './pages/Terms';
+import Contact from './pages/Contact';
+import Disclaimer from './pages/Disclaimer';
+// Blog System
+import { BlogLanding, BlogArticle } from './pages/Blog';
+// News Section
+import { NewsLanding, NewsArticle } from './pages/News';
 import gamesData from './data/games.json';
 
 function App() {
@@ -64,6 +74,9 @@ function App() {
             <nav style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }} className="hidden md:flex">
               <Link to="/" style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                 Games
+              </Link>
+              <Link to="/news" style={{ fontSize: '0.8rem', fontWeight: 600, color: '#f97316', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                News
               </Link>
               <Link to="/tier-list" style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                 <Crown size={13} /> Tier List
@@ -126,28 +139,31 @@ function App() {
               }}
             >
               <Link to="/" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
-                🎮 All Games
+                All Games
+              </Link>
+              <Link to="/news" onClick={() => setIsMenuOpen(false)} style={{ color: '#f97316', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(249, 115, 22, 0.1)', border: '1px solid rgba(249, 115, 22, 0.2)', minHeight: '48px' }}>
+                News
               </Link>
               <Link to="/tier-list" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
-                👑 Tier List
+                Tier List
               </Link>
               <Link to="/calendar" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
-                📅 Calendar
+                Calendar
               </Link>
               <Link to="/genre" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
-                🏷️ Genres
+                Genres
               </Link>
               <Link to="/platform" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
-                💻 Platforms
+                Platforms
               </Link>
               <Link to="/compare" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
-                ⚖️ Compare Games
+                Compare Games
               </Link>
               <Link to="/my-top-5" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
-                🏆 My Top 5
+                My Top 5
               </Link>
               <Link to="/watchlist" onClick={() => setIsMenuOpen(false)} style={{ color: '#06b6d4', textDecoration: 'none', fontSize: '1rem', fontWeight: 700, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(6, 182, 212, 0.1)', border: '1px solid rgba(6, 182, 212, 0.2)', minHeight: '48px' }}>
-                ⭐ Watchlist
+                Watchlist
               </Link>
             </div>
           )}
@@ -170,6 +186,18 @@ function App() {
             <Route path="/bracket" element={<GameBracket />} />
             <Route path="/embed" element={<EmbedWidget />} />
             <Route path="/upcoming-:category-games-2026" element={<CategoryPage />} />
+            {/* Policy & Legal Pages */}
+            <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
+            {/* Blog */}
+            <Route path="/blog" element={<BlogLanding />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
+            {/* News */}
+            <Route path="/news" element={<NewsLanding />} />
+            <Route path="/news/:slug" element={<NewsArticle />} />
           </Routes>
         </main>
 
@@ -213,13 +241,21 @@ function App() {
                 </div>
               </div>
               <div>
-                <h4 className="font-heading" style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '1rem', letterSpacing: '0.1em' }}>TRENDING</h4>
+                <h4 className="font-heading" style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '1rem', letterSpacing: '0.1em' }}>COMPANY</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  {gamesData.slice(0, 4).map(g => (
-                    <Link key={g.id} to={`/game/${g.slug}`} style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>{g.title}</Link>
-                  ))}
+                  <Link to="/about" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>About Us</Link>
+                  <Link to="/news" style={{ color: '#f97316', fontSize: '0.875rem', textDecoration: 'none' }}>News</Link>
+                  <Link to="/blog" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Blog</Link>
+                  <Link to="/contact" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Contact</Link>
                 </div>
               </div>
+            </div>
+            {/* Legal Links Row */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center', marginBottom: '1.5rem' }}>
+              <Link to="/privacy" style={{ color: '#64748b', fontSize: '0.75rem', textDecoration: 'none' }}>Privacy Policy</Link>
+              <Link to="/terms" style={{ color: '#64748b', fontSize: '0.75rem', textDecoration: 'none' }}>Terms of Service</Link>
+              <Link to="/disclaimer" style={{ color: '#64748b', fontSize: '0.75rem', textDecoration: 'none' }}>Disclaimer</Link>
+              <Link to="/contact" style={{ color: '#64748b', fontSize: '0.75rem', textDecoration: 'none' }}>Contact</Link>
             </div>
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.5rem', textAlign: 'center', color: '#475569', fontSize: '0.75rem' }}>
               © {new Date().getFullYear()} NextPlay. Powered by IGDB. All game artwork belongs to their respective owners.

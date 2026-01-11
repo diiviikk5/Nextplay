@@ -1,3148 +1,1971 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <!-- Generated on 2026-01-05 -->
-  
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nextplaygame.me/</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <priority>1</priority>
   </url>
-  
-  <!-- Core Feature Pages -->
   <url>
     <loc>https://nextplaygame.me/tier-list</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/compare</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/my-top-5</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/watchlist</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/bracket</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nextplaygame.me/embed</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- Hub Pages: Genres & Platforms -->
-  <url>
     <loc>https://nextplaygame.me/genre</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/platform</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Genre Pages -->
+  <url>
+    <loc>https://nextplaygame.me/blog</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/about</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/contact</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/privacy</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/terms</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/disclaimer</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/blog/gta-6-release-date-everything-we-know</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/blog/most-anticipated-games-2026</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/blog/february-2026-game-releases</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/blog/how-to-use-nextplay-features</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/blog/best-ps5-games-2026</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/news</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/news/crimson-desert-release-date-everything-we-know</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/news/fallout-new-vegas-remaster-rumors-what-we-know</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/news/nintendo-switch-2-gamecube-games-fire-emblem</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/news/gta-6-rockstar-games-latest-updates-january-2026</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/news/marvel-rivals-season-2-whats-coming</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
   <url>
     <loc>https://nextplaygame.me/genre/action</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/adventure</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/open-world</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/platform</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/puzzle</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/platformer</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/rpg</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/shooter</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/simulator</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/arcade</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/role-playing-rpg</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/strategy</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/indie</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/visual-novel</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/fighting</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/sport</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/point-and-click</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/racing</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/card-board-game</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/tactical</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/turn-based-strategy-tbs</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/pinball</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/real-time-strategy-rts</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/genre/hack-and-slash-beat-em-up</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
-
-  <!-- Platform Pages -->
   <url>
     <loc>https://nextplaygame.me/platform/playstation-5</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/platform/xbox-series-x-s</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/platform/pc</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/nintendo-switch</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/nintendo-switch-2</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/android</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/ios</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/linux</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/mac</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/meta-quest-2</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/meta-quest-3</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/playstation-4</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/playstation-vr2</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/steamvr</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://nextplaygame.me/platform/web-browser</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/platform/xbox-one</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
-
-  <!-- Calendar Month Pages -->
+  <url>
+    <loc>https://nextplaygame.me/platform/playstation-4</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/nintendo-switch</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/android</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/ios</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/mac</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/linux</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/nintendo-switch-2</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/web-browser</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/steamvr</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/meta-quest-2</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/meta-quest-3</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nextplaygame.me/platform/playstation-vr2</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
   <url>
     <loc>https://nextplaygame.me/calendar/01</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/02</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/03</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/04</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/05</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/06</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/07</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/08</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/09</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/10</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/11</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/calendar/12</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
-
-  <!-- Game Detail Pages -->
   <url>
     <loc>https://nextplaygame.me/game/grand-theft-auto-vi</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg</image:loc>
-      <image:title>Grand Theft Auto VI</image:title>
-      <image:caption>Grand Theft Auto VI takes players to the state of Leonida, home to the neon-soaked streets of Vice C</image:caption>
-    </image:image>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/prince-of-persia-the-sands-of-time-remake</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/games/b92/b92b55aeab9ed1777104f71f4b22a613.jpg</image:loc>
-      <image:title>Prince of Persia: The Sands of Time Remake</image:title>
-      <image:caption>Prince of Persia: The Sands of Time Remake game cover</image:caption>
-    </image:image>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/tomb-raider-legacy-of-atlantis</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1kg.jpg</image:loc>
-      <image:title>Tomb Raider: Legacy of Atlantis</image:title>
-      <image:caption>Tomb Raider: Legacy of Atlantis is a reimagining of Lara Croft’s 1996 genre-defining game with visua</image:caption>
-    </image:image>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/replaced</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/games/041/041e04184322bc859d617b790d8bfab9.jpg</image:loc>
-      <image:title>Replaced</image:title>
-      <image:caption>Replaced game cover</image:caption>
-    </image:image>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/crimson-desert</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/games/64c/64c9c6faa2c5745b0a4c16542cce3862.jpg</image:loc>
-      <image:title>Crimson Desert</image:title>
-      <image:caption>Crimson Desert game cover</image:caption>
-    </image:image>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/ace-combat-8-wings-of-theve</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0h1.jpg</image:loc>
-      <image:title>Ace Combat 8: Wings of Theve</image:title>
-      <image:caption>Soar through the skies and rise above every challenge to earn your place among the elite. Engage in </image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/resident-evil-9-requiem</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/games/ed6/ed613937e113a4d43fa0db771e527a2f.jpg</image:loc>
-      <image:title>Resident Evil 9: Requiem</image:title>
-      <image:caption>Resident Evil 9: Requiem game cover</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/phantom-blade-zero</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/screenshots/6b4/6b4bec9339ff93d3e9f9a213ad1c538a.jpg</image:loc>
-      <image:title>Phantom Blade Zero</image:title>
-      <image:caption>Phantom Blade Zero game cover</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/diablo-iv-lord-of-hatred</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0he.jpg</image:loc>
-      <image:title>Diablo IV: Lord of Hatred</image:title>
-      <image:caption>Sanctuary reaches its breaking point. In Diablo IV: Lord of Hatred, Mephisto’s dark crusade threaten</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/007-first-light</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/games/86f/86f2dc1b9671f25a13ff92e069b51786.jpg</image:loc>
-      <image:title>007 First Light</image:title>
-      <image:caption>007 First Light game cover</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/pragmata</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/games/019/0192f08452e0d8ead71940e90a3cdf70.jpg</image:loc>
-      <image:title>Pragmata</image:title>
-      <image:caption>Pragmata game cover</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/marvel-rivals-season-6-night-at-museum</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0ge.jpg</image:loc>
-      <image:title>Marvel Rivals: Season 6 - Night at Museum</image:title>
-      <image:caption>Marvel Rivals: Season 6 - Night at Museum game cover</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-dark-pictures-directive-8020</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/games/10d/10dd957940dbaedc77a08730995194c7.jpg</image:loc>
-      <image:title>Directive 8020</image:title>
-      <image:caption>Directive 8020 game cover</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/genshin-impact-version-luna-iv</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob2jm.jpg</image:loc>
-      <image:title>Genshin Impact: Version &quot;Luna IV&quot;</image:title>
-      <image:caption>Version &quot;Luna IV&quot; of Genshin Impact, also known as &quot;Song of the Welkin Moon: Interlude&quot;. This update</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/reanimal</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://media.rawg.io/media/games/299/299e031b1a8082298a4aeb5355d45571.jpg</image:loc>
-      <image:title>Reanimal</image:title>
-      <image:caption>Reanimal game cover</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/megastore-simulator</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob4qf.jpg</image:loc>
-      <image:title>Megastore Simulator</image:title>
-      <image:caption>Megastore Simulator is a first-person management &amp; tycoon game. Start small and grow into a massive </image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/party-party-anxiety</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob4ng.jpg</image:loc>
-      <image:title>Party Party Anxiety!</image:title>
-      <image:caption>A dating card game for anxious people. Use conversation cue cards up your sleeves to make connection</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/project-killdance</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob4ne.jpg</image:loc>
-      <image:title>Project Killdance</image:title>
-      <image:caption>Project KILLDANCE is a Noir tactical action featuring a one-army strategy and instant-death combat. </image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/convenience-store-simulator</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob4m1.jpg</image:loc>
-      <image:title>Convenience Store Simulator</image:title>
-      <image:caption>A game about running and managing your own convenience store. Actively work the register, master sto</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/relative-frame</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob4e6.jpg</image:loc>
-      <image:title>Relative Frame</image:title>
-      <image:caption>Explore space in a hand crafted, physics based universe, with immersive sound and atmosphere. Fight </image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dune-awakening-raiders-of-the-broken-lands</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3yz.jpg</image:loc>
-      <image:title>Dune: Awakening - Raiders of the Broken Lands</image:title>
-      <image:caption>Raiders of the Broken Lands DLC features a cosmetic pack inspired by the Smugglers of the Imperium. </image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/trinket-bag-maker</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3o1.jpg</image:loc>
-      <image:title>Trinket Bag Maker</image:title>
-      <image:caption>Trinket Bag Maker is a retro sandbox game inspired by the 2000&apos;s girl games, where you can create yo</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dino-party</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3kg.jpg</image:loc>
-      <image:title>Dino Party</image:title>
-      <image:caption>a chaotic multiplayer brawler packed with silly physics, unpredictable minigames, and over-the-top d</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/bruisers-2d-boxing</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3kf.jpg</image:loc>
-      <image:title>Bruisers 2D Boxing</image:title>
-      <image:caption>Step into the ring and fight your way to the top in Bruisers 2D Boxing — a gritty, retro-styled boxi</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/its-fine</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3k2.jpg</image:loc>
-      <image:title>It&apos;s Fine</image:title>
-      <image:caption>It’s Fine is an active incremental/upgrade clicker game about releasing v1.0 of your game on time.</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/glue-blocks</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3k0.jpg</image:loc>
-      <image:title>Glue Blocks</image:title>
-      <image:caption>Glue your falling blocks to create your own shapes and achieve monster scores in wells of all shapes</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/bounce95</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3gj.jpg</image:loc>
-      <image:title>Bounce95</image:title>
-      <image:caption>Incremental game where you bounce balls on stages you create</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/word95</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3gh.jpg</image:loc>
-      <image:title>Word95</image:title>
-      <image:caption>Play word games and get points to build a dictionary one word at a time</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/trees-hate-you</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3ai.jpg</image:loc>
-      <image:title>Trees Hate You</image:title>
-      <image:caption>Hike through the worst forest full of the most horrible trees. Do not trust them. The trees will tri</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/curse-chapter-dawnthief</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob38i.jpg</image:loc>
-      <image:title>Curse Chapter: Dawnthief</image:title>
-      <image:caption>Plunder all the treasure worth taking from the exotic wilderness with your band of rogues. Jump, kic</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dzyun-battle-2026</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob2ys.jpg</image:loc>
-      <image:title>Dzyun Battle 2026</image:title>
-      <image:caption>Strafe, jump, and battle for holiday supremacy! Join Team Santa or Team Krampus in high-speed New Ye</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/neidfyre</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob2yt.jpg</image:loc>
-      <image:title>Neidfyre</image:title>
-      <image:caption>Neidfyre is a turn-based duel game forged in fire and steel. Step into a cursed land of no escape. S</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/auto-snakes-in-outer-space</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob2p6.jpg</image:loc>
-      <image:title>Auto Snakes in Outer Space</image:title>
-      <image:caption>A hypnotic incremental idler where you manage colorful snakes. Watch them collect food, then spend t</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/fate-architect</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob21n.jpg</image:loc>
-      <image:title>Fate Architect</image:title>
-      <image:caption>Fate Architect is a roguelike deckbuilder where you build and modify symbols on a slot machine to ea</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/orium</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1vs.jpg</image:loc>
-      <image:title>Orium</image:title>
-      <image:caption>Aboard your ship, exterminate the enemies of profit, exploit planets and expand the corporation’s co</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/simpli-casa</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1sk.jpg</image:loc>
-      <image:title>Simpli Casa</image:title>
-      <image:caption>Welcome to Simpli Casa, the chill and addictive decorating game where minimalism meets maximum style</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/cute-finders</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1sf.jpg</image:loc>
-      <image:title>Cute Finders</image:title>
-      <image:caption>Your mission starts now! Objective? Find the subtle, silly, and sneaky differences between the two i</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/feast-of-the-beast-unleashed</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1sj.jpg</image:loc>
-      <image:title>Feast of the Beast: Unleashed</image:title>
-      <image:caption>&quot;Top-down action and survival shooter, playable solo or cooperatively. Explore Valachia with your br</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/hollow-knight-silksong-sea-of-sorrow</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1ng.jpg</image:loc>
-      <image:title>Hollow Knight: Silksong - Sea of Sorrow</image:title>
-      <image:caption>Voyage across and beneath the salt-stricken seas in this thrilling nautically-themed expansion of Ho</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/inferno-protocol</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1mx.jpg</image:loc>
-      <image:title>Inferno Protocol</image:title>
-      <image:caption>Trapped in a deadly labyrinth, you and 5 friends must scavenge, craft, and survive. Harvest monster </image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/highway-noir</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1je.jpg</image:loc>
-      <image:title>Highway Noir</image:title>
-      <image:caption>You are an underground driver for hire, fired from the Major Crimes Agency. Rush through a busy city</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/joint-force</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1ip.jpg</image:loc>
-      <image:title>Joint Force</image:title>
-      <image:caption>Solve challenging puzzles to reunite Belcho and Nim.</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/anxiety-arcade</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1ia.jpg</image:loc>
-      <image:title>Anxiety Arcade</image:title>
-      <image:caption>Anxiety Arcade is a short, surreal narrative game about living with anxiety — and how it feels when </image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/thirsty-princess</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1i8.jpg</image:loc>
-      <image:title>Thirsty Princess</image:title>
-      <image:caption>Thirsty Princess is a fast-paced, top-down party game for 2–4 local players where you and your frien</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dads</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1i5.jpg</image:loc>
-      <image:title>D.A.D.S.</image:title>
-      <image:caption>Use your special ops units to construct base facilities and towers to protect them from the ever-inc</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/morbid-mailroom</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1f8.jpg</image:loc>
-      <image:title>Morbid Mailroom</image:title>
-      <image:caption>In a claymation prison for occult offenders, you are the package inspector. Search packages for hidd</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/stunted-gravity</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1e0.jpg</image:loc>
-      <image:title>Stunted Gravity</image:title>
-      <image:caption>Stunted Gravity is a hovercraft stunt-driving game set in a neon-dystopian future. Race, jump, and i</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/don-pepe-y-sus-globos</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1dk.jpg</image:loc>
-      <image:title>Don Pepe y sus globos</image:title>
-      <image:caption>Don Pepe y sus globos is a multiplayer party game where up to 4 players can duke it out... with wate</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/beandejo</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1dg.jpg</image:loc>
-      <image:title>Beandejo</image:title>
-      <image:caption>BEANDEJO is an action-packed spin-gun roguelite. Enter the Old West, where the cattle roam, and drun</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/ephemeral-frame</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob162.jpg</image:loc>
-      <image:title>Ephemeral Frame</image:title>
-      <image:caption>Step inside picture frames, films, and other imagery that connect a variety of dreamscapes in this s</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dragon-dinner</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob15k.jpg</image:loc>
-      <image:title>Dragon Dinner</image:title>
-      <image:caption>Cute but chaotic restaurant simulator where you play as a dragon waiter in a fast-paced dining rush.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/midnight-billiards</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1n3.jpg</image:loc>
-      <image:title>Midnight Billiards</image:title>
-      <image:caption>Midnight Billiards is a turn-based roguelite game inspired by Peglin and billiards. Choose from a va</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/paddlenoid</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0vs.jpg</image:loc>
-      <image:title>Paddlenoid</image:title>
-      <image:caption>Paddlenoid is a fun brick breaker you can play solo or with a friend. There’s nothing out of the ord</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dyadem</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0u9.jpg</image:loc>
-      <image:title>Dyadem</image:title>
-      <image:caption>Become the greatest tactician in this love letter to classic handheld SRPGs. It falls to you to forg</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/bag-of-dreams</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0o5.jpg</image:loc>
-      <image:title>Bag of Dreams</image:title>
-      <image:caption>Bag of dreams is the cozy card-based Roguelike Dreambuilder you didn&apos;t know you needed. Can you piec</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/memoware</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1n7.jpg</image:loc>
-      <image:title>Memoware</image:title>
-      <image:caption>Memoware! A small adventure, exploration and puzzle videogame.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/highguard</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0ha.jpg</image:loc>
-      <image:title>Highguard</image:title>
-      <image:caption>From the creators of Apex Legends and Titanfall, comes Highguard: a PvP raid shooter where players w</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/star-wars-galactic-racer</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0lg.jpg</image:loc>
-      <image:title>Star Wars: Galactic Racer</image:title>
-      <image:caption>STAR WARS: Galactic Racer is a runs-based, high-stakes reinvention of racing born in the lawless Out</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/hitman-3-patient-zero-requiem</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob1zh.jpg</image:loc>
-      <image:title>Hitman 3: Patient Zero Requiem</image:title>
-      <image:caption>In this new mission, Agent 47 is tasked with the elimination of Lilith Devereux, the ambitious prosp</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/where-winds-meet-the-imperial-palace</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0h3.jpg</image:loc>
-      <image:title>Where Winds Meet: The Imperial Palace</image:title>
-      <image:caption>Where Winds Meet: The Imperial Palace game cover</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/orbitals--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0g9.jpg</image:loc>
-      <image:title>Orbitals</image:title>
-      <image:caption>Team up as Maki and Omura, two inseparable explorers with a whole lot more determination than experi</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/order-of-the-sinking-star</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0fg.jpg</image:loc>
-      <image:title>Order of the Sinking Star</image:title>
-      <image:caption>From director Jonathan Blow (Braid, The Witness), Order of the Sinking Star is a narrative adventure</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/ontos</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0f5.jpg</image:loc>
-      <image:title>Ontos</image:title>
-      <image:caption>A sci-fi mystery set on the repurposed moon hotel Samsara. Uncover cryptic experiments, face unsettl</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/stupid-never-dies</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0ep.jpg</image:loc>
-      <image:title>Stupid Never Dies</image:title>
-      <image:caption>Set in a monster-ruled otherworldly dungeon, Stupid Never Dies puts you in control of Davy, a timid </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/tankrat</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0ej.jpg</image:loc>
-      <image:title>TankRat</image:title>
-      <image:caption>A dying world, flesh given way to steel. Swarms of corrupted mech-monsters roam a desolated land. Se</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/decrepit--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0e2.jpg</image:loc>
-      <image:title>Decrepit</image:title>
-      <image:caption>Decrepit is a first-person action game with souls-like combat where every death drags you back into </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/tri6-infinite-2</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0dr.jpg</image:loc>
-      <image:title>Tri6: Infinite 2</image:title>
-      <image:caption>Tri6: Infinite 2 is futuristic arcade racing without brakes: race across procedurally generated cybe</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/famcram</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0dm.jpg</image:loc>
-      <image:title>FamCram</image:title>
-      <image:caption>FamCram is a 3D grid-based puzzle game about two dads putting their kids to bed. Guide the children </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/signal-zone</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0dn.jpg</image:loc>
-      <image:title>Signal Zone</image:title>
-      <image:caption>Build, mine, and defend your base to survive the nights. Gather resources by day, reinforce your def</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/time-travel-train</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0db.jpg</image:loc>
-      <image:title>Time Travel Train</image:title>
-      <image:caption>Time Travel Train is a roguelite incremental game about commanding a weaponized locomotive through h</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/crimson-freedom</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0d6.jpg</image:loc>
-      <image:title>Crimson Freedom</image:title>
-      <image:caption>A classic RTS with modern look - Crimson Freedom is a gripping real-time strategy game featuring a t</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/fortunato</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0de.jpg</image:loc>
-      <image:title>Fortunato</image:title>
-      <image:caption>Draw a pair of aces, use them as poker hands or to eliminate your opponents? A poker roguelike battl</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/pinkeep</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0c5.jpg</image:loc>
-      <image:title>PinKeep</image:title>
-      <image:caption>PinKeep is a pinball deckbuilding roguelite – use the ball and flippers to collect resources and def</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/without-a-hitch</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0bn.jpg</image:loc>
-      <image:title>Without a Hitch</image:title>
-      <image:caption>Without a Hitch is a co-op delivery game where you collect and transport cargo across a chaotic and </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/winx-club-the-magic-is-back</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0bj.jpg</image:loc>
-      <image:title>Winx Club: The Magic Is Back</image:title>
-      <image:caption>Winx Club: The Magic is Back captures the essence of the Winx universe, delivering an enchanting exp</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/gear-dot-club-unlimited-3--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob09t.jpg</image:loc>
-      <image:title>Gear.Club Unlimited 3</image:title>
-      <image:caption>The Gear.Club series is back! Customize and set up your favourite cars to race at top speed along th</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/suncraft</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob096.jpg</image:loc>
-      <image:title>Suncraft</image:title>
-      <image:caption>A cozy village crafting adventure where you gather resources, refine materials, and build to unlock </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/kingdoms-return-time-eating-fruit-and-the-ancient-monster</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob09w.jpg</image:loc>
-      <image:title>Kingdom&apos;s Return: Time-Eating Fruit and the Ancient Monster</image:title>
-      <image:caption>A kingdom-rebuilding adventure filled with action and strategy! Kingdom&apos;s Return is an action RPG wh</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/r-type-dimensions-iii</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob09r.jpg</image:loc>
-      <image:title>R-Type Dimensions III</image:title>
-      <image:caption>Building on the legacy of R-Type Dimensions and R-Type Dimensions EX, Dimensions III has been comple</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/sheol-no-mori-tasogare-no-majuuzukai</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob03f.jpg</image:loc>
-      <image:title>Sheol no Mori: Tasogare no Majuuzukai</image:title>
-      <image:caption>Sheol no Mori: Tasogare no Majuuzukai game cover</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/safo-and-the-moon-warriors</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob4ii.jpg</image:loc>
-      <image:title>Safo and The Moon Warriors</image:title>
-      <image:caption>In a world where the sun no longer rises, Prince Safo must rescue his sister from Argus, a mysteriou</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-plant-shop</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob02h.jpg</image:loc>
-      <image:title>The Plant Shop</image:title>
-      <image:caption>A cozy horror game where you craft plants for late-night customers while you manage a small plant sh</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/frog-sqwad</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob00u.jpg</image:loc>
-      <image:title>Frog Sqwad</image:title>
-      <image:caption>Storm The Sewers for the glory of the Swamp King! Swing, jump, catapult your friends, and eat eat EA</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/iron-colony</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob00g.jpg</image:loc>
-      <image:title>Iron Colony</image:title>
-      <image:caption>After crash-landing on a mysterious island, confront hostile robotic creatures in intense combat and</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/astromine</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob014.jpg</image:loc>
-      <image:title>Astromine</image:title>
-      <image:caption>Astromine is a co-op survival game about scavenging fully destructible voxel planets. Land on planet</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/virtue-and-a-sledgehammer</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob00e.jpg</image:loc>
-      <image:title>Virtue and a Sledgehammer</image:title>
-      <image:caption>Go back to your hometown and tear it down with a sledgehammer in this narrative exploration game. Co</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/humanity-echo-cyberpunk-tactical-rpg</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazwo.jpg</image:loc>
-      <image:title>Humanity Echo: Cyberpunk Tactical RPG</image:title>
-      <image:caption>A tactical turn-based RPG set in a cyberpunk world struggling to adapt to techno-catastrophes and ev</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/fall-asleep--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazuj.jpg</image:loc>
-      <image:title>Fall Asleep</image:title>
-      <image:caption>Fall Asleep is a tense first-person climbing game where you’re trapped in a nightmare and the only w</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/terminator-dark-fate-defiance-evolution</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazqt.jpg</image:loc>
-      <image:title>Terminator: Dark Fate - Defiance: Evolution</image:title>
-      <image:caption>Evolution is the next major story expansion for Terminator: Dark Fate – Defiance, the gritty real-ti</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/starship-troopers-terran-command-the-eradicators</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazqp.jpg</image:loc>
-      <image:title>Starship Troopers: Terran Command - The Eradicators</image:title>
-      <image:caption>The Eradicators is the first Battle Group DLC for Starship Troopers: Terran Command, focusing exclus</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/panzer-corps-2-allied-operations-italy-vol-dot-1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazqo.jpg</image:loc>
-      <image:title>Panzer Corps 2: Allied Operations - Italy: Vol.1</image:title>
-      <image:caption>Lead the Allied invasion of Sicily in the opening chapter of a grand trilogy. Command British and Am</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/broken-arrow-baltic-battalion</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazqe.jpg</image:loc>
-      <image:title>Broken Arrow: Baltic Battalion</image:title>
-      <image:caption>The first specialization DLC for Broken Arrow introduces the Baltic Battalion, a brand-new army spec</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/retail-hell</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazqa.jpg</image:loc>
-      <image:title>Retail Hell</image:title>
-      <image:caption>A horror job simulator set in a convenience store in purgatory. Serve non human customers, fight col</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/scramble-knights-royale</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazps.jpg</image:loc>
-      <image:title>Scramble Knights Royale</image:title>
-      <image:caption>Welcome to Scramble Knights Royale! Compete against fellow knights in a 32-player classic-adventure </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/a-date-with-death-2-remnants</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazp8.jpg</image:loc>
-      <image:title>A Date with Death 2: Remnants</image:title>
-      <image:caption>Train, chat, and flirt your way through the Underworld in this romantic story-driven chat simulator.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/bento-blocks</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazoq.jpg</image:loc>
-      <image:title>Bento Blocks</image:title>
-      <image:caption>Craft delicious lunch boxes in this cozy-yet-challenging ingredient-cutting puzzle game.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/go-phish</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazoo.jpg</image:loc>
-      <image:title>Go Phish</image:title>
-      <image:caption>Go Fish or go homeless. In this rogue-ish debt-builder, pay your rent by phishing a target in a supe</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/factory-95</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazp5.jpg</image:loc>
-      <image:title>Factory 95</image:title>
-      <image:caption>Factory 95 is a retro Windows inspired puzzle-automation game about making a slide show factory… in </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/odd-jobs-on-the-lot</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazp2.jpg</image:loc>
-      <image:title>Odd Jobs: On The Lot</image:title>
-      <image:caption>A physics-powered, 1-4 player co-op set in a vibrant Australian carpark. Teammates race to complete </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/restory</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazo7.jpg</image:loc>
-      <image:title>ReStory</image:title>
-      <image:caption>Run a quaint electronics repair shop in mid-2000s Tokyo. Grow your business by carefully restoring i</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/find-your-words</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazo1.jpg</image:loc>
-      <image:title>Find Your Words</image:title>
-      <image:caption>Find your community at summer camp, one friendship at a time. Take a beat, enjoy a breath of fresh a</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/thrifty-business</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazo5.jpg</image:loc>
-      <image:title>Thrifty Business</image:title>
-      <image:caption>Run your very own thrift shop in this laid-back management sim! Sort through boxes to find hidden tr</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/gate-guard-simulator</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaznk.jpg</image:loc>
-      <image:title>Gate Guard Simulator</image:title>
-      <image:caption>Step into the boots of the castle guard. Inspect seals, expose smugglers and reveal witches. You dec</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/maze-creep</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazj0.jpg</image:loc>
-      <image:title>Maze Creep!!</image:title>
-      <image:caption>A satire co-op horror game where players aim to reach the end of an infinite series of mazes, evadin</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dunkirk-the-forgotten-soldier</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazd5.jpg</image:loc>
-      <image:title>Dunkirk: The Forgotten Soldier</image:title>
-      <image:caption>Survive the onslaught, rise from the ashes, and become the forgotten soldier history tried to erase.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/petunias-purgatory</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazci.jpg</image:loc>
-      <image:title>Petunia&apos;s Purgatory</image:title>
-      <image:caption>Petunia’s Purgatory is a creepy-cute, idle-farming game that lives at the bottom of your screen. Pla</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/gap-year--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazbw.jpg</image:loc>
-      <image:title>Gap Year</image:title>
-      <image:caption>Gap Year is a story-focused point &amp; click adventure played through comic book panels that reconfigur</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/opona</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazbn.jpg</image:loc>
-      <image:title>Opona</image:title>
-      <image:caption>The reality TV show Popworld is a one-way ticket to pop stardom, and Mia and Noah came here to win! </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/quintillion-quest</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaza9.jpg</image:loc>
-      <image:title>Quintillion Quest</image:title>
-      <image:caption>A fantasy-themed run-based active incremental game</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/rebel-infernal-path</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaz9n.jpg</image:loc>
-      <image:title>Rebel Infernal Path</image:title>
-      <image:caption>Rebel Infernal Path is a turn-based, command-driven 3D hack-and-slash RPG. Choose from 10 classes to</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/arcane-merchant</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaz97.jpg</image:loc>
-      <image:title>Arcane Merchant</image:title>
-      <image:caption>Open your own shop in the heart of a Medieval Fantasy realm! Stock your shelves with everything from</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/pripyat-0</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob02m.jpg</image:loc>
-      <image:title>Pripyat 0</image:title>
-      <image:caption>Chernobyl has broken down. As radiation rains down upon you, the world starts rapidly mutating. You&apos;</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/nature-minds</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaz1w.jpg</image:loc>
-      <image:title>Nature Minds</image:title>
-      <image:caption>Nature Minds is an action-adventure RPG where you play as Tareq, a young warrior chosen by the ancie</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/forks-and-daggers</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaz1r.jpg</image:loc>
-      <image:title>Forks &amp; Daggers</image:title>
-      <image:caption>A Chaotic Medieval Social Deduction Party Game for 3–10 Players. Find the traitor or become a traito</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/starlet-voice</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coayzf.jpg</image:loc>
-      <image:title>Starlet Voice</image:title>
-      <image:caption>STARLET☆VOICE is a narrative talent-show survival sim set inside a 100-day televised competition. Tr</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/line-up--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaz11.jpg</image:loc>
-      <image:title>Line Up!</image:title>
-      <image:caption>Line Up! is a chaotic, couch multiplayer game where you take on the role of a caring Mama trying to </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/lost-in-cheese</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coayxz.jpg</image:loc>
-      <image:title>Lost in Cheese</image:title>
-      <image:caption>Lost in Cheese is a brand new puzzle game. Play as Mewton, a cube shaped cat who travels to Roll isl</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/guardians-planetfall</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaz0s.jpg</image:loc>
-      <image:title>Guardians Planetfall</image:title>
-      <image:caption>From the creators of Guardians Frontline, Guardians Planetfall drops you into a galaxy-wide war for </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-amusement</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaz0l.jpg</image:loc>
-      <image:title>The Amusement</image:title>
-      <image:caption>An abandoned amusement park, a tangled memory, a family shattered by the Great War… Discover an inte</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/alliance-tales-battle-for-the-frontier</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coays7.jpg</image:loc>
-      <image:title>Alliance Tales: Battle for the Frontier</image:title>
-      <image:caption>Alliance Tales is a linear, story-driven space combat sim inspired by 90s classics like Wing Command</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-great-flood</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coayqo.jpg</image:loc>
-      <image:title>The Great Flood</image:title>
-      <image:caption>&quot;A War you can grasp.&quot; An upcoming strategy game, featuring the ability to engage in duels in VR/MR </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/catana-red-flowers</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coayqd.jpg</image:loc>
-      <image:title>Catana: Red Flowers</image:title>
-      <image:caption>Step into the paws of a nimble ninja cat!
-
-By day, run your chaotic Restaurant, cook dishes, serve q</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/exd-extra-dimensional</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coayr9.jpg</image:loc>
-      <image:title>EXD: Extra Dimensional</image:title>
-      <image:caption>A delivery guy. A dimensional rift. A quest across another world. Master telekinesis and elemental m</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/blackjack-roulette</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coayk2.jpg</image:loc>
-      <image:title>Blackjack Roulette</image:title>
-      <image:caption>Blackjack rogue-like with a Roulette &quot;spin&quot;. Purchase Insurance Policies with unique abilities give </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/ultrapool</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coayic.jpg</image:loc>
-      <image:title>Ultrapool</image:title>
-      <image:caption>The pool bar is always open! Ultrapool is a colorful roguelike about playing pool with a bunch of wa</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/space-trench</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coayir.jpg</image:loc>
-      <image:title>Space Trench</image:title>
-      <image:caption>A survival horror roguelite where you salvage scrap, upgrade your equipment, and fight against count</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/springs-eternal</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay7y.jpg</image:loc>
-      <image:title>Springs, Eternal</image:title>
-      <image:caption>Explore a mysterious hot springs in the dead of night and meet the other lost souls who are drawn to</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-house-of-hikmah</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay7c.jpg</image:loc>
-      <image:title>The House of Hikmah</image:title>
-      <image:caption>The House of Hikmah is a narrative-driven 3D adventure game exploring grief, legacy and the search f</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dungeons-of-dusk</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay76.jpg</image:loc>
-      <image:title>Dungeons of Dusk</image:title>
-      <image:caption>Dungeons of DUSK is a classic turn based dungeon crawling RPG that takes place canonically between t</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/cave-oasis-at-shylake</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay71.jpg</image:loc>
-      <image:title>Cave Oasis at Shylake</image:title>
-      <image:caption>Move to a small cave town on a moon in this hopeful futuristic life sim. Try hydroponic farming, sus</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/rivage</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay6k.jpg</image:loc>
-      <image:title>Rivage</image:title>
-      <image:caption>Rivage is an immersive sci-fi puzzle adventure set aboard the A.R.E.S. space station trapped in a sp</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/do-crimes</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay6h.jpg</image:loc>
-      <image:title>Do Crimes!</image:title>
-      <image:caption>Hey, how&apos;d you find this game?? Do Crimes is an upcoming chaotic competitive co-op extraction game w</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/neath</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay6b.jpg</image:loc>
-      <image:title>Neath</image:title>
-      <image:caption>Manipulate the turns of friend and foe alike in this Eldritch roguelike tactical RPG by the makers o</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/total-war-warhammer-iii-lords-of-the-end-times</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay4k.jpg</image:loc>
-      <image:title>Total War: Warhammer III - Lords of the End Times</image:title>
-      <image:caption>Total War: Warhammer III - Lords of the End Times game cover</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dreamcore-rabbit-hole</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay0m.jpg</image:loc>
-      <image:title>Dreamcore: Rabbit Hole</image:title>
-      <image:caption>Explore liminal spaces that feel eerily familiar and fire the imagination, like a dream you’ve alrea</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/intervoid</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaxq8.jpg</image:loc>
-      <image:title>Intervoid</image:title>
-      <image:caption>INTERVOID is a tense co-op horror game with resource management elements. Delve into the dark depths</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/serpents-gaze</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaxox.jpg</image:loc>
-      <image:title>Serpent&apos;s Gaze</image:title>
-      <image:caption>Serpent’s Gaze is a punishing 1-4 player co-op third-person action game where you fight tough enemie</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/shield-of-breaker</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaxnl.jpg</image:loc>
-      <image:title>Shield of Breaker</image:title>
-      <image:caption>Shield of Breaker is a single-player Action-RPG set in a fantasy world. Protect your castle from end</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/tome-of-the-damned</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaxle.jpg</image:loc>
-      <image:title>Tome of the Damned</image:title>
-      <image:caption>Tome of the Damned is a dark top-down roguelike where a cursed mage fights for freedom. Defeat castl</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/pizzapocalypse-2</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaxhg.jpg</image:loc>
-      <image:title>Pizzapocalypse 2</image:title>
-      <image:caption>A 3D platformer with a pizza moveset that&apos;s accessible &amp; engaging to all skill levels! Explore diffe</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/pingberts-snow-ride</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaxh3.jpg</image:loc>
-      <image:title>Pingbert&apos;s Snow Ride</image:title>
-      <image:caption>Slide, soar, and deliver! Join Pingbert, the upbeat penguin mail carrier, in Pingbert’s Snow Ride—a </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/fallosophy</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaxdg.jpg</image:loc>
-      <image:title>Fallosophy</image:title>
-      <image:caption>Use just two buttons to climb a colossal pinball table spanning the history of western philosophy. F</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/pixplorer</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaxgs.jpg</image:loc>
-      <image:title>Pixplorer</image:title>
-      <image:caption>Pixplorer is a top-down sandbox action-RPG. Explore biomes, conquer dungeons, craft, build, fight, m</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/everhome</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coax9a.jpg</image:loc>
-      <image:title>Everhome</image:title>
-      <image:caption>Become a sky architect in this relaxing, cozy, building and management sim. Meet charming characters</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/merry-crisis</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazbz.jpg</image:loc>
-      <image:title>Merry Crisis</image:title>
-      <image:caption>Three loves. One week. Zero chill. Merry Crisis is an intimate, character-driven romance visual nove</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/cafe-of-roses</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coax39.jpg</image:loc>
-      <image:title>Cafe of Roses</image:title>
-      <image:caption>A lowkey, low stakes yuri story about a young woman and a mysterious maid. Who is the engimatic Magd</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/maze-nightmare-edge-of-darkness</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coax31.jpg</image:loc>
-      <image:title>Maze Nightmare: Edge of Darkness</image:title>
-      <image:caption>Maze Nightmare-Edge of Darkness is a first-person survival game. Trapped in a foggy, procedural maze</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/overtrick</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coax2d.jpg</image:loc>
-      <image:title>Overtrick</image:title>
-      <image:caption>A trick-taking roguelike with style! Outplay your rivals, purchase special abilities, and dazzle 192</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/scam-line</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coax0k.jpg</image:loc>
-      <image:title>Scam Line</image:title>
-      <image:caption>Scam Line — a tense multiplayer game show for 4–8 players: bluffing, betrayal, and deadly traps. For</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/paparazzi--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawzf.jpg</image:loc>
-      <image:title>Paparazzi</image:title>
-      <image:caption>Take sneaky pictures of the Stars, or find and eliminate the Paparazzis in this chaotic multiplayer </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/chrono-seoul</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawth.jpg</image:loc>
-      <image:title>Chrono Seoul</image:title>
-      <image:caption>Chrono Seoul’s unique Turn Table combat lets you use the hero’s mechanical arm and future-reading ab</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/gears-of-glory</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawnu.jpg</image:loc>
-      <image:title>Gears Of Glory</image:title>
-      <image:caption>Gears of Glory is a movement-based Tower Defense where you drive a van across the map to collect Gea</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/blast-racer</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawmr.jpg</image:loc>
-      <image:title>Blast Racer</image:title>
-      <image:caption>&quot;BLAST RACER&quot; is an arcade-style bullet hell game. You’re humanity’s last hope. Drive an upgradable,</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/wabisabi-sushiderby</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawlv.jpg</image:loc>
-      <image:title>Wabisabi SushiDerby</image:title>
-      <image:caption>Adorable sushi race at full speed in a training × racing game! Become a sushi chef, craft unique top</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/holovillage-our-cozy-days</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawlw.jpg</image:loc>
-      <image:title>HoloVillage: Our Cozy Days</image:title>
-      <image:caption>Farm, fish, mine, craft, and decorate your home in this cozy multiplayer life sim. Venture into dung</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/avemary-rocket-captain-patchwork</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawlx.jpg</image:loc>
-      <image:title>Avemary Rocket: Captain Patchwork</image:title>
-      <image:caption>Join our brave captain on this action adventure in space! You&apos;ll be riding The Patchwork, a less tha</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/d--3</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawne.jpg</image:loc>
-      <image:title>D</image:title>
-      <image:caption>A new game from Parco Games.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-streamers-alt-account-labyrinth</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawls.jpg</image:loc>
-      <image:title>The Streamer&apos;s Alt Account Labyrinth</image:title>
-      <image:caption>A new collaboration by Acacia, the developers of Mahou Shoujo no Majo Saiban, and G-MODE. Explore du</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/saga-and-seeker</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawlz.jpg</image:loc>
-      <image:title>Saga &amp; Seeker</image:title>
-      <image:caption>From a consumer of stories to a creator of them. Saga &amp; Seeker is a &quot;storycrafting game&quot; where you c</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/robot-recycler-ryn</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawm0.jpg</image:loc>
-      <image:title>Robot Recycler Ryn</image:title>
-      <image:caption>Build your own custom combat robots, piece by piece! Weld, saw, and shape metal to perfection. Lead </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/kindling-hour</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawm1.jpg</image:loc>
-      <image:title>Kindling Hour</image:title>
-      <image:caption>A brief, atmospheric text adventure of flickering candlelight, forgotten memories, and a quiet searc</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/deck-of-harvest</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawm2.jpg</image:loc>
-      <image:title>Deck of Harvest</image:title>
-      <image:caption>Within a seasonal journey of harvest, plan limited fields, plant diverse seeds, reap bountiful crops</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/z-gyubaan</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawl0.jpg</image:loc>
-      <image:title>Z-Gyubaan!</image:title>
-      <image:caption>Destroy the floor panel with the blast that defeated the enemy and rescue the captive girl! After de</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/resequence-the-orchard</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawjl.jpg</image:loc>
-      <image:title>Resequence: The Orchard</image:title>
-      <image:caption>Resequence: The Orchard is an occult-horror adventure game in which school counselor Saito approache</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/sublustrum</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawh1.jpg</image:loc>
-      <image:title>Sublustrum</image:title>
-      <image:caption>Step into the space between subconscious and reality. Explore strange liminal worlds, solve sound-dr</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/elemency-island</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coazaq.jpg</image:loc>
-      <image:title>Elemency Island</image:title>
-      <image:caption>Elemency island is a cozy farm coop game. Plant, raise animals, sell your ressources to unlock techn</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/amelorn</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawg3.jpg</image:loc>
-      <image:title>Amelorn</image:title>
-      <image:caption>Recruit unique units, cast powerful spells, and conquer your enemies in a 2D fantasy strategy advent</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/starabyss-heroes</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob07x.jpg</image:loc>
-      <image:title>StarAbyss Heroes</image:title>
-      <image:caption>Torn by an ancient cataclysm, the world lies in ruins. In this ARPG, play a hero exploring relics, l</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-abyss-break</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob0tb.jpg</image:loc>
-      <image:title>The Abyss Break</image:title>
-      <image:caption>Hardcore first-person co-op horror extraction game. Explore the parallel worlds of the Abyss alone o</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/flap-de-clap</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawcq.jpg</image:loc>
-      <image:title>Flap de Clap</image:title>
-      <image:caption>Take on Mount Snoepje by flapping your way up with up to three friends. Be careful not to bonk too m</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/lost-host</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3bs.jpg</image:loc>
-      <image:title>Lost Host</image:title>
-      <image:caption>Lost Host is a story-driven adventure puzzle game about a small toy car searching for its missing ow</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/beware-of-dog</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaw7m.jpg</image:loc>
-      <image:title>Beware of Dog</image:title>
-      <image:caption>Beware Of Dog is a fast paced Action Adventure game with RPG elements set in eclectic insane world w</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-melty-way</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawhm.jpg</image:loc>
-      <image:title>The Melty Way</image:title>
-      <image:caption>You move, you melt. Play as a brave size-shifting slime in this colorful precision puzzle-platformer</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/volund</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaw18.jpg</image:loc>
-      <image:title>Völund</image:title>
-      <image:caption>The forge remembers every strike. In VÖLUND, a blacksmithing roguelike, you shape raw ore into weapo</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/timberflow-sawmill-simulator</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaw0z.jpg</image:loc>
-      <image:title>Timberflow: Sawmill Simulator</image:title>
-      <image:caption>From a single tree to an entire industry! Manage and automate your lumber business in this relaxing,</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/pop-pop-potato</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavtm.jpg</image:loc>
-      <image:title>Pop Pop Potato</image:title>
-      <image:caption>Pop Pop Potato is a rage game + 2D platformer where you blast yourself up the level with explosive c</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/momolitos</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavsf.jpg</image:loc>
-      <image:title>Momolitos</image:title>
-      <image:caption>Explore vibrant zones, collect ingredients, and feed adorable Momolitos to help them evolve into hun</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/vena</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavsd.jpg</image:loc>
-      <image:title>Vena</image:title>
-      <image:caption>Roguelike deckbuilder meets hex-tile city builder! Build a resource engine to survive the center’s r</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/woman-simulator</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavre.jpg</image:loc>
-      <image:title>Woman Simulator</image:title>
-      <image:caption>Experience life as a woman - cleaning, cooking, laundry, and no time to rest. Full immersion into th</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/midnight-scenes-among-graves</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavpk.jpg</image:loc>
-      <image:title>Midnight Scenes: Among Graves</image:title>
-      <image:caption>When the graves stop whispering in your ear, it’s time for you to surrender to eternal silence. So s</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/cardaire-eternal-aces</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavkj.jpg</image:loc>
-      <image:title>Cardaire: Eternal Aces</image:title>
-      <image:caption>Get ready to crack packs and throw cards in Cardaire: Eternal Aces, a single-player collectible card</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/ergenekon</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavjm.jpg</image:loc>
-      <image:title>Ergenekon</image:title>
-      <image:caption>Ergenekon is a story-based, cinematic-heavy, linear, third person single player game about the Turki</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/bourbon-risky</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coax4z.jpg</image:loc>
-      <image:title>Bourbon Risky</image:title>
-      <image:caption>Bourbon Risky is a simple but deep boss rush action game with retro style graphics. Smash all enemie</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/vision-quench</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaviy.jpg</image:loc>
-      <image:title>Vision Quench</image:title>
-      <image:caption>An online co-op dark fantasy looter shooter set in the underbelly of a consumer goods conglomerate m</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-dungeon-of-horror</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavjv.jpg</image:loc>
-      <image:title>The Dungeon Of Horror</image:title>
-      <image:caption>A dark medieval-fantasy turn-based dungeon crawler where you try to escape the dungeon of your own c</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/tr-49</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaw0w.jpg</image:loc>
-      <image:title>TR-49</image:title>
-      <image:caption>Narrative deduction meets audio drama, from the creators of Heaven’s Vault, Overboard! and A Highlan</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/carmageddon-rogue-shift</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coay63.jpg</image:loc>
-      <image:title>Carmageddon: Rogue Shift</image:title>
-      <image:caption>Carmageddon smashes back with brutal roguelite vehicular‑combat mayhem. Adapt, upgrade, and unleash </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/teko</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavao.jpg</image:loc>
-      <image:title>Teko</image:title>
-      <image:caption>Teko is an Indie Roguelike Deckbuilder where you have to reach the highest possible score by playing</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/paccarat</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coava7.jpg</image:loc>
-      <image:title>Paccarat</image:title>
-      <image:caption>The 10-rats-in-a-trenchcoat roguelike deckbuilder. Recruit a rag-tag team of rats, craft a curated d</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/daughter-of-the-rift</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav9e.jpg</image:loc>
-      <image:title>Daughter of the Rift</image:title>
-      <image:caption>Daughter of the Rift is story-rich card-battling adventure with a unique deck-building progression s</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dungeon-of-departure</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav93.jpg</image:loc>
-      <image:title>Dungeon of Departure</image:title>
-      <image:caption>an independently developed, pixel art, visual novel set in an original universe which follows the si</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/erosion--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav92.jpg</image:loc>
-      <image:title>Erosion</image:title>
-      <image:caption>Your daughter&apos;s been kidnapped. Every death costs you a decade. Explore a roguelike open world where</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/vampire-crawlers-the-turbo-wildcard-from-vampire-survivors</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavdy.jpg</image:loc>
-      <image:title>Vampire Crawlers: The Turbo Wildcard from Vampire Survivors</image:title>
-      <image:caption>Deal world-ending combos and blitz through infested dungeons! Vampire Crawlers: the turbo wildcard f</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/echo-generation-2</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coavdz.jpg</image:loc>
-      <image:title>Echo Generation 2</image:title>
-      <image:caption>Embark on a sci-fi deckbuilding RPG odyssey. Gather your crew, craft powerful decks, and battle acro</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/armatus</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coave0.jpg</image:loc>
-      <image:title>Armatus</image:title>
-      <image:caption>ARMATUS is a third-person roguelite shooter set in the demon-infested ruins of Paris. As the last su</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/magical-blush</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav8l.jpg</image:loc>
-      <image:title>Magical Blush</image:title>
-      <image:caption>Magical Blush is a top-down action-adventure where fast-paced elemental combat meets Metroidvania-st</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/strigoi-town</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav8c.jpg</image:loc>
-      <image:title>Strigoi Town</image:title>
-      <image:caption>Combine your potions and refine your deck to withstand waves of vampires in a Compact Deck-Refiner w</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/brightfall</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav86.jpg</image:loc>
-      <image:title>Brightfall</image:title>
-      <image:caption>Lived through the Plague, did you? Now try surviving till morning on an island erased from the maps.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/nodalbastion</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav7h.jpg</image:loc>
-      <image:title>NodalBastion</image:title>
-      <image:caption>Defend the last AI core in an abstract minimalist game of incremental progression, powerful skills, </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/mole--4</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav6u.jpg</image:loc>
-      <image:title>M.O.L.E.</image:title>
-      <image:caption>Voices of the dead are calling you from deep below the earth. Pilot the Mole, a Soviet drilling vess</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/threshold-of-judgement</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob51p.jpg</image:loc>
-      <image:title>Threshold of Judgement</image:title>
-      <image:caption>A mysterious gate judges your soul between Heaven and Hell. Answer wisely — fifteen truths lead to s</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/shardpunk-2</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav3j.jpg</image:loc>
-      <image:title>Shardpunk 2</image:title>
-      <image:caption>The Empire may have fallen, but humanity continues the fight. Shardpunk 2 puts you in command of a h</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/tales-of-berseria-remastered</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav3g.jpg</image:loc>
-      <image:title>Tales of Berseria Remastered</image:title>
-      <image:caption>Tales of Berseria returns with enhanced graphics and optimized gameplay!
-
-Engage in the ultimate que</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/imagine-future</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav36.jpg</image:loc>
-      <image:title>Imagine Future</image:title>
-      <image:caption>&quot;Imagine Future&quot; is a Visual Novel with a campus theme. You will follow the perspective of the prota</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/doomed-crew</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coav34.jpg</image:loc>
-      <image:title>Doomed Crew</image:title>
-      <image:caption>Co-op Horror for 1-4 players. Dive into a brutal corporate environment, complete deadly objectives f</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/athelan-battlegrounds</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauvh.jpg</image:loc>
-      <image:title>Athelan Battlegrounds</image:title>
-      <image:caption>Athelan Battlegrounds is a free-to-play, turn-based tactics game with no meta progression and no pay</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/corinne</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauvc.jpg</image:loc>
-      <image:title>Corinne</image:title>
-      <image:caption>Navigate Corinne through a realm of pixel horrors, surrounded by neighbors that are turning into blo</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/pieces-of-the-kingdom</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coautc.jpg</image:loc>
-      <image:title>Pieces of the Kingdom</image:title>
-      <image:caption>What if Chess…was a roguelite? Assemble your party and battle your way across a broken kingdom in a </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-doodle-palette</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauti.jpg</image:loc>
-      <image:title>The Doodle Palette</image:title>
-      <image:caption>A cozy sandbox for building and painting miniature worlds. Place, paint, and decorate while tiny peo</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/imperial-bureaucracy-hero</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaut8.jpg</image:loc>
-      <image:title>Imperial Bureaucracy Hero</image:title>
-      <image:caption>IBH is a rich role playing game at the end of time. You&apos;re a mid-level official in a dying sci-fi re</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/abyssal-anarchy</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaut3.jpg</image:loc>
-      <image:title>Abyssal Anarchy</image:title>
-      <image:caption>A fast-paced co-op spell-hell where each map pulls you deeper into the Abyss. Choose from 5 heroes a</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/spectral-report</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaut2.jpg</image:loc>
-      <image:title>Spectral Report</image:title>
-      <image:caption>Enter abandoned locations as Spectral Reporters to prove the existence of ghosts. But beware: sanity</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/townsfolk</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coautl.jpg</image:loc>
-      <image:title>TownsFolk</image:title>
-      <image:caption>Guide your people through ruin—build, survive, and let every choice shape their fate. Rekindle the l</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/little-squirrel-cabin</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauq8.jpg</image:loc>
-      <image:title>Little Squirrel Cabin</image:title>
-      <image:caption>Little Squirrel Cabin is a 2D pixel-art survival horror game with psychological elements and dynamic</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/gothic-scythe</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauq4.jpg</image:loc>
-      <image:title>Gothic Scythe</image:title>
-      <image:caption>An high-difficulty action game where you must slip past your enemies attacks and crush them. Take ba</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/faro</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauq1.jpg</image:loc>
-      <image:title>Faro</image:title>
-      <image:caption>Faro is an immersive visual novel set on a sunless planet. Everyone tries their best to survive in t</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/guilty-pleasures</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob285.jpg</image:loc>
-      <image:title>Guilty Pleasures</image:title>
-      <image:caption>You are Marcus Holmes, a young private detective and nephew of the legendary detective Arthur Holmes</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/caribbean-legend-age-of-pirates</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coayyv.jpg</image:loc>
-      <image:title>Caribbean Legend: Age of Pirates</image:title>
-      <image:caption>You are the captain and owner of your own ship—the finest fate one could hope for in the 17th centur</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-last-poem</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaumf.jpg</image:loc>
-      <image:title>The Last Poem</image:title>
-      <image:caption>5 years have passed since then.
-The sequel to &quot;Christmas Tina&quot; by the original team.
-Here and now. A</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/drillbound</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaum2.jpg</image:loc>
-      <image:title>Drillbound</image:title>
-      <image:caption>Drillbound is a short incremental game about mining your way to the planet’s core. Crush layers of r</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/escape-from-ruin-greymart-simulator</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaulw.jpg</image:loc>
-      <image:title>Escape From Ruin: Greymart Simulator</image:title>
-      <image:caption>A post-apocalyptic loot-fight-extract survival game with escape-style raids by day and black-market </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dumpling</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauku.jpg</image:loc>
-      <image:title>Dumpling</image:title>
-      <image:caption>DUMPLing is a fast-paced top-down survival shooter with a metroidvania twist. Pulled into the strang</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/cocoboy</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaumw.jpg</image:loc>
-      <image:title>Cocoboy</image:title>
-      <image:caption>COCOBOY is a 2D puzzle platformer within a 3D retro gaming simulation. Hack an ’80s cult classic wit</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/orrins-chessboard</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauh9.jpg</image:loc>
-      <image:title>Orrin&apos;s Chessboard</image:title>
-      <image:caption>A unique tower defense game where you build defenses on a dynamic board to repel enemies. Experience</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/agerasia</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauh7.jpg</image:loc>
-      <image:title>Agerasia</image:title>
-      <image:caption>Eight time periods from across human history collide in a competitive bid to stop the end of the wor</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/starbump</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coax0o.jpg</image:loc>
-      <image:title>Starbump</image:title>
-      <image:caption>Starbump combines fast-paced action, Third Person platforming and competitive modes in vibrants worl</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/ride-6</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaude.jpg</image:loc>
-      <image:title>Ride 6</image:title>
-      <image:caption>Live the thrill of asphalt and dirt with RIDE 6: affirm your biker identity by joining RIDE Fest, ra</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/scraps-of-the-machine</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob3od.jpg</image:loc>
-      <image:title>Scraps of the Machine</image:title>
-      <image:caption>FPS Mech Action! Pilot a mass of steel through a single player campaign set in a desolate landscape.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/tomorrowness</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaud2.jpg</image:loc>
-      <image:title>Tomorrowness</image:title>
-      <image:caption>Take flight as Juno, a small bird guided by the sound of her guitar through a hand-drawn world of mu</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/triarchy</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coawrl.jpg</image:loc>
-      <image:title>Triarchy</image:title>
-      <image:caption>Sail your ship, explore islands, fight monsters, choose your abilities, and craft legendary gear to </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/rizz-dungeon-skeleton-key-to-my-heart</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauis.jpg</image:loc>
-      <image:title>Rizz Dungeon: Skeleton Key to My Heart</image:title>
-      <image:caption>Fighting is hard, right? Let your party do it for you! Romance Monster Girls and traverse the Dungeo</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/knights-of-fiona</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauc9.jpg</image:loc>
-      <image:title>Knights of Fiona</image:title>
-      <image:caption>Fierce dragons have emerged in the land of Gallia. Join Fiona and her sworn knights to protect the k</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/orcs-must-die-by-the-blade</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaucc.jpg</image:loc>
-      <image:title>Orcs Must Die! By the Blade</image:title>
-      <image:caption>The orcs are back—louder, dumber, and smellier than ever. And this time… they’re in your face. Liter</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-lightkeepers</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coauci.jpg</image:loc>
-      <image:title>The Lightkeepers</image:title>
-      <image:caption>The Lightkeepers game cover</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/full-steam-undead</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaucd.jpg</image:loc>
-      <image:title>Full Steam Undead</image:title>
-      <image:caption>Full Steam Undead game cover</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/mini-shopkeeper</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coaubx.jpg</image:loc>
-      <image:title>Mini Shopkeeper</image:title>
-      <image:caption>Run your cozy little shop from the bottom of your screen, decorate to attract unique customers, hire</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/rotato--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob034.jpg</image:loc>
-      <image:title>Rotato</image:title>
-      <image:caption>Spin. Shoot. Survive.</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/trails-in-the-sky-2nd-chapter</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/cob2a9.jpg</image:loc>
-      <image:title>Trails in the Sky 2nd Chapter</image:title>
-      <image:caption>A remake of the second installment in the main Trails series, serving as a direct sequel of Trails i</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-maze--4</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coau25.jpg</image:loc>
-      <image:title>The Maze</image:title>
-      <image:caption>In a pitch dark maze like factory, you must avoid He, secure secret documents, and escape with only </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/wandering-sword--1</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coau0x.jpg</image:loc>
-      <image:title>Wandering Sword</image:title>
-      <image:caption>The hit pixel-art RPG set in the world of Chinese martial arts is finally coming to PlayStation!
-Pla</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/blazblue-entropy-effect-x</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coatzb.jpg</image:loc>
-      <image:title>BlazBlue: Entropy Effect X</image:title>
-      <image:caption>In BlazBlue Entropy Effect X, you’ll face off against surging hordes across ever-shifting dimensions</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/brokenlore-ascend</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coau0q.jpg</image:loc>
-      <image:title>BrokenLore: Ascend</image:title>
-      <image:caption>BrokenLore: Ascend is a first-person psychological horror with climbing and stealth mechanics. Follo</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/dynasty-warriors-origins-visions-of-four-heroes</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coau3d.jpg</image:loc>
-      <image:title>Dynasty Warriors: Origins - Visions of Four Heroes</image:title>
-      <image:caption>This DLC adds new stories featuring the Four Heroes, new allies, weapons, and more. The immersive ba</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/hop-and-seek</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coatz6.jpg</image:loc>
-      <image:title>Hop &amp; Seek</image:title>
-      <image:caption>Hop &amp; Seek is a multiplayer egg hunt game set in a game show for Easter bunnies. You can hide eggs, </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/the-diamond-adventures</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coau0u.jpg</image:loc>
-      <image:title>The Diamond Adventures</image:title>
-      <image:caption>The Diamond Adventures is a multi-genre, single-player adventure game packed with minigames and expl</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/bingo-betty</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coatud.jpg</image:loc>
-      <image:title>Bingo Betty</image:title>
-      <image:caption>This ain&apos;t your average grandma&apos;s bingo! Put your bingo skills to the test in this strategic rogueli</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/last-shinobi</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coatto.jpg</image:loc>
-      <image:title>Last Shinobi</image:title>
-      <image:caption>Dive into a tactical roguelike where every decision counts. Build a unique strategy, unlock new skil</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/saint-slayer-spear-of-sacrilege</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coatrs.jpg</image:loc>
-      <image:title>Saint Slayer: Spear of Sacrilege</image:title>
-      <image:caption>Saint Slayer is an NES-style 2D action game, featuring loads of stages, enemies, and gore set agains</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/animal-bakery</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coatq4.jpg</image:loc>
-      <image:title>Animal Bakery</image:title>
-      <image:caption>Manage a cozy subway bakery in an underground animal city - run by a &quot;retired&quot; gangster you&apos;re secre</image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nextplaygame.me/game/etrange-overlord</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://images.igdb.com/igdb/image/upload/t_cover_big/coatgs.jpg</image:loc>
-      <image:title>Etrange Overlord</image:title>
-      <image:caption>Join Étrange on this musical odyssey as she seeks to conquer hell in the pursuit of living her best </image:caption>
-    </image:image>
+    <priority>0.8</priority>
   </url>
 </urlset>
