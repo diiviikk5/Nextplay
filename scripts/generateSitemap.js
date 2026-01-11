@@ -82,7 +82,7 @@ corePages.forEach(p => {
   urls.push(urlEntry(`${SITE_URL}${p.path}`, p.priority));
 });
 
-// 3. Blog Articles
+// 3. Blog Articles - High priority for fresh content
 const blogArticles = [
   'gta-6-release-date-everything-we-know',
   'most-anticipated-games-2026',
@@ -91,13 +91,13 @@ const blogArticles = [
   'best-ps5-games-2026'
 ];
 blogArticles.forEach(slug => {
-  urls.push(urlEntry(`${SITE_URL}/blog/${slug}`, 0.8));
+  urls.push(urlEntry(`${SITE_URL}/blog/${slug}`, 0.9, 'daily'));
 });
 
-// 3b. News Section
-urls.push(urlEntry(`${SITE_URL}/news`, 0.95, 'daily'));
+// 3b. News Section - Highest priority for news
+urls.push(urlEntry(`${SITE_URL}/news`, 1.0, 'hourly'));
 
-// News Articles
+// News Articles - High priority and frequent updates
 const newsArticles = [
   'crimson-desert-release-date-everything-we-know',
   'fallout-new-vegas-remaster-rumors-what-we-know',
@@ -111,7 +111,7 @@ const newsArticles = [
   'cyberpunk-2077-state-of-game-2026'
 ];
 newsArticles.forEach(slug => {
-  urls.push(urlEntry(`${SITE_URL}/news/${slug}`, 0.85, 'daily'));
+  urls.push(urlEntry(`${SITE_URL}/news/${slug}`, 0.95, 'daily'));
 });
 
 // 4. Genre Pages - Extract unique genres from games
