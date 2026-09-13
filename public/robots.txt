@@ -1,35 +1,58 @@
 # NextPlay 2026 - Upcoming Games Tracker
 # https://nextplaygame.me
 
-# Allow all crawlers full access
+# Default rule for all web crawlers
 User-agent: *
 Allow: /
+Disallow: /api/
 
-# Googlebot specific
+# Search Engine Crawlers
 User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Bingbot specific
+User-agent: Googlebot-Image
+User-agent: Googlebot-Video
 User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
 Allow: /
-Crawl-delay: 1
 
-# Social media crawlers (for rich previews)
+# AI Search & LLM Crawlers (AEO / GEO Optimization)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Diffbot
+Allow: /
+
+# Social Media Link Preview Bots
 User-agent: Twitterbot
-Allow: /
-
 User-agent: facebookexternalhit
+User-agent: LinkedInBot
+User-agent: Discordbot
+User-agent: TelegramBot
+User-agent: WhatsApp
+User-agent: SkypeUriPreview
 Allow: /
 
-User-agent: LinkedInBot
-Allow: /
+# LLM Manifest for AI Answer Engines (Spec: https://llmstxt.org)
+LLMs-Txt: https://nextplaygame.me/llms.txt
+LLMs-Full-Txt: https://nextplaygame.me/llms-full.txt
 
 # Sitemaps
 Sitemap: https://nextplaygame.me/sitemap.xml
+Sitemap: https://nextplaygame.me/sitemap-games.xml
+Sitemap: https://nextplaygame.me/sitemap-genres.xml
+Sitemap: https://nextplaygame.me/sitemap-platforms.xml
+Sitemap: https://nextplaygame.me/sitemap-calendar.xml
+Sitemap: https://nextplaygame.me/sitemap-pages.xml
 
 # Host directive
 Host: https://nextplaygame.me
-
-# Disallow internal/API routes only
-Disallow: /api/

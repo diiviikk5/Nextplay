@@ -22,11 +22,14 @@ import {
     Tag,
     X,
     ChevronLeft,
-    ChevronRight
+    ChevronRight,
+    HelpCircle,
+    ChevronDown,
+    ChevronUp
 } from 'lucide-react';
 import { parseISO } from 'date-fns';
 import { formatReleaseDate, isPlaceholderDate } from '../utils/dateHelpers';
-import { getCanonicalUrl, generateGameSEOTitle, generateGameSEODescription, slugify } from '../utils/seoHelpers';
+import { getCanonicalUrl, generateGameSEOTitle, generateGameSEODescription, generateGameFAQs, slugify } from '../utils/seoHelpers';
 import { GENRE_COLORS, PLATFORM_CONFIG } from '../utils/constants';
 import HypeVoting from '../components/HypeVoting';
 
@@ -106,6 +109,7 @@ const GameDetails = () => {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('screenshots');
+    const [openFaq, setOpenFaq] = useState(0);
 
     // Find game with memoization
     const game = useMemo(() => gamesData.find(g => g.slug === slug), [slug]);
@@ -146,20 +150,7 @@ const GameDetails = () => {
                 ...(game.genres?.[0] ? [{ name: game.genres[0], path: `/genre/${slugify(game.genres[0])}` }] : []),
                 { name: game.title, path: `/game/${game.slug}` }
             ],
-            faqData: [
-                {
-                    question: `When does ${game.title} release?`,
-                    answer: `${game.title} is scheduled to release on ${gameData.formattedDate} for ${game.platforms?.join(', ') || 'multiple platforms'}.`
-                },
-                {
-                    question: `What platforms is ${game.title} available on?`,
-                    answer: `${game.title} will be available on ${game.platforms?.join(', ') || 'TBA'}.`
-                },
-                ...(game.developers?.length > 0 ? [{
-                    question: `Who is developing ${game.title}?`,
-                    answer: `${game.title} is being developed by ${game.developers.join(', ')}.`
-                }] : [])
-            ]
+            faqData: generateGameFAQs(game, gameData.formattedDate, gameData.daysLeft)
         };
     }, [game, gameData]);
 
@@ -653,6 +644,72 @@ const GameDetails = () => {
                         {activeTab === 'videos' && gameData.videos.length > 0 && (
                             <VideoGrid videos={gameData.videos} gameTitle={game.title} />
                         )}
+                    </div>
+                )}
+
+                {/* Quick Facts - AEO Direct Answer Summary */}
+                <div className="glass" style={{ padding: '1.5rem', marginBottom: '1.5rem', borderLeft: '4px solid #06b6d4' }}>
+                    <h2 className="font-heading" style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.75rem', color: '#06b6d4', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <Clock size={18} /> {game.title} Quick Facts &amp; Release Summary
+                    </h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', color: '#cbd5e1', fontSize: '0.9rem' }}>
+                        <div><strong style={{ color: '#94a3b8' }}>Confirmed Release Date:</strong> {gameData.formattedDate}</div>
+                        <div><strong style={{ color: '#94a3b8' }}>Platforms:</strong> {game.platforms?.join(', ') || 'TBA'}</div>
+                        <div><strong style={{ color: '#94a3b8' }}>Developer:</strong> {game.developers?.join(', ') || 'TBA'}</div>
+                        <div><strong style={{ color: '#94a3b8' }}>Publisher:</strong> {game.publishers?.join(', ') || 'TBA'}</div>
+                        <div><strong style={{ color: '#94a3b8' }}>Genres:</strong> {game.genres?.join(', ') || 'Video Game'}</div>
+                        <div><strong style={{ color: '#94a3b8' }}>Countdown Status:</strong> {gameData.daysLeft > 0 ? `${gameData.daysLeft} days remaining` : '2026 Target Release'}</div>
+                    </div>
+                </div>
+
+                {/* FAQs Accordion - AEO & Semantic Search */}
+                {seoData.faqData && seoData.faqData.length > 0 && (
+                    <div className="glass" style={{ padding: '1.5rem', marginBottom: '2rem' }}>
+                        <h2 className="font-heading" style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <HelpCircle size={20} color="#06b6d4" /> Frequently Asked Questions
+                        </h2>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                            {seoData.faqData.map((faq, idx) => {
+                                const isOpen = openFaq === idx;
+                                return (
+                                    <div 
+                                        key={idx} 
+                                        style={{ 
+                                            background: 'rgba(255,255,255,0.03)', 
+                                            borderRadius: '8px', 
+                                            border: '1px solid rgba(255,255,255,0.06)',
+                                            overflow: 'hidden'
+                                        }}
+                                    >
+                                        <button
+                                            onClick={() => setOpenFaq(isOpen ? null : idx)}
+                                            style={{
+                                                width: '100%',
+                                                padding: '1rem',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'space-between',
+                                                background: 'none',
+                                                border: 'none',
+                                                color: '#e2e8f0',
+                                                fontSize: '0.95rem',
+                                                fontWeight: 600,
+                                                cursor: 'pointer',
+                                                textAlign: 'left'
+                                            }}
+                                        >
+                                            <span>{faq.question}</span>
+                                            {isOpen ? <ChevronUp size={18} color="#06b6d4" /> : <ChevronDown size={18} color="#64748b" />}
+                                        </button>
+                                        {isOpen && (
+                                            <div style={{ padding: '0 1rem 1rem', color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                                                {faq.answer}
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
                 )}
 

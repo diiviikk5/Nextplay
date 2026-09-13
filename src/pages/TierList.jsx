@@ -144,14 +144,31 @@ const TierList = () => {
             const html2canvas = (await import('html2canvas')).default;
             const canvas = await html2canvas(tierListRef.current, {
                 backgroundColor: '#0a0e17',
-                scale: 2
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                logging: false
             });
+
+            // Draw branding watermark banner at bottom of exported image
+            const ctx = canvas.getContext('2d');
+            const bannerHeight = 44;
+            ctx.fillStyle = 'rgba(10, 14, 23, 0.95)';
+            ctx.fillRect(0, canvas.height - bannerHeight, canvas.width, bannerHeight);
+            ctx.fillStyle = '#06b6d4';
+            ctx.font = 'bold 18px sans-serif';
+            ctx.fillText('NEXTPLAY 2026', 20, canvas.height - 16);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '14px sans-serif';
+            ctx.fillText('• Track & Rank 2026 Releases at nextplaygame.me', 170, canvas.height - 18);
+
             const link = document.createElement('a');
-            link.download = 'my-2026-tier-list.png';
-            link.href = canvas.toDataURL();
+            link.download = 'nextplay-2026-tier-list.png';
+            link.href = canvas.toDataURL('image/png');
             link.click();
         } catch (err) {
             console.error('Export failed:', err);
+            alert('Failed to export image. Please try again.');
         }
     };
 

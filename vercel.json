@@ -1,21 +1,26 @@
 {
+    "cleanUrls": true,
     "rewrites": [
         {
-            "source": "/sitemap.xml",
-            "destination": "/sitemap.xml"
+            "source": "/sitemap(.*)\\.xml",
+            "destination": "/sitemap$1.xml"
         },
         {
             "source": "/robots.txt",
             "destination": "/robots.txt"
         },
         {
-            "source": "/((?!sitemap\\.xml|robots\\.txt).*)",
+            "source": "/llms(.*)\\.txt",
+            "destination": "/llms$1.txt"
+        },
+        {
+            "source": "/((?!sitemap.*\\.xml|robots\\.txt|llms.*\\.txt).*)",
             "destination": "/index.html"
         }
     ],
     "headers": [
         {
-            "source": "/sitemap.xml",
+            "source": "/sitemap(.*)\\.xml",
             "headers": [
                 {
                     "key": "Content-Type",
@@ -29,6 +34,15 @@
                 {
                     "key": "Content-Type",
                     "value": "text/plain; charset=utf-8"
+                }
+            ]
+        },
+        {
+            "source": "/llms(.*)\\.txt",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "text/markdown; charset=utf-8"
                 }
             ]
         },
