@@ -1,7 +1,7 @@
 /**
- * Sitemap Generator for NextPlay 2026
- * Generates modular, valid XML sitemaps and a master Sitemap Index.
- * Run with: node scripts/generateSitemap.js
+ * Modular Multi-Sitemap Generator for NextPlay 2026
+ * Generates 11 specialized sub-sitemaps and a Master Sitemap Index
+ * Covering 1,700+ to 2,000+ indexable static URLs.
  */
 
 import fs from 'fs';
@@ -14,7 +14,6 @@ const __dirname = path.dirname(__filename);
 const SITE_URL = 'https://nextplaygame.me';
 const TODAY = new Date().toISOString().split('T')[0];
 
-// Load games data
 const gamesDataPath = path.join(__dirname, '..', 'src', 'data', 'games.json');
 const gamesData = JSON.parse(fs.readFileSync(gamesDataPath, 'utf8'));
 
@@ -54,12 +53,21 @@ function writeSitemapFile(filename, xmlContent) {
   }
 }
 
-// 1. Core Pages & Hubs
+let totalSitemapUrls = 0;
+
+// 1. Core Pages & Hubs Sitemap
 const corePages = [
   { path: '/', priority: 1.0, freq: 'daily' },
+  { path: '/can-i-run-it', priority: 0.95, freq: 'daily' },
+  { path: '/battles', priority: 0.95, freq: 'daily' },
+  { path: '/game-finder', priority: 0.95, freq: 'daily' },
   { path: '/tier-list', priority: 0.95, freq: 'daily' },
   { path: '/calendar', priority: 0.9, freq: 'daily' },
-  { path: '/compare', priority: 0.85, freq: 'weekly' },
+  { path: '/compare', priority: 0.9, freq: 'weekly' },
+  { path: '/games-like', priority: 0.9, freq: 'weekly' },
+  { path: '/system-requirements', priority: 0.9, freq: 'weekly' },
+  { path: '/developer', priority: 0.85, freq: 'weekly' },
+  { path: '/publisher', priority: 0.85, freq: 'weekly' },
   { path: '/my-top-5', priority: 0.85, freq: 'weekly' },
   { path: '/watchlist', priority: 0.8, freq: 'weekly' },
   { path: '/bracket', priority: 0.8, freq: 'weekly' },
@@ -86,94 +94,231 @@ const pageUrls = [];
 corePages.forEach(p => pageUrls.push(urlEntry(`${SITE_URL}${p.path}`, p.priority, p.freq)));
 blogArticles.forEach(slug => pageUrls.push(urlEntry(`${SITE_URL}/blog/${slug}`, 0.85, 'weekly')));
 
-const sitemapPagesXml = `<?xml version="1.0" encoding="UTF-8"?>
+writeSitemapFile('sitemap-pages.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pageUrls.join('\n')}
-</urlset>`;
-writeSitemapFile('sitemap-pages.xml', sitemapPagesXml);
+</urlset>`);
+totalSitemapUrls += pageUrls.length;
 
-// 2. Games Sitemap
-const gameUrls = [];
-gamesData.forEach((game, index) => {
-  const priority = index < 20 ? 0.9 : (index < 60 ? 0.85 : 0.8);
-  gameUrls.push(urlEntry(`${SITE_URL}/game/${game.slug}`, priority, 'daily'));
+// 2. Games Sitemap (250 URLs)
+const gameUrls = gamesData.map((game, index) => {
+  const priority = index < 25 ? 0.95 : (index < 75 ? 0.85 : 0.8);
+  return urlEntry(`${SITE_URL}/game/${game.slug}`, priority, 'daily');
 });
-const sitemapGamesXml = `<?xml version="1.0" encoding="UTF-8"?>
+writeSitemapFile('sitemap-games.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${gameUrls.join('\n')}
-</urlset>`;
-writeSitemapFile('sitemap-games.xml', sitemapGamesXml);
+</urlset>`);
+totalSitemapUrls += gameUrls.length;
 
-// 3. Genres Sitemap
-const genreSet = new Set();
-gamesData.forEach(g => g.genres?.forEach(gen => genreSet.add(gen)));
-const genreUrls = [];
-genreSet.forEach(genre => {
-  genreUrls.push(urlEntry(`${SITE_URL}/genre/${slugify(genre)}`, 0.85, 'daily'));
+// 3. System Requirements Sitemap (250 URLs)
+const reqUrls = gamesData.map(game => urlEntry(`${SITE_URL}/system-requirements/${game.slug}`, 0.85, 'weekly'));
+writeSitemapFile('sitemap-requirements.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${reqUrls.join('\n')}
+</urlset>`);
+totalSitemapUrls += reqUrls.length;
+
+// 4. 'Games Like' Sitemap (250 URLs)
+const similarUrls = gamesData.map(game => urlEntry(`${SITE_URL}/games-like/${game.slug}`, 0.85, 'weekly'));
+writeSitemapFile('sitemap-similar.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${similarUrls.join('\n')}
+</urlset>`);
+totalSitemapUrls += similarUrls.length;
+
+// 5. Head-to-Head Comparisons Sitemap (500+ URLs)
+const comparisonSeen = new Set();
+const comparisonUrls = [];
+
+const priorityPairs = [
+  ['grand-theft-auto-vi', 'crimson-desert'],
+  ['hollow-knight-silksong', 'hades-ii'],
+  ['death-stranding-2-on-the-beach', 'grand-theft-auto-vi'],
+  ['marvels-wolverine', 'marvels-blade'],
+  ['metroid-prime-4-beyond', 'doom-the-dark-ages'],
+  ['resident-evil-9', 'silent-hill-f'],
+  ['monster-hunter-wilds', 'crimson-desert'],
+  ['fable', 'avowed'],
+  ['judas', 'bioshock-4'],
+  ['phantom-blade-zero', 'black-myth-wukong-dlc'],
+  ['control-2', 'alan-wake-2-dlc'],
+  ['prince-of-persia-the-sands-of-time-remake', 'assassins-creed-shadows'],
+  ['bruisers-2d-boxing', 'undisputed'],
+  ['megastore-simulator', 'supermarket-together']
+];
+
+priorityPairs.forEach(([s1, s2]) => {
+  const key = [s1, s2].sort().join('-vs-');
+  if (!comparisonSeen.has(key)) {
+    comparisonSeen.add(key);
+    comparisonUrls.push(urlEntry(`${SITE_URL}/compare/${s1}-vs-${s2}`, 0.9, 'weekly'));
+  }
 });
-const sitemapGenresXml = `<?xml version="1.0" encoding="UTF-8"?>
+
+const gamesByGenre = {};
+gamesData.forEach(g => {
+  g.genres?.forEach(gen => {
+    if (!gamesByGenre[gen]) gamesByGenre[gen] = [];
+    gamesByGenre[gen].push(g);
+  });
+});
+
+Object.values(gamesByGenre).forEach(gList => {
+  const sorted = [...gList].sort((a, b) => (b.hype || 0) - (a.hype || 0)).slice(0, 10);
+  for (let i = 0; i < sorted.length; i++) {
+    for (let j = i + 1; j < sorted.length; j++) {
+      const s1 = sorted[i].slug;
+      const s2 = sorted[j].slug;
+      const key = [s1, s2].sort().join('-vs-');
+      if (!comparisonSeen.has(key) && comparisonUrls.length < 550) {
+        comparisonSeen.add(key);
+        comparisonUrls.push(urlEntry(`${SITE_URL}/compare/${s1}-vs-${s2}`, 0.8, 'weekly'));
+      }
+    }
+  }
+});
+
+const topHypeGames = [...gamesData].sort((a, b) => (b.hype || 0) - (a.hype || 0)).slice(0, 35);
+for (let i = 0; i < topHypeGames.length; i++) {
+  for (let j = i + 1; j < Math.min(topHypeGames.length, i + 8); j++) {
+    const s1 = topHypeGames[i].slug;
+    const s2 = topHypeGames[j].slug;
+    const key = [s1, s2].sort().join('-vs-');
+    if (!comparisonSeen.has(key) && comparisonUrls.length < 600) {
+      comparisonSeen.add(key);
+      comparisonUrls.push(urlEntry(`${SITE_URL}/compare/${s1}-vs-${s2}`, 0.8, 'weekly'));
+    }
+  }
+}
+
+writeSitemapFile('sitemap-comparisons.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${comparisonUrls.join('\n')}
+</urlset>`);
+totalSitemapUrls += comparisonUrls.length;
+
+// 6. Platform x Genre Matrix Sitemap (300+ URLs)
+const priorityPlatforms = ['pc', 'ps5', 'xbox', 'switch', 'mac'];
+const allGenres = Array.from(new Set(gamesData.flatMap(g => g.genres || [])));
+const matrixUrls = [];
+
+priorityPlatforms.forEach(pSlug => {
+  allGenres.forEach(genre => {
+    const gSlug = slugify(genre);
+    const count = gamesData.filter(g => {
+      const matchesP = g.platforms?.some(p => {
+        const s = slugify(p);
+        return s === pSlug || (pSlug === 'ps5' && p.includes('PlayStation 5')) || (pSlug === 'xbox' && p.includes('Xbox Series')) || (pSlug === 'switch' && p.includes('Switch'));
+      });
+      const matchesG = g.genres?.some(gen => slugify(gen) === gSlug);
+      return matchesP && matchesG;
+    }).length;
+
+    if (count > 0) {
+      matrixUrls.push(urlEntry(`${SITE_URL}/games/${pSlug}/${gSlug}`, 0.85, 'weekly'));
+    }
+  });
+});
+
+writeSitemapFile('sitemap-matrix.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${matrixUrls.join('\n')}
+</urlset>`);
+totalSitemapUrls += matrixUrls.length;
+
+// 7. Developer & Publisher Company Sitemap (60+ URLs)
+const devMap = new Set();
+const pubMap = new Set();
+const companyUrls = [];
+
+gamesData.forEach(g => {
+  g.developers?.forEach(d => {
+    if (d && d !== 'TBA') devMap.add(slugify(d));
+  });
+  g.publishers?.forEach(p => {
+    if (p && p !== 'TBA') pubMap.add(slugify(p));
+  });
+});
+
+devMap.forEach(d => companyUrls.push(urlEntry(`${SITE_URL}/developer/${d}`, 0.8, 'weekly')));
+pubMap.forEach(p => companyUrls.push(urlEntry(`${SITE_URL}/publisher/${p}`, 0.8, 'weekly')));
+
+writeSitemapFile('sitemap-companies.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${companyUrls.join('\n')}
+</urlset>`);
+totalSitemapUrls += companyUrls.length;
+
+// 8. Genres Sitemap (24 URLs)
+const genreUrls = allGenres.map(g => urlEntry(`${SITE_URL}/genre/${slugify(g)}`, 0.85, 'weekly'));
+writeSitemapFile('sitemap-genres.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${genreUrls.join('\n')}
-</urlset>`;
-writeSitemapFile('sitemap-genres.xml', sitemapGenresXml);
+</urlset>`);
+totalSitemapUrls += genreUrls.length;
 
-// 4. Platforms Sitemap
-const platformSet = new Set();
-gamesData.forEach(g => g.platforms?.forEach(p => platformSet.add(p)));
-const platformUrls = [];
-platformSet.forEach(platform => {
-  const priority = platform.toLowerCase() === 'mac' ? 0.95 : 0.85;
-  platformUrls.push(urlEntry(`${SITE_URL}/platform/${slugify(platform)}`, priority, 'daily'));
-});
-const sitemapPlatformsXml = `<?xml version="1.0" encoding="UTF-8"?>
+// 9. Platforms Sitemap (16 URLs)
+const allPlatforms = Array.from(new Set(gamesData.flatMap(g => g.platforms || [])));
+const platformUrls = allPlatforms.map(p => urlEntry(`${SITE_URL}/platform/${slugify(p)}`, 0.85, 'weekly'));
+writeSitemapFile('sitemap-platforms.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${platformUrls.join('\n')}
-</urlset>`;
-writeSitemapFile('sitemap-platforms.xml', sitemapPlatformsXml);
+</urlset>`);
+totalSitemapUrls += platformUrls.length;
 
-// 5. Calendar Months Sitemap
-const calendarUrls = [];
-for (let i = 1; i <= 12; i++) {
-  const month = i.toString().padStart(2, '0');
-  calendarUrls.push(urlEntry(`${SITE_URL}/calendar/2026-${month}`, 0.8, 'weekly'));
-}
-const sitemapCalendarXml = `<?xml version="1.0" encoding="UTF-8"?>
+// 10. Calendar Sitemap (16 URLs)
+const calendarMonths = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+const calendarUrls = [
+  ...calendarMonths.map(m => urlEntry(`${SITE_URL}/calendar/2026-${m}`, 0.85, 'weekly')),
+  urlEntry(`${SITE_URL}/calendar/q1-2026`, 0.85, 'weekly'),
+  urlEntry(`${SITE_URL}/calendar/q2-2026`, 0.85, 'weekly'),
+  urlEntry(`${SITE_URL}/calendar/q3-2026`, 0.85, 'weekly'),
+  urlEntry(`${SITE_URL}/calendar/q4-2026`, 0.85, 'weekly')
+];
+writeSitemapFile('sitemap-calendar.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${calendarUrls.join('\n')}
-</urlset>`;
-writeSitemapFile('sitemap-calendar.xml', sitemapCalendarXml);
+</urlset>`);
+totalSitemapUrls += calendarUrls.length;
 
-// 6. Master Sitemap Index (sitemap.xml)
-const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
+// 11. Subscription Services Sitemap (3 URLs)
+const serviceUrls = [
+  urlEntry(`${SITE_URL}/service/xbox-game-pass`, 0.9, 'weekly'),
+  urlEntry(`${SITE_URL}/service/playstation-plus`, 0.85, 'weekly'),
+  urlEntry(`${SITE_URL}/service/geforce-now`, 0.85, 'weekly')
+];
+writeSitemapFile('sitemap-services.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${serviceUrls.join('\n')}
+</urlset>`);
+totalSitemapUrls += serviceUrls.length;
+
+// Master Sitemap Index
+const subSitemaps = [
+  'sitemap-pages.xml',
+  'sitemap-games.xml',
+  'sitemap-requirements.xml',
+  'sitemap-similar.xml',
+  'sitemap-comparisons.xml',
+  'sitemap-matrix.xml',
+  'sitemap-companies.xml',
+  'sitemap-genres.xml',
+  'sitemap-platforms.xml',
+  'sitemap-calendar.xml',
+  'sitemap-services.xml'
+];
+
+const masterIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>${SITE_URL}/sitemap-pages.xml</loc>
+${subSitemaps.map(s => `  <sitemap>
+    <loc>${SITE_URL}/${s}</loc>
     <lastmod>${TODAY}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>${SITE_URL}/sitemap-games.xml</loc>
-    <lastmod>${TODAY}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>${SITE_URL}/sitemap-platforms.xml</loc>
-    <lastmod>${TODAY}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>${SITE_URL}/sitemap-genres.xml</loc>
-    <lastmod>${TODAY}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>${SITE_URL}/sitemap-calendar.xml</loc>
-    <lastmod>${TODAY}</lastmod>
-  </sitemap>
+  </sitemap>`).join('\n')}
 </sitemapindex>`;
-writeSitemapFile('sitemap.xml', sitemapIndexXml);
 
-const totalUrls = pageUrls.length + gameUrls.length + genreUrls.length + platformUrls.length + calendarUrls.length;
-console.log('✅ Multi-Sitemap architecture generated successfully!');
-console.log(`📄 Total Indexed URLs: ${totalUrls}`);
-console.log(`  - Core & Blog Pages: ${pageUrls.length}`);
-console.log(`  - Game Detail Pages: ${gameUrls.length}`);
-console.log(`  - Genre Pages: ${genreUrls.length}`);
-console.log(`  - Platform Hubs: ${platformUrls.length}`);
-console.log(`  - Calendar Month Hubs: ${calendarUrls.length}`);
+writeSitemapFile('sitemap.xml', masterIndexXml);
+
+console.log(`✅ Multi-Sitemap architecture successfully generated!`);
+console.log(`📊 Total sub-sitemaps: ${subSitemaps.length}`);
+console.log(`🔗 Total URLs across all sitemaps: ${totalSitemapUrls}`);

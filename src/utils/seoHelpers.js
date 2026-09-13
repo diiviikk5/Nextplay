@@ -19,6 +19,16 @@ export const slugify = (text) => {
 };
 
 /**
+ * Convert slug back to human readable title case string
+ */
+export const unslugify = (text) => {
+    if (!text) return '';
+    return text
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, l => l.toUpperCase());
+};
+
+/**
  * Generate canonical URL
  */
 export const getCanonicalUrl = (path = '') => {

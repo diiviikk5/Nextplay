@@ -1,0 +1,915 @@
+{
+  "fetchedAt": "2026-09-13T09:28:28Z",
+  "trendingTopics": [],
+  "relatedQueries": {
+    "GTA 6": [
+      {
+        "query": "gta 6 release",
+        "value": 100
+      },
+      {
+        "query": "gta 6 release date",
+        "value": 95
+      },
+      {
+        "query": "pre order gta 6",
+        "value": 67
+      },
+      {
+        "query": "gta 6 price",
+        "value": 25
+      },
+      {
+        "query": "gta 6 ps5",
+        "value": 25
+      },
+      {
+        "query": "ps5",
+        "value": 24
+      },
+      {
+        "query": "gta 6 xbox",
+        "value": 20
+      },
+      {
+        "query": "gta 6 leaks",
+        "value": 20
+      },
+      {
+        "query": "gta 6 august 27 presentation",
+        "value": 18
+      },
+      {
+        "query": "gta 6 pc",
+        "value": 15
+      },
+      {
+        "query": "rockstar gta 6",
+        "value": 14
+      },
+      {
+        "query": "gta 6 map",
+        "value": 14
+      },
+      {
+        "query": "gta 6 leak",
+        "value": 12
+      },
+      {
+        "query": "preorder gta 6",
+        "value": 11
+      },
+      {
+        "query": "gta 6 online",
+        "value": 8
+      },
+      {
+        "query": "gta 6 ultimate edition",
+        "value": 8
+      },
+      {
+        "query": "gta 6 lucia",
+        "value": 8
+      },
+      {
+        "query": "gta 6 controller",
+        "value": 8
+      },
+      {
+        "query": "gta 6 gameplay",
+        "value": 8
+      },
+      {
+        "query": "reddit gta 6",
+        "value": 8
+      },
+      {
+        "query": "gta 6 reddit",
+        "value": 8
+      },
+      {
+        "query": "is gta 6 out",
+        "value": 7
+      },
+      {
+        "query": "rockstar games gta 6",
+        "value": 6
+      },
+      {
+        "query": "gta 6 pc release date",
+        "value": 5
+      },
+      {
+        "query": "pre order gta 6 price",
+        "value": 5
+      }
+    ],
+    "Crimson Desert": [
+      {
+        "query": "crimson desert xbox",
+        "value": 100
+      },
+      {
+        "query": "crimson desert mods",
+        "value": 96
+      },
+      {
+        "query": "crimson desert weapons",
+        "value": 81
+      },
+      {
+        "query": "black desert",
+        "value": 59
+      },
+      {
+        "query": "crimson desert ps5",
+        "value": 58
+      },
+      {
+        "query": "crimson desert multiplayer",
+        "value": 44
+      },
+      {
+        "query": "crimson desert mod",
+        "value": 38
+      },
+      {
+        "query": "crimson desert walkthrough",
+        "value": 34
+      },
+      {
+        "query": "crimson desert map",
+        "value": 34
+      },
+      {
+        "query": "crimson desert release date",
+        "value": 34
+      },
+      {
+        "query": "duskwood puzzle crimson desert",
+        "value": 34
+      },
+      {
+        "query": "crimson desert dlc",
+        "value": 30
+      },
+      {
+        "query": "crimson desert dragon stone chamber",
+        "value": 29
+      },
+      {
+        "query": "crimson desert update",
+        "value": 27
+      },
+      {
+        "query": "crimson desert mounts",
+        "value": 25
+      },
+      {
+        "query": "crimson desert best weapons",
+        "value": 23
+      },
+      {
+        "query": "crimson desert reddit",
+        "value": 23
+      },
+      {
+        "query": "crimson desert enhanced",
+        "value": 22
+      },
+      {
+        "query": "crimson desert new game plus",
+        "value": 20
+      },
+      {
+        "query": "sanctum of absolution crimson desert",
+        "value": 20
+      },
+      {
+        "query": "crimson desert gameplay",
+        "value": 20
+      },
+      {
+        "query": "crimson desert review",
+        "value": 18
+      },
+      {
+        "query": "crimson desert pets",
+        "value": 18
+      },
+      {
+        "query": "crimson desert frost cursed armor",
+        "value": 16
+      },
+      {
+        "query": "crimson desert nexus mods",
+        "value": 16
+      }
+    ],
+    "Hollow Knight Silksong": [
+      {
+        "query": "silksong bosses",
+        "value": 100
+      },
+      {
+        "query": "hollow knight silksong bosses",
+        "value": 91
+      },
+      {
+        "query": "hollow knight bosses",
+        "value": 89
+      },
+      {
+        "query": "silksong map",
+        "value": 52
+      },
+      {
+        "query": "hollow knight and silksong",
+        "value": 51
+      },
+      {
+        "query": "hollow knight silksong release date",
+        "value": 37
+      },
+      {
+        "query": "hollow knight vs silksong",
+        "value": 34
+      },
+      {
+        "query": "hollow knight release date",
+        "value": 33
+      },
+      {
+        "query": "silksong dlc",
+        "value": 29
+      },
+      {
+        "query": "silksong sea of sorrow",
+        "value": 20
+      },
+      {
+        "query": "hornet hollow knight",
+        "value": 17
+      },
+      {
+        "query": "hollow knight silksong sea of sorrow",
+        "value": 15
+      },
+      {
+        "query": "undertale",
+        "value": 10
+      }
+    ],
+    "Xbox Game Pass": [
+      {
+        "query": "xbox game pass games",
+        "value": 100
+      },
+      {
+        "query": "game pass games",
+        "value": 93
+      },
+      {
+        "query": "xbox ultimate game pass",
+        "value": 44
+      },
+      {
+        "query": "game pass ultimate",
+        "value": 44
+      },
+      {
+        "query": "games on xbox game pass",
+        "value": 42
+      },
+      {
+        "query": "xbox game pass pc",
+        "value": 37
+      },
+      {
+        "query": "pc game pass",
+        "value": 37
+      },
+      {
+        "query": "xbox game pass free",
+        "value": 23
+      },
+      {
+        "query": "microsoft xbox",
+        "value": 14
+      },
+      {
+        "query": "microsoft xbox game pass",
+        "value": 14
+      },
+      {
+        "query": "microsoft",
+        "value": 14
+      },
+      {
+        "query": "xbox gamepass",
+        "value": 14
+      },
+      {
+        "query": "what is xbox game pass",
+        "value": 14
+      },
+      {
+        "query": "gamepass",
+        "value": 14
+      },
+      {
+        "query": "game pass essential",
+        "value": 14
+      },
+      {
+        "query": "xbox game pass premium",
+        "value": 13
+      },
+      {
+        "query": "xbox game pass price",
+        "value": 12
+      },
+      {
+        "query": "xbox game pass august 2026",
+        "value": 10
+      },
+      {
+        "query": "xbox game pass code",
+        "value": 10
+      },
+      {
+        "query": "xbox cloud gaming",
+        "value": 8
+      },
+      {
+        "query": "xbox game pass september 2026",
+        "value": 5
+      },
+      {
+        "query": "upcoming xbox game pass titles",
+        "value": 3
+      },
+      {
+        "query": "xbox game pass august update",
+        "value": 2
+      },
+      {
+        "query": "xbox game pass day one launch",
+        "value": 2
+      },
+      {
+        "query": "xbox game pass surprise drop",
+        "value": 1
+      }
+    ],
+    "upcoming games 2026": [
+      {
+        "query": "upcoming ps5 games",
+        "value": 100
+      }
+    ],
+    "Death Stranding 2": [
+      {
+        "query": "death stranding 2 map",
+        "value": 100
+      },
+      {
+        "query": "metal gear",
+        "value": 95
+      },
+      {
+        "query": "death stranding 2 mods",
+        "value": 89
+      },
+      {
+        "query": "death stranding 2 walkthrough",
+        "value": 73
+      },
+      {
+        "query": "death stranding metacritic",
+        "value": 46
+      },
+      {
+        "query": "death stranding 2 gameplay",
+        "value": 37
+      },
+      {
+        "query": "death stranding ps4",
+        "value": 36
+      },
+      {
+        "query": "metal gear solid 5",
+        "value": 35
+      },
+      {
+        "query": "wolverine ps5",
+        "value": 3
+      }
+    ],
+    "Metroid Prime 4": [
+      {
+        "query": "metroid dread",
+        "value": 100
+      },
+      {
+        "query": "when does metroid prime 4 take place",
+        "value": 1
+      }
+    ]
+  },
+  "risingQueries": {
+    "GTA 6": [
+      {
+        "query": "gta 6 august 27 presentation",
+        "value": 297950
+      },
+      {
+        "query": "gta 6 extended look",
+        "value": 82650
+      },
+      {
+        "query": "cyberleek gta 6",
+        "value": 67850
+      },
+      {
+        "query": "cyberleek",
+        "value": 67500
+      },
+      {
+        "query": "gta 6 graphics playstation commercial",
+        "value": 18450
+      },
+      {
+        "query": "gta 6 dual protagonists jason lucia",
+        "value": 18000
+      },
+      {
+        "query": "strauss zelnick gta 6 interview",
+        "value": 15200
+      },
+      {
+        "query": "rockstar games reveals gta 6 cover art and preorder date",
+        "value": 15200
+      },
+      {
+        "query": "gta 6 ultimate edition price",
+        "value": 14700
+      },
+      {
+        "query": "gta 6 leek",
+        "value": 13300
+      },
+      {
+        "query": "gta 6 ultimate edition",
+        "value": 13250
+      },
+      {
+        "query": "cyber leak gta 6",
+        "value": 11100
+      },
+      {
+        "query": "gta 6 new zealand launch time",
+        "value": 9600
+      },
+      {
+        "query": "gta 6 extended look premiere",
+        "value": 8050
+      },
+      {
+        "query": "gta 6 developer legal dispute",
+        "value": 6800
+      },
+      {
+        "query": "gta 6 ai open world",
+        "value": 4400
+      },
+      {
+        "query": "gta 6 netflix",
+        "value": 2650
+      },
+      {
+        "query": "gta 6 preorder sales",
+        "value": 2250
+      },
+      {
+        "query": "gta 6 cover art",
+        "value": 2050
+      },
+      {
+        "query": "gta 6 pre order sales",
+        "value": 1800
+      },
+      {
+        "query": "gta 6 physical copy",
+        "value": 1600
+      },
+      {
+        "query": "gta 6 new screenshots",
+        "value": 1600
+      },
+      {
+        "query": "is gta 6 going to have online",
+        "value": 1200
+      },
+      {
+        "query": "gta 6 leaks reddit",
+        "value": 1200
+      },
+      {
+        "query": "gta 6 ps5 controller",
+        "value": 1000
+      }
+    ],
+    "Crimson Desert": [
+      {
+        "query": "crimson desert enhanced",
+        "value": 3750
+      },
+      {
+        "query": "crimson desert dlc release date",
+        "value": 750
+      },
+      {
+        "query": "crimson desert wyvern egg",
+        "value": 450
+      },
+      {
+        "query": "crimson desert new game plus",
+        "value": 300
+      },
+      {
+        "query": "crimson desert dlc",
+        "value": 300
+      },
+      {
+        "query": "does crimson desert have new game plus",
+        "value": 250
+      },
+      {
+        "query": "crimson desert mod",
+        "value": 100
+      },
+      {
+        "query": "crimson desert pets",
+        "value": 70
+      },
+      {
+        "query": "crimson desert update",
+        "value": 50
+      }
+    ],
+    "Hollow Knight Silksong": [
+      {
+        "query": "hollow knight vs silksong",
+        "value": 50
+      }
+    ],
+    "Xbox Game Pass": [
+      {
+        "query": "xbox game pass august 2026",
+        "value": 215550
+      },
+      {
+        "query": "xbox game pass day one launch",
+        "value": 41300
+      },
+      {
+        "query": "xbox game pass surprise drop",
+        "value": 20050
+      },
+      {
+        "query": "sandustry xbox game pass",
+        "value": 20000
+      },
+      {
+        "query": "xbox game pass announcements gamescom",
+        "value": 13600
+      },
+      {
+        "query": "upcoming xbox game pass releases september",
+        "value": 9500
+      },
+      {
+        "query": "xbox game pass september 2026",
+        "value": 3800
+      },
+      {
+        "query": "xbox game pass august update",
+        "value": 2300
+      },
+      {
+        "query": "upcoming xbox game pass titles",
+        "value": 1450
+      }
+    ],
+    "upcoming games 2026": [],
+    "Death Stranding 2": [
+      {
+        "query": "metal gear solid 5",
+        "value": 182550
+      },
+      {
+        "query": "wolverine ps5",
+        "value": 14000
+      },
+      {
+        "query": "death stranding 2 map",
+        "value": 400
+      },
+      {
+        "query": "death stranding metacritic",
+        "value": 90
+      },
+      {
+        "query": "death stranding ps4",
+        "value": 80
+      },
+      {
+        "query": "metal gear",
+        "value": 60
+      }
+    ],
+    "Metroid Prime 4": [
+      {
+        "query": "when does metroid prime 4 take place",
+        "value": 3950
+      },
+      {
+        "query": "metroid dread",
+        "value": 40
+      }
+    ]
+  },
+  "suggestions": {
+    "GTA 6": [
+      {
+        "mid": "/g/11tfwwbjts",
+        "title": "Grand Theft Auto VI",
+        "type": "Video game"
+      },
+      {
+        "mid": "/g/11jw5dszwc",
+        "title": "Gta 6",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11j5lzvhlt",
+        "title": "Gta 6",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11ywvwflrc",
+        "title": "GameAssist: Map for GTA 6 - Version 10 - Android",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11z6qy9dlp",
+        "title": "GTA 6 Fan Wallpapers & Quiz - Version 4 - Android",
+        "type": "Topic"
+      }
+    ],
+    "Crimson Desert": [
+      {
+        "mid": "/g/11j4dtvsml",
+        "title": "Crimson Desert",
+        "type": "Video game"
+      },
+      {
+        "mid": "/g/11z6qpfg7g",
+        "title": "Crimson Desert Map",
+        "type": "Software"
+      },
+      {
+        "mid": "/g/11n9xkrcqf",
+        "title": "Crimson Desert",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11zb7d32rw",
+        "title": "Crimson Desert",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11wx5s7pf6",
+        "title": "Kliff",
+        "type": "Topic"
+      }
+    ],
+    "Hollow Knight Silksong": [
+      {
+        "mid": "/g/11h06md19y",
+        "title": "Hollow Knight: Silksong",
+        "type": "Video game"
+      },
+      {
+        "mid": "/g/11xykn40hh",
+        "title": "Hollow Knight: Silksong",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11yk908zl2",
+        "title": "Hollow Knight: Silksong",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11mrwzxlhx",
+        "title": "Hollow Knight: Silksong",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11j43dqpgk",
+        "title": "Hollow Knight Silksong",
+        "type": "Topic"
+      }
+    ],
+    "Xbox Game Pass": [
+      {
+        "mid": "/g/11dxbqv_2s",
+        "title": "Xbox Game Pass",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11wtw47j_t",
+        "title": "Xbox Game Pass Ultimate",
+        "type": "Product line"
+      },
+      {
+        "mid": "/g/11z9d6vq5j",
+        "title": "Microsoft Xbox Game Pass Core Membership",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11nqcb2lvl",
+        "title": "Xbox Game Pass Core Months CD Key",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11z9djtb4g",
+        "title": "Microsoft Xbox Live",
+        "type": "Product line"
+      }
+    ],
+    "upcoming games 2026": [
+      {
+        "mid": "/g/11g0nn1l7m",
+        "title": "Sabrina Razack",
+        "type": "Writer"
+      },
+      {
+        "mid": "/g/11vbwb4w_l",
+        "title": "Andrew Najberg",
+        "type": "Author"
+      },
+      {
+        "mid": "/g/11y05n3729",
+        "title": "Match Annual 2027",
+        "type": "Book by Match!"
+      },
+      {
+        "mid": "/g/11j9cj6kry",
+        "title": "The Hunger Games: The Ballad of Songbirds & Snakes",
+        "type": "2023 film"
+      },
+      {
+        "mid": "/g/11z6126rll",
+        "title": "THE 2026 VIDEO GAMES YEARBOOK",
+        "type": "Topic"
+      }
+    ],
+    "Death Stranding 2": [
+      {
+        "mid": "/g/11tn148lqg",
+        "title": "Death Stranding 2: On the Beach",
+        "type": "Video game"
+      },
+      {
+        "mid": "/g/11x5g_f8wx",
+        "title": "Death Stranding 2",
+        "type": "Console game"
+      },
+      {
+        "mid": "/g/11zcyc17fg",
+        "title": "Death Stranding 2 On The Beach - Collector\u2019s Edition",
+        "type": "Console game"
+      },
+      {
+        "mid": "/g/11z9dpy1_2",
+        "title": "PS5 DualSense Wireless Controller Death Stranding 2",
+        "type": "Game controller"
+      },
+      {
+        "mid": "/g/11yqkrqv88",
+        "title": "DEATH STRANDING 2: ON THE BEACH",
+        "type": "Topic"
+      }
+    ],
+    "Resident Evil 9": [
+      {
+        "mid": "/g/11xf4xyf3y",
+        "title": "Resident Evil 9",
+        "type": "Survival game"
+      },
+      {
+        "mid": "/g/11nqn6q8zq",
+        "title": "Nintendo Switch 2 Resident Evil 9 Requiem Deluxe Edition",
+        "type": "Survival game"
+      },
+      {
+        "mid": "/g/11z2krzczx",
+        "title": "Resident Evil 9 Leon Kennedy",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11nqnt011n",
+        "title": "Capcom Resident Evil Requiem",
+        "type": "Survival game"
+      },
+      {
+        "mid": "/g/11nbm1y9kf",
+        "title": "RESIDENT EVIL 9",
+        "type": "Topic"
+      }
+    ],
+    "Metroid Prime 4": [
+      {
+        "mid": "/g/11d_191fgw",
+        "title": "Metroid Prime 4: Beyond",
+        "type": "Video game"
+      },
+      {
+        "mid": "/g/11h_5m0n4p",
+        "title": "Metroid Prime 4",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11fqkx0jq8",
+        "title": "Metroid Prime 4",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11h9bp4dqm",
+        "title": "Metroid Prime 4",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11hdx122br",
+        "title": "Metroid Prime 4",
+        "type": "Topic"
+      }
+    ],
+    "Monster Hunter Wilds": [
+      {
+        "mid": "/g/11y2clv4fv",
+        "title": "Monster Hunter Wilds",
+        "type": "Video game"
+      },
+      {
+        "mid": "/g/11x10tksm_",
+        "title": "Monster Hunter Wilds\u2122",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11mrwvj52k",
+        "title": "Monster Hunter Wilds",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11xssj04mb",
+        "title": "Monster Hunter Wilds USA Championship to be held in San Diego!",
+        "type": "Topic"
+      },
+      {
+        "mid": "/g/11xkvqphyl",
+        "title": "Monster Hunter Wilds Guides - Version 15 - Android",
+        "type": "Topic"
+      }
+    ],
+    "Wolverine game": [
+      {
+        "mid": "/g/11q49c6r6w",
+        "title": "Fortnite X Marvel: Zero War *No Fortnite Code*",
+        "type": "Book by Christos Gage"
+      },
+      {
+        "mid": "/g/11z0x76tfg",
+        "title": "Wolverine: Weapons of Armageddon",
+        "type": "Book by Chip Zdarsky"
+      },
+      {
+        "mid": "/g/11swy5vc_4",
+        "title": "Ultimate Spider-Man Omnibus Vol. 2 Bagley Carnage Cover [Dm Only]",
+        "type": "Novel by Brian Michael Bendis"
+      },
+      {
+        "mid": "/g/11jg1w6n0l",
+        "title": "The Uncanny X-Men Omnibus Vol. 3 [new Printing]",
+        "type": "Novel by Chris Claremont"
+      },
+      {
+        "mid": "/g/11qh5jkkwf",
+        "title": "Marvel's Wolverine",
+        "type": "Video game"
+      }
+    ]
+  }
+}

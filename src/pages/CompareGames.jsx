@@ -1,20 +1,34 @@
 import React, { useState, useMemo } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useParams } from 'react-router-dom';
 import gamesData from '../data/games.json';
 import SEO from '../components/SEO';
 import { useWatchlist } from '../hooks/useWatchlist';
 import { Scale, Plus, X, Share2, Twitter, Link2, Search, Check, Clock, Calendar, Gamepad2 } from 'lucide-react';
 
 const CompareGames = () => {
+    const { comparison } = useParams();
     const [searchParams, setSearchParams] = useSearchParams();
     const { isWatched, toggleWatch } = useWatchlist();
 
-    // Get game slugs from URL
-    const initialSlugs = searchParams.get('games')?.split(',').filter(Boolean) || [];
+    // Get game slugs from URL param /compare/:slugA-vs-:slugB or search param ?games=...
+    const initialSlugs = useMemo(() => {
+        if (comparison) {
+            return comparison.split('-vs-').filter(Boolean);
+        }
+        return searchParams.get('games')?.split(',').filter(Boolean) || [];
+    }, [comparison, searchParams]);
+
     const [selectedSlugs, setSelectedSlugs] = useState(initialSlugs);
     const [showPicker, setShowPicker] = useState(false);
     const [search, setSearch] = useState('');
     const [copied, setCopied] = useState(false);
+
+    // Sync if route comparison param changes
+    React.useEffect(() => {
+        if (comparison) {
+            setSelectedSlugs(comparison.split('-vs-').filter(Boolean));
+        }
+    }, [comparison]);
 
     const selectedGames = useMemo(() => {
         return selectedSlugs.map(slug => gamesData.find(g => g.slug === slug)).filter(Boolean);
@@ -44,7 +58,9 @@ const CompareGames = () => {
         updateURL(newSlugs);
     };
 
-    const shareUrl = `https://nextplaygame.me/compare?games=${selectedSlugs.join(',')}`;
+    const shareUrl = selectedSlugs.length > 1 
+        ? `https://nextplaygame.me/compare/${selectedSlugs.join('-vs-')}` 
+        : 'https://nextplaygame.me/compare';
     const shareText = selectedGames.length > 0
         ? `Comparing ${selectedGames.map(g => g.title).join(' vs ')} - Which 2026 game are you most hyped for? 🎮`
         : 'Compare 2026 video games side-by-side!';

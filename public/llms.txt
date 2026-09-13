@@ -4,11 +4,17 @@
 
 ## Primary Resources
 - [Upcoming 2026 Games Calendar](https://nextplaygame.me/calendar): Complete month-by-month release calendar for all 2026 video games.
+- [Can I Run It? 2026 PC Specs Checker](https://nextplaygame.me/can-i-run-it): Interactive hardware compatibility tool for GPU, CPU, and RAM.
+- [PC System Requirements Directory](https://nextplaygame.me/system-requirements): Minimum, Recommended, and Ultra specs for every 2026 PC game.
+- [2026 Gaming Hype Battles](https://nextplaygame.me/battles): Head-to-head community voting showdowns for upcoming releases.
+- [2026 Game Finder & Quiz](https://nextplaygame.me/game-finder): 3-step recommendation tool based on platform, genre, and playstyle.
+- [Compare 2026 Games](https://nextplaygame.me/compare): Side-by-side release date and spec comparison tool.
+- [Similar Games Directory](https://nextplaygame.me/games-like): Algorithmic alternatives for every major 2026 release.
 - [2026 Games Tier List](https://nextplaygame.me/tier-list): Interactive community tier list ranking the most anticipated games of 2026.
+- [Upcoming Xbox Game Pass Games (2026)](https://nextplaygame.me/service/xbox-game-pass): Day One Game Pass release schedule.
 - [Upcoming Mac Games (2026)](https://nextplaygame.me/platform/mac): Dedicated hub for Apple Silicon and macOS video game releases in 2026.
 - [Upcoming PS5 Games (2026)](https://nextplaygame.me/platform/playstation-5): Confirmed PlayStation 5 titles releasing in 2026.
 - [Upcoming PC Games (2026)](https://nextplaygame.me/platform/pc): Windows and Steam video game releases scheduled for 2026.
-- [Compare 2026 Games](https://nextplaygame.me/compare): Side-by-side release date and spec comparison tool.
 - [Full 2026 Games Database (llms-full.txt)](https://nextplaygame.me/llms-full.txt): Complete structured text export of all 250+ games.
 
 ## Most Anticipated 2026 Releases

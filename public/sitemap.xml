@@ -9,7 +9,23 @@
     <lastmod>2026-09-13</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://nextplaygame.me/sitemap-platforms.xml</loc>
+    <loc>https://nextplaygame.me/sitemap-requirements.xml</loc>
+    <lastmod>2026-09-13</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://nextplaygame.me/sitemap-similar.xml</loc>
+    <lastmod>2026-09-13</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://nextplaygame.me/sitemap-comparisons.xml</loc>
+    <lastmod>2026-09-13</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://nextplaygame.me/sitemap-matrix.xml</loc>
+    <lastmod>2026-09-13</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://nextplaygame.me/sitemap-companies.xml</loc>
     <lastmod>2026-09-13</lastmod>
   </sitemap>
   <sitemap>
@@ -17,7 +33,15 @@
     <lastmod>2026-09-13</lastmod>
   </sitemap>
   <sitemap>
+    <loc>https://nextplaygame.me/sitemap-platforms.xml</loc>
+    <lastmod>2026-09-13</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>https://nextplaygame.me/sitemap-calendar.xml</loc>
+    <lastmod>2026-09-13</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://nextplaygame.me/sitemap-services.xml</loc>
     <lastmod>2026-09-13</lastmod>
   </sitemap>
 </sitemapindex>

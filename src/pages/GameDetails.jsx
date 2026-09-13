@@ -25,7 +25,10 @@ import {
     ChevronRight,
     HelpCircle,
     ChevronDown,
-    ChevronUp
+    ChevronUp,
+    Cpu,
+    Sparkles,
+    Scale
 } from 'lucide-react';
 import { parseISO } from 'date-fns';
 import { formatReleaseDate, isPlaceholderDate } from '../utils/dateHelpers';
@@ -434,6 +437,27 @@ const GameDetails = () => {
                             >
                                 <Link2 size={20} />
                             </button>
+                            <a
+                                href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(game.title + ' Release (2026)')}&dates=${game.releaseDate?.replace(/-/g, '') || '20261231'}/${game.releaseDate?.replace(/-/g, '') || '20261231'}&details=${encodeURIComponent('Track release countdown on NextPlay: ' + gameData.shareUrl)}&location=Worldwide`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Add to Google Calendar"
+                                title="Add Release Date to Google Calendar"
+                                style={{
+                                    padding: '0.875rem',
+                                    background: 'rgba(34, 197, 94, 0.2)',
+                                    borderRadius: '8px',
+                                    color: '#22c55e',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    minWidth: '48px',
+                                    minHeight: '48px',
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                <Calendar size={20} />
+                            </a>
                             <Link
                                 to={`/compare?games=${game.slug}`}
                                 style={{
@@ -450,9 +474,67 @@ const GameDetails = () => {
                                 }}
                                 title="Compare with other games"
                             >
-                                ⚖️
+                                <Scale size={20} />
                             </Link>
                         </div>
+                    </div>
+
+                    {/* Quick Cross-Feature Navigation Pills */}
+                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '1.25rem' }}>
+                        <Link
+                            to={`/system-requirements/${game.slug}`}
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.4rem',
+                                padding: '0.45rem 0.85rem',
+                                background: 'rgba(255,255,255,0.06)',
+                                border: '1px solid rgba(255,255,255,0.12)',
+                                borderRadius: '20px',
+                                color: '#cbd5e1',
+                                fontSize: '0.8rem',
+                                textDecoration: 'none',
+                                fontWeight: 600
+                            }}
+                        >
+                            <Cpu size={14} color="#06b6d4" /> PC System Specs
+                        </Link>
+                        <Link
+                            to={`/games-like/${game.slug}`}
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.4rem',
+                                padding: '0.45rem 0.85rem',
+                                background: 'rgba(255,255,255,0.06)',
+                                border: '1px solid rgba(255,255,255,0.12)',
+                                borderRadius: '20px',
+                                color: '#cbd5e1',
+                                fontSize: '0.8rem',
+                                textDecoration: 'none',
+                                fontWeight: 600
+                            }}
+                        >
+                            <Sparkles size={14} color="#f97316" /> Games Like This
+                        </Link>
+                        <Link
+                            to={`/compare?games=${game.slug}`}
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.4rem',
+                                padding: '0.45rem 0.85rem',
+                                background: 'rgba(255,255,255,0.06)',
+                                border: '1px solid rgba(255,255,255,0.12)',
+                                borderRadius: '20px',
+                                color: '#cbd5e1',
+                                fontSize: '0.8rem',
+                                textDecoration: 'none',
+                                fontWeight: 600
+                            }}
+                        >
+                            <Scale size={14} color="#a855f7" /> Compare With...
+                        </Link>
                     </div>
                 </div>
             </header>

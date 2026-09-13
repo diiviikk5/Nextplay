@@ -23,6 +23,14 @@ import Disclaimer from './pages/Disclaimer';
 import { BlogLanding, BlogArticle } from './pages/Blog';
 // News Section
 import { NewsLanding, NewsArticle } from './pages/News';
+// New Programmatic & Viral Engines
+import GamesLikePage from './pages/GamesLikePage';
+import SystemRequirementsPage from './pages/SystemRequirementsPage';
+import PlatformGenreMatrixPage from './pages/PlatformGenreMatrixPage';
+import CompanyPage from './pages/CompanyPage';
+import CanIRunIt from './pages/CanIRunIt';
+import GameFinder from './pages/GameFinder';
+import HypeBattles from './pages/HypeBattles';
 import gamesData from './data/games.json';
 
 function App() {
@@ -90,6 +98,12 @@ function App() {
               <Link to="/compare" style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                 <Scale size={13} /> Compare
               </Link>
+              <Link to="/battles" style={{ fontSize: '0.8rem', fontWeight: 600, color: '#ef4444', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <Swords size={13} /> Battles
+              </Link>
+              <Link to="/can-i-run-it" style={{ fontSize: '0.8rem', fontWeight: 600, color: '#06b6d4', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <Monitor size={13} /> Can I Run It
+              </Link>
               <Link
                 to="/watchlist"
                 className="btn-primary"
@@ -144,17 +158,20 @@ function App() {
               <Link to="/news" onClick={() => setIsMenuOpen(false)} style={{ color: '#f97316', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(249, 115, 22, 0.1)', border: '1px solid rgba(249, 115, 22, 0.2)', minHeight: '48px' }}>
                 News
               </Link>
+              <Link to="/can-i-run-it" onClick={() => setIsMenuOpen(false)} style={{ color: '#06b6d4', textDecoration: 'none', fontSize: '1rem', fontWeight: 600, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(6, 182, 212, 0.1)', border: '1px solid rgba(6, 182, 212, 0.2)', minHeight: '48px' }}>
+                Can I Run It? (PC Specs)
+              </Link>
+              <Link to="/battles" onClick={() => setIsMenuOpen(false)} style={{ color: '#ef4444', textDecoration: 'none', fontSize: '1rem', fontWeight: 600, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.2)', minHeight: '48px' }}>
+                Hype Battles
+              </Link>
+              <Link to="/game-finder" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
+                Game Finder Quiz
+              </Link>
               <Link to="/tier-list" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
                 Tier List
               </Link>
               <Link to="/calendar" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
                 Calendar
-              </Link>
-              <Link to="/genre" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
-                Genres
-              </Link>
-              <Link to="/platform" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
-                Platforms
               </Link>
               <Link to="/compare" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
                 Compare Games
@@ -183,6 +200,19 @@ function App() {
             <Route path="/platform" element={<PlatformPage />} />
             <Route path="/platform/:slug" element={<PlatformPage />} />
             <Route path="/compare" element={<CompareGames />} />
+            <Route path="/compare/:comparison" element={<CompareGames />} />
+            <Route path="/games-like" element={<GamesLikePage />} />
+            <Route path="/games-like/:slug" element={<GamesLikePage />} />
+            <Route path="/system-requirements" element={<SystemRequirementsPage />} />
+            <Route path="/system-requirements/:slug" element={<SystemRequirementsPage />} />
+            <Route path="/games/:platform/:genre" element={<PlatformGenreMatrixPage />} />
+            <Route path="/developer" element={<CompanyPage type="developer" />} />
+            <Route path="/developer/:slug" element={<CompanyPage type="developer" />} />
+            <Route path="/publisher" element={<CompanyPage type="publisher" />} />
+            <Route path="/publisher/:slug" element={<CompanyPage type="publisher" />} />
+            <Route path="/can-i-run-it" element={<CanIRunIt />} />
+            <Route path="/game-finder" element={<GameFinder />} />
+            <Route path="/battles" element={<HypeBattles />} />
             <Route path="/bracket" element={<GameBracket />} />
             <Route path="/embed" element={<EmbedWidget />} />
             <Route path="/upcoming-:category-games-2026" element={<CategoryPage />} />
@@ -228,6 +258,10 @@ function App() {
                   <Link to="/tier-list" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Tier List Creator</Link>
                   <Link to="/calendar" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Release Calendar</Link>
                   <Link to="/compare" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Compare Games</Link>
+                  <Link to="/can-i-run-it" style={{ color: '#06b6d4', fontSize: '0.875rem', textDecoration: 'none' }}>Can I Run It (Specs)</Link>
+                  <Link to="/battles" style={{ color: '#ef4444', fontSize: '0.875rem', textDecoration: 'none' }}>Hype Battles</Link>
+                  <Link to="/game-finder" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Game Matchmaker</Link>
+                  <Link to="/games-like" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Similar Games</Link>
                   <Link to="/my-top-5" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>My Top 5</Link>
                 </div>
               </div>
@@ -237,6 +271,8 @@ function App() {
                   <Link to="/" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>All Games</Link>
                   <Link to="/genre" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>By Genre</Link>
                   <Link to="/platform" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>By Platform</Link>
+                  <Link to="/developer" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Game Studios</Link>
+                  <Link to="/system-requirements" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>PC Requirements</Link>
                   <Link to="/watchlist" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Watchlist</Link>
                 </div>
               </div>

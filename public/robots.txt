@@ -49,9 +49,15 @@ LLMs-Full-Txt: https://nextplaygame.me/llms-full.txt
 # Sitemaps
 Sitemap: https://nextplaygame.me/sitemap.xml
 Sitemap: https://nextplaygame.me/sitemap-games.xml
+Sitemap: https://nextplaygame.me/sitemap-requirements.xml
+Sitemap: https://nextplaygame.me/sitemap-similar.xml
+Sitemap: https://nextplaygame.me/sitemap-comparisons.xml
+Sitemap: https://nextplaygame.me/sitemap-matrix.xml
+Sitemap: https://nextplaygame.me/sitemap-companies.xml
 Sitemap: https://nextplaygame.me/sitemap-genres.xml
 Sitemap: https://nextplaygame.me/sitemap-platforms.xml
 Sitemap: https://nextplaygame.me/sitemap-calendar.xml
+Sitemap: https://nextplaygame.me/sitemap-services.xml
 Sitemap: https://nextplaygame.me/sitemap-pages.xml
 
 # Host directive
