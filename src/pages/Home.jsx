@@ -466,6 +466,13 @@ const Home = () => {
                     gridTemplateColumns: 'repeat(auto-fit, minmax(min(150px, 100%), 1fr))',
                     gap: '0.75rem'
                 }}>
+                    <Link to="/trends" className="glass glass-hover" style={{ padding: '1rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem', border: '1px solid rgba(245, 158, 11, 0.3)' }}>
+                        <Flame size={20} color="#f59e0b" />
+                        <div>
+                            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#f59e0b' }}>Trends Hub</div>
+                            <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>1,000+ Topics</div>
+                        </div>
+                    </Link>
                     <Link to="/tier-list" className="glass glass-hover" style={{ padding: '1rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                         <Crown size={20} color="#f97316" />
                         <div>
@@ -522,6 +529,72 @@ const Home = () => {
                             <div style={{ fontSize: '0.7rem', color: '#64748b' }}>Widget</div>
                         </div>
                     </Link>
+                </div>
+            </section>
+
+            {/* GAMING SEARCH TRENDS & HARDWARE SECTION */}
+            <section className="container" style={{ padding: '2.5rem 1rem 0' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
+                    <div>
+                        <h2 className="font-heading" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#f59e0b', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
+                            <Flame size={20} fill="#f59e0b" /> 2026 GAMING TRENDS &amp; HARDWARE INTELLIGENCE
+                        </h2>
+                        <p style={{ color: '#94a3b8', fontSize: '0.825rem', marginTop: '0.25rem', margin: 0 }}>
+                            Live tracking 1,000+ high-velocity gaming search topics, next-gen hardware, game engines, and franchises
+                        </p>
+                    </div>
+                    <Link to="/trends" style={{ fontSize: '0.85rem', color: '#f59e0b', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 700 }}>
+                        Explore All 1,000+ Trends <ChevronRight size={14} />
+                    </Link>
+                </div>
+
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+                    gap: '1rem'
+                }}>
+                    {[
+                        { name: 'Nintendo Switch 2', slug: 'nintendo-switch-2', cat: 'Hardware', score: 98, desc: 'Next-gen portable console specs, launch window & backward compatibility.' },
+                        { name: 'PlayStation 5 Pro', slug: 'playstation-5-pro', cat: 'Hardware', score: 96, desc: 'PSSR AI upscaling benchmarks and 60+ FPS fidelity enhancements.' },
+                        { name: 'Steam Deck OLED', slug: 'steam-deck-oled', cat: 'Hardware', score: 94, desc: 'Valve handheld optimization and 2026 verified game support.' },
+                        { name: 'Unreal Engine 5.5', slug: 'unreal-engine-5-5', cat: 'Engine', score: 93, desc: 'Next-gen Lumen, Nanite rendering & physics in 2026 AAA releases.' },
+                        { name: 'NVIDIA RTX 5090', slug: 'nvidia-geforce-rtx-5090', cat: 'Hardware', score: 95, desc: 'Blackwell architecture, DLSS 4 frame generation & 4K ray tracing specs.' },
+                        { name: 'Grand Theft Auto VI', slug: 'grand-theft-auto-vi-trends', cat: 'Franchise', score: 99, desc: 'Global launch forecasts, Vice City map size & pre-order velocity.' },
+                        { name: 'Xbox Game Pass Ultimate', slug: 'xbox-game-pass-ultimate', cat: 'Subscription', score: 92, desc: 'Day-one confirmed 2026 launch catalog and cloud streaming upgrades.' },
+                        { name: 'Summer Game Fest 2026', slug: 'summer-game-fest-2026', cat: 'Event', score: 91, desc: 'World premiere showcases, developer live streams & trailer reveals.' }
+                    ].map(item => (
+                        <Link
+                            key={item.slug}
+                            to={`/trends/${item.slug}`}
+                            className="glass glass-hover"
+                            style={{
+                                padding: '1.25rem',
+                                textDecoration: 'none',
+                                borderRadius: '12px',
+                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                transition: 'all 0.2s ease'
+                            }}
+                        >
+                            <div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                                    <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', background: 'rgba(245, 158, 11, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '6px' }}>
+                                        {item.cat}
+                                    </span>
+                                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#06b6d4' }}>
+                                        🔥 {item.score}% Velocity
+                                    </span>
+                                </div>
+                                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '0.4rem' }}>{item.name}</h3>
+                                <p style={{ fontSize: '0.8rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>{item.desc}</p>
+                            </div>
+                            <div style={{ marginTop: '1rem', display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem', fontWeight: 600, color: '#06b6d4' }}>
+                                Read Search Intel <ArrowRight size={12} />
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </section>
 

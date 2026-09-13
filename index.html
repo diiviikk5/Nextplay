@@ -22,6 +22,8 @@
   <meta name="rating" content="General" />
   <meta name="referrer" content="origin-when-cross-origin" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="alternate" type="application/rss+xml" title="NextPlay 2026 RSS Feed" href="https://nextplaygame.me/rss.xml" />
+  <link rel="alternate" type="application/rss+xml" title="NextPlay 2026 Full Feed" href="https://nextplaygame.me/feed.xml" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -57,6 +59,10 @@
       "url": "https://nextplaygame.me/",
       "description": "The ultimate 2026 video game release tracker with live countdowns, personal watchlists, and calendar export",
       "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "h2", ".hero p", ".prerender-content", "article header p"]
+      },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {

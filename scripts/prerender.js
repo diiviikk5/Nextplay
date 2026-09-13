@@ -1108,6 +1108,10 @@ const homepageHtml = buildHtml({
             "@type": "WebSite",
             "name": SITE_NAME,
             "url": SITE_URL,
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [".prerender-content h1", ".prerender-content p", "article header p"]
+            },
             "potentialAction": {
                 "@type": "SearchAction",
                 "target": `${SITE_URL}/?search={search_term_string}`,

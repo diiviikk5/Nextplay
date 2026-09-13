@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.js && node scripts/generateSitemap.js",
+    "build": "vite build && node scripts/prerender.js && node scripts/generateSitemap.js && node scripts/generate_llms_manifest.js && node scripts/generate_rss.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
