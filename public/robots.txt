@@ -58,6 +58,7 @@ Sitemap: https://nextplaygame.me/sitemap-genres.xml
 Sitemap: https://nextplaygame.me/sitemap-platforms.xml
 Sitemap: https://nextplaygame.me/sitemap-calendar.xml
 Sitemap: https://nextplaygame.me/sitemap-services.xml
+Sitemap: https://nextplaygame.me/sitemap-trends.xml
 Sitemap: https://nextplaygame.me/sitemap-pages.xml
 
 # Host directive

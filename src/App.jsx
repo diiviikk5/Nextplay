@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Target, Star, Menu, X, Trophy, Crown, Calendar as CalendarIcon, Tag, Monitor, Scale, Swords, Code, BookOpen } from 'lucide-react';
+import { Target, Star, Menu, X, Trophy, Crown, Calendar as CalendarIcon, Tag, Monitor, Scale, Swords, Code, BookOpen, Flame } from 'lucide-react';
 import Home from './pages/Home';
 import GameDetails from './pages/GameDetails';
 import Watchlist from './pages/Watchlist';
@@ -31,6 +31,9 @@ import CompanyPage from './pages/CompanyPage';
 import CanIRunIt from './pages/CanIRunIt';
 import GameFinder from './pages/GameFinder';
 import HypeBattles from './pages/HypeBattles';
+import TrendsHub from './pages/TrendsHub';
+import TrendTopicPage from './pages/TrendTopicPage';
+import TrendingTicker from './components/TrendingTicker';
 import gamesData from './data/games.json';
 
 function App() {
@@ -82,6 +85,9 @@ function App() {
             <nav style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }} className="hidden md:flex">
               <Link to="/" style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                 Games
+              </Link>
+              <Link to="/trends" style={{ fontSize: '0.8rem', fontWeight: 600, color: '#f59e0b', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <Flame size={13} /> Trends
               </Link>
               <Link to="/news" style={{ fontSize: '0.8rem', fontWeight: 600, color: '#f97316', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                 News
@@ -155,6 +161,9 @@ function App() {
               <Link to="/" onClick={() => setIsMenuOpen(false)} style={{ color: '#e2e8f0', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.03)', minHeight: '48px' }}>
                 All Games
               </Link>
+              <Link to="/trends" onClick={() => setIsMenuOpen(false)} style={{ color: '#f59e0b', textDecoration: 'none', fontSize: '1rem', fontWeight: 600, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.25)', minHeight: '48px' }}>
+                🔥 Trending Topics (1,000+ Hub)
+              </Link>
               <Link to="/news" onClick={() => setIsMenuOpen(false)} style={{ color: '#f97316', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.875rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(249, 115, 22, 0.1)', border: '1px solid rgba(249, 115, 22, 0.2)', minHeight: '48px' }}>
                 News
               </Link>
@@ -186,9 +195,14 @@ function App() {
           )}
         </header>
 
+        {/* Global Trending Velocity Ticker */}
+        <TrendingTicker />
+
         <main style={{ flexGrow: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/trends" element={<TrendsHub />} />
+            <Route path="/trends/:slug" element={<TrendTopicPage />} />
             <Route path="/game/:slug" element={<GameDetails />} />
             <Route path="/watchlist" element={<Watchlist />} />
             <Route path="/my-top-5" element={<MyTop5 />} />
@@ -255,6 +269,7 @@ function App() {
               <div>
                 <h4 className="font-heading" style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '1rem', letterSpacing: '0.1em' }}>FEATURES</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <Link to="/trends" style={{ color: '#f59e0b', fontSize: '0.875rem', fontWeight: 600, textDecoration: 'none' }}>🔥 Gaming Trends (1,000+)</Link>
                   <Link to="/tier-list" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Tier List Creator</Link>
                   <Link to="/calendar" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Release Calendar</Link>
                   <Link to="/compare" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Compare Games</Link>
@@ -269,6 +284,7 @@ function App() {
                 <h4 className="font-heading" style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '1rem', letterSpacing: '0.1em' }}>BROWSE</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <Link to="/" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>All Games</Link>
+                  <Link to="/trends" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Search Trends & Topics</Link>
                   <Link to="/genre" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>By Genre</Link>
                   <Link to="/platform" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>By Platform</Link>
                   <Link to="/developer" style={{ color: '#94a3b8', fontSize: '0.875rem', textDecoration: 'none' }}>Game Studios</Link>

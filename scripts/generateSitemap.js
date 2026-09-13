@@ -17,6 +17,9 @@ const TODAY = new Date().toISOString().split('T')[0];
 const gamesDataPath = path.join(__dirname, '..', 'src', 'data', 'games.json');
 const gamesData = JSON.parse(fs.readFileSync(gamesDataPath, 'utf8'));
 
+const trendsDataPath = path.join(__dirname, '..', 'src', 'data', 'gaming_trends_ontology.json');
+const trendsData = fs.existsSync(trendsDataPath) ? JSON.parse(fs.readFileSync(trendsDataPath, 'utf8')) : [];
+
 const publicDir = path.join(__dirname, '..', 'public');
 const distDir = path.join(__dirname, '..', 'dist');
 
@@ -294,10 +297,26 @@ ${serviceUrls.join('\n')}
 </urlset>`);
 totalSitemapUrls += serviceUrls.length;
 
+// 12. Gaming Trends & Search Topics Sitemap (1,000+ URLs)
+const trendsUrls = [
+  urlEntry(`${SITE_URL}/trends`, 0.95, 'daily')
+];
+
+trendsData.forEach(t => {
+  trendsUrls.push(urlEntry(`${SITE_URL}/trends/${t.slug}`, 0.88, 'daily'));
+});
+
+writeSitemapFile('sitemap-trends.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${trendsUrls.join('\n')}
+</urlset>`);
+totalSitemapUrls += trendsUrls.length;
+
 // Master Sitemap Index
 const subSitemaps = [
   'sitemap-pages.xml',
   'sitemap-games.xml',
+  'sitemap-trends.xml',
   'sitemap-requirements.xml',
   'sitemap-similar.xml',
   'sitemap-comparisons.xml',

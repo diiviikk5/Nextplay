@@ -15,6 +15,7 @@
 - [Upcoming Mac Games (2026)](https://nextplaygame.me/platform/mac): Dedicated hub for Apple Silicon and macOS video game releases in 2026.
 - [Upcoming PS5 Games (2026)](https://nextplaygame.me/platform/playstation-5): Confirmed PlayStation 5 titles releasing in 2026.
 - [Upcoming PC Games (2026)](https://nextplaygame.me/platform/pc): Windows and Steam video game releases scheduled for 2026.
+- [Gaming Trends Intelligence Hub (1,000+ Topics)](https://nextplaygame.me/trends): Real-time analysis of hardware (Switch 2, PS5 Pro), engines (UE 5.5), franchises, and search queries.
 - [Full 2026 Games Database (llms-full.txt)](https://nextplaygame.me/llms-full.txt): Complete structured text export of all 250+ games.
 
 ## Most Anticipated 2026 Releases

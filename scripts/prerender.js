@@ -13,6 +13,10 @@ const DEFAULT_IMAGE = 'https://media.rawg.io/media/games/734/7342a1cd82c8997ec62
 const gamesDataPath = path.join(__dirname, '..', 'src', 'data', 'games.json');
 const games = JSON.parse(fs.readFileSync(gamesDataPath, 'utf8'));
 
+// Load gaming trends ontology
+const trendsDataPath = path.join(__dirname, '..', 'src', 'data', 'gaming_trends_ontology.json');
+const trends = fs.existsSync(trendsDataPath) ? JSON.parse(fs.readFileSync(trendsDataPath, 'utf8')) : [];
+
 const distPath = path.join(__dirname, '..', 'dist');
 const templatePath = path.join(distPath, 'index.html');
 
@@ -958,6 +962,137 @@ coreHubs.forEach(p => {
     writeRoute(p.path, html);
     totalPrerendered++;
 });
+
+// 12. Prerender Trends Hub and 1,009 Programmatic Gaming Trend Pages
+if (trends.length > 0) {
+    console.log(`🔥 Pre-rendering ${trends.length} gaming trend pages...`);
+    // 12a. /trends Hub
+    const trendsHubCanonical = `${SITE_URL}/trends`;
+    const trendsHubTitle = `2026 Gaming Trends, Hardware & High-Velocity Topics Hub | ${SITE_NAME}`;
+    const trendsHubDesc = `Track 1,000+ real-time trending gaming topics, search queries, hardware releases (Switch 2, PS5 Pro), game engines, and industry showcases for 2026.`;
+    const trendsHubSchema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": trendsHubTitle,
+        "description": trendsHubDesc,
+        "url": trendsHubCanonical,
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": trends.slice(0, 50).map((t, idx) => ({
+                "@type": "ListItem",
+                "position": idx + 1,
+                "url": `${SITE_URL}/trends/${t.slug}`,
+                "name": t.name
+            }))
+        }
+    };
+    const trendsHubBody = `
+        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
+            <h1>${escapeHtml(trendsHubTitle)}</h1>
+            <p>${escapeHtml(trendsHubDesc)}</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                ${trends.slice(0, 100).map(t => `
+                    <div style="padding: 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+                        <a href="/trends/${t.slug}" style="color: #06b6d4; font-weight: bold; text-decoration: none;">${escapeHtml(t.name)}</a>
+                        <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem;">${escapeHtml(t.description || t.queryIntent)}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+    writeRoute('/trends', buildHtml({
+        title: trendsHubTitle,
+        description: trendsHubDesc,
+        canonicalUrl: trendsHubCanonical,
+        schemas: [trendsHubSchema],
+        semanticBody: trendsHubBody
+    }));
+    totalPrerendered++;
+
+    // 12b. All 1,009 /trends/:slug pages
+    trends.forEach(trend => {
+        const trendCanonical = `${SITE_URL}/trends/${trend.slug}`;
+        const trendTitle = `${trend.name} (2026 Gaming Trends, Specs & Release Intel) | ${SITE_NAME}`;
+        const trendDesc = trend.description || `Comprehensive 2026 intelligence on ${trend.name}. Analysis of search trends, release expectations, related games, and high-velocity community queries on NextPlay.`;
+        
+        const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": (trend.faqs || []).map(faq => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                }
+            }))
+        };
+
+        const articleSchema = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": `${trend.name} - 2026 Gaming Trends & Analysis`,
+            "description": trendDesc,
+            "url": trendCanonical,
+            "publisher": {
+                "@type": "Organization",
+                "name": SITE_NAME,
+                "url": SITE_URL
+            }
+        };
+
+        const schemas = trend.faqs && trend.faqs.length > 0 ? [articleSchema, faqSchema] : [articleSchema];
+
+        const trendBody = `
+            <article style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
+                <header>
+                    <span style="color: #f59e0b; font-size: 0.85rem; text-transform: uppercase; font-weight: bold;">${escapeHtml(trend.category)} • Search Velocity ${trend.searchVolumeScore || 85}/100</span>
+                    <h1 style="font-size: 2.25rem; margin-top: 0.5rem; color: #fff;">${escapeHtml(trend.name)}</h1>
+                    <p style="font-size: 1.15rem; color: #cbd5e1; line-height: 1.6;">${escapeHtml(trend.description || '')}</p>
+                </header>
+
+                <section style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.03); border-radius: 8px;">
+                    <h2 style="color: #38bdf8; font-size: 1.25rem;">Search Intent & Trend Context</h2>
+                    <p style="color: #94a3b8; line-height: 1.6;">${escapeHtml(trend.queryIntent || '')}</p>
+                </section>
+
+                ${trend.associatedGames && trend.associatedGames.length > 0 ? `
+                <section style="margin-top: 2rem;">
+                    <h2 style="color: #fff; font-size: 1.25rem;">Related 2026 Game Releases</h2>
+                    <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        ${trend.associatedGames.map(g => `
+                            <li style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 6px;">
+                                <a href="/game/${escapeHtml(g.slug)}" style="color: #38bdf8; text-decoration: none; font-weight: bold;">${escapeHtml(g.title)}</a>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </section>` : ''}
+
+                ${trend.faqs && trend.faqs.length > 0 ? `
+                <section style="margin-top: 2.5rem;">
+                    <h2 style="color: #fff; font-size: 1.25rem;">Frequently Asked Questions</h2>
+                    <div style="margin-top: 1rem;">
+                        ${trend.faqs.map(faq => `
+                            <details style="margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.02); border-radius: 6px;" open>
+                                <summary style="font-weight: bold; color: #e2e8f0; cursor: pointer;">${escapeHtml(faq.q)}</summary>
+                                <p style="color: #94a3b8; margin-top: 0.5rem; line-height: 1.6;">${escapeHtml(faq.a)}</p>
+                            </details>
+                        `).join('')}
+                    </div>
+                </section>` : ''}
+            </article>
+        `;
+
+        writeRoute(`/trends/${trend.slug}`, buildHtml({
+            title: trendTitle,
+            description: trendDesc,
+            canonicalUrl: trendCanonical,
+            schemas,
+            semanticBody: trendBody
+        }));
+        totalPrerendered++;
+    });
+}
 
 // Update root index.html with canonical for Homepage
 const homepageTitle = `NextPlay 2026 | GTA 6 Release Date Countdown & 2026 Game Releases Calendar`;
