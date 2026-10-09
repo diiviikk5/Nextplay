@@ -25,7 +25,7 @@ export function seo({ path, title, description, image, type = 'website', noindex
       itemListElement: [{ name: 'Home', path: '/' }, ...breadcrumbs].map((b, i) => ({ '@type': 'ListItem', position: i + 1, name: b.name, item: `${SITE}${b.path}` })),
     });
   }
-  return { title, description: truncate(description, 160), url, image: image || `${SITE}/og-default.jpg`, type, noindex, jsonLd: ld, crumbs: breadcrumbs || [] };
+  return { title, description: truncate(description, 160), url, image: image || `${SITE}/og-default.png`, type, noindex, jsonLd: ld, crumbs: breadcrumbs || [] };
 }
 
 export const platformsPhrase = (codes, long = true) => listJoin(codes.map((c) => (long ? platformName(c) : platformShort(c))));
