@@ -209,7 +209,7 @@ export default function Game({ data }) {
           </div>
           <div className="game-hero-inner">
             <Cover id={game.cover} alt={`${game.name} cover art`} eager className="cover" sizes="(max-width: 760px) 112px, 240px" />
-            <div>
+            <div className="gh-head">
               <div className="chips" style={{ marginBottom: 12 }}>
                 {anticipatedRank ? (
                   <Link to="/most-anticipated" className="chip chip-accent">
@@ -232,6 +232,8 @@ export default function Game({ data }) {
                   ) : null}
                 </p>
               ) : null}
+            </div>
+            <div className="gh-body">
               <div className="answer">
                 <p>{headline(game, now)}</p>
               </div>
