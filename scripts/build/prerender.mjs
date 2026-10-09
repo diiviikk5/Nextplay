@@ -2,6 +2,9 @@
 //   dist/<route>/index.html     full HTML (what Google/AI crawlers read)
 //   dist/data/<route>.json      route data for client-side navigation
 // plus sitemaps, robots.txt, llms.txt, rss.xml and the search index.
+// Must be set before React loads: the development build is ~20x slower to render.
+process.env.NODE_ENV = 'production';
+
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';

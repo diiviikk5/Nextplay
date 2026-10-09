@@ -1,48 +1,56 @@
-import { Component, Suspense, lazy, useEffect, useLayoutEffect } from 'react';
+import { Component, Suspense, createContext, lazy, useContext, useEffect, useLayoutEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router';
 import { ROUTES } from './routes.js';
 import { useRouteData, NowProvider, useStore } from './lib/data.jsx';
 import { applyHead } from './lib/head.js';
 import { Header, Footer } from './components/Layout.jsx';
 
-export const PAGE_MODULES = {
-  home: () => import('./pages/Home.jsx'),
-  game: () => import('./pages/Game.jsx'),
-  gamesLike: () => import('./pages/GamesLike.jsx'),
-  requirements: () => import('./pages/Requirements.jsx'),
-  canIRunIt: () => import('./pages/CanIRunIt.jsx'),
-  upcoming: () => import('./pages/Upcoming.jsx'),
-  newReleases: () => import('./pages/NewReleases.jsx'),
-  anticipated: () => import('./pages/Anticipated.jsx'),
-  trending: () => import('./pages/Trending.jsx'),
-  releasesIndex: () => import('./pages/ReleasesYear.jsx'),
-  releasesYear: () => import('./pages/ReleasesYear.jsx'),
-  releasesMonth: () => import('./pages/ReleasesMonth.jsx'),
-  bestOf: () => import('./pages/BestOf.jsx'),
-  platformIndex: () => import('./pages/Directory.jsx'),
-  genreIndex: () => import('./pages/Directory.jsx'),
-  companyIndex: () => import('./pages/Directory.jsx'),
-  seriesIndex: () => import('./pages/Directory.jsx'),
-  platform: () => import('./pages/Hub.jsx'),
-  genre: () => import('./pages/Hub.jsx'),
-  matrix: () => import('./pages/Hub.jsx'),
-  company: () => import('./pages/Company.jsx'),
-  series: () => import('./pages/Series.jsx'),
-  tierList: () => import('./pages/TierList.jsx'),
-  watchlist: () => import('./pages/Watchlist.jsx'),
-  search: () => import('./pages/SearchPage.jsx'),
-  articles: () => import('./pages/Articles.jsx'),
-  article: () => import('./pages/Article.jsx'),
-  about: () => import('./pages/Static.jsx'),
-  contact: () => import('./pages/Static.jsx'),
-  legal: () => import('./pages/Static.jsx'),
+// page key -> file in ./pages. Client loads them lazily; the server renders them eagerly (entry-server).
+export const PAGE_FILES = {
+  home: 'Home',
+  game: 'Game',
+  gamesLike: 'GamesLike',
+  requirements: 'Requirements',
+  canIRunIt: 'CanIRunIt',
+  upcoming: 'Upcoming',
+  newReleases: 'NewReleases',
+  anticipated: 'Anticipated',
+  trending: 'Trending',
+  releasesIndex: 'ReleasesYear',
+  releasesYear: 'ReleasesYear',
+  releasesMonth: 'ReleasesMonth',
+  bestOf: 'BestOf',
+  platformIndex: 'Directory',
+  genreIndex: 'Directory',
+  companyIndex: 'Directory',
+  seriesIndex: 'Directory',
+  platform: 'Hub',
+  genre: 'Hub',
+  matrix: 'Hub',
+  company: 'Company',
+  series: 'Series',
+  tierList: 'TierList',
+  watchlist: 'Watchlist',
+  search: 'SearchPage',
+  articles: 'Articles',
+  article: 'Article',
+  about: 'Static',
+  contact: 'Static',
+  legal: 'Static',
+  notFound: 'NotFound'
 };
 
-const PAGES = Object.fromEntries(Object.entries(PAGE_MODULES).map(([k, load]) => [k, lazy(load)]));
-const NotFound = lazy(() => import('./pages/NotFound.jsx'));
+const pageImports = import.meta.glob('./pages/*.jsx');
+export const PAGE_MODULES = Object.fromEntries(Object.entries(PAGE_FILES).map(([k, f]) => [k, pageImports[`./pages/${f}.jsx`]]));
+
+const LAZY_PAGES = Object.fromEntries(Object.entries(PAGE_MODULES).map(([k, load]) => [k, lazy(load)]));
+const PagesContext = createContext(LAZY_PAGES);
+export const PagesProvider = PagesContext.Provider;
 
 function RouteView({ route }) {
   const data = useRouteData();
+  const PAGES = useContext(PagesContext);
+  const NotFound = PAGES.notFound;
   useEffect(() => {
     if (data?.seo) applyHead(data.seo);
   }, [data]);
