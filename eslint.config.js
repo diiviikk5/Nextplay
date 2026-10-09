@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'dist-ssr', 'data']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
@@ -23,7 +23,13 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^[A-Z_]', ignoreRestSiblings: true }],
+      // Modules here intentionally mix components with their hooks/helpers.
+      'react-refresh/only-export-components': 'off',
     },
+  },
+  {
+    files: ['server/**/*.js', 'scripts/**/*.{js,mjs}', 'vite.config.js'],
+    languageOptions: { globals: globals.node },
   },
 ])

@@ -32,13 +32,14 @@ function Logo() {
 }
 
 export function Header() {
-  const [open, setOpen] = useState(false);
+  // Menu is open only for the path it was opened on, so navigating closes it without an effect.
+  const [openFor, setOpenFor] = useState(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const { list } = useWatchlist();
   const { pathname } = useLocation();
   const NAV = nav(yearOf(useStore().builtAt));
 
-  useEffect(() => setOpen(false), [pathname]);
+  const open = openFor === pathname;
 
   useEffect(() => {
     const onKey = (e) => {
@@ -78,7 +79,7 @@ export function Header() {
             <Bookmark size={20} aria-hidden="true" />
             {list.length ? <span className="count">{list.length}</span> : null}
           </Link>
-          <button type="button" className="icon-btn menu-btn" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen((v) => !v)}>
+          <button type="button" className="icon-btn menu-btn" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpenFor(open ? null : pathname)}>
             {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
           </button>
         </div>

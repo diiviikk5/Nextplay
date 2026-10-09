@@ -5,10 +5,10 @@ import { matchPath } from 'react-router';
 import { ROUTES } from '../src/routes.js';
 import * as db from './db.js';
 import { NOW, DAY, games, bySlug, byId, card, cards, ranked, upcoming, upcomingByHype, released, bestRating, sorters } from './db.js';
-import { PLATFORMS, PLATFORM_BY_SLUG, PLATFORM_ORDER, MAJOR_PLATFORMS, platformName } from '../src/lib/platforms.js';
-import { releaseLabel, MONTHS, MONTH_SLUGS, monthKey, monthPath, isoDate, plural, listJoin, truncate } from '../src/lib/format.js';
+import { PLATFORMS, PLATFORM_BY_SLUG, PLATFORM_ORDER, MAJOR_PLATFORMS } from '../src/lib/platforms.js';
+import { releaseLabel, MONTHS, MONTH_SLUGS, monthKey, monthPath, plural, listJoin, truncate } from '../src/lib/format.js';
 import { ogImage } from '../src/lib/images.js';
-import { seo, fitTitle, gameTitle, gameDescription, gameFaq, gameJsonLd, platformAnswer, platformsPhrase, itemListLd, faqLd, websiteLd, orgLd, SITE } from './seo.js';
+import { seo, fitTitle, gameTitle, gameDescription, gameFaq, gameJsonLd, platformAnswer, itemListLd, faqLd, websiteLd, orgLd, SITE } from './seo.js';
 
 const YEAR = new Date(NOW * 1000).getUTCFullYear();
 const NEXT = YEAR + 1;
@@ -28,7 +28,6 @@ const notFound = () => ({ status: 404 });
 const redirect = (to) => ({ redirect: to });
 
 const imageOf = (g) => ogImage(g?.artworks?.[0] || g?.screenshots?.[0]) || ogImage(g?.cover);
-const coverPath = (g) => g?.cover;
 const recent = (days) => released.filter((g) => g.date >= NOW - days * DAY);
 const notCancelled = (g) => g.status !== 'cancelled';
 

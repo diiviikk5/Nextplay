@@ -57,7 +57,6 @@ export default function SearchDialog({ onClose }) {
   }, []);
 
   const results = useMemo(() => (index ? searchGames(index, q) : []), [index, q]);
-  useEffect(() => setActive(0), [q]);
 
   const go = (g) => {
     onClose();
@@ -90,7 +89,10 @@ export default function SearchDialog({ onClose }) {
             ref={inputRef}
             type="search"
             value={q}
-            onChange={(e) => setQ(e.target.value)}
+            onChange={(e) => {
+              setQ(e.target.value);
+              setActive(0);
+            }}
             placeholder="Search any game…"
             aria-label="Search games"
             role="combobox"

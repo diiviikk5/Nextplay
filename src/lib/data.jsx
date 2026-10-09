@@ -1,4 +1,4 @@
-import { createContext, use, useContext, useEffect, useState } from 'react';
+import { createContext, use, useContext, useSyncExternalStore } from 'react';
 import { useLocation } from 'react-router';
 import { dataUrl } from '../routes.js';
 
@@ -63,27 +63,32 @@ export function usePrefetch() {
   };
 }
 
-// "Now" that matches the build on first render (no hydration mismatch), then follows the real clock.
+// Clock as an external store: the server snapshot is the build time, so hydration matches the
+// prerendered HTML exactly, then React switches to the real clock.
+function clock(ms) {
+  return {
+    subscribe(cb) {
+      const id = setInterval(cb, ms);
+      return () => clearInterval(id);
+    },
+    // Quantised so the snapshot is stable between ticks.
+    get: () => Math.floor(Date.now() / ms) * (ms / 1000),
+  };
+}
+const MINUTE = clock(60000);
+const SECOND = clock(1000);
+
 const NowContext = createContext(0);
 
 export function NowProvider({ initial, children }) {
-  const [now, setNow] = useState(initial);
-  useEffect(() => {
-    setNow(Math.floor(Date.now() / 1000));
-    const id = setInterval(() => setNow(Math.floor(Date.now() / 1000)), 60000);
-    return () => clearInterval(id);
-  }, []);
-  return <NowContext.Provider value={now}>{children}</NowContext.Provider>;
+  return <NowContext.Provider value={initial}>{children}</NowContext.Provider>;
 }
 
-export const useNow = () => useContext(NowContext);
+export function useNow() {
+  const built = useContext(NowContext);
+  return useSyncExternalStore(MINUTE.subscribe, MINUTE.get, () => built);
+}
 
-export function useTicker(initial, ms = 1000) {
-  const [now, setNow] = useState(initial);
-  useEffect(() => {
-    setNow(Date.now() / 1000);
-    const id = setInterval(() => setNow(Date.now() / 1000), ms);
-    return () => clearInterval(id);
-  }, [ms]);
-  return now;
+export function useTicker(initial) {
+  return useSyncExternalStore(SECOND.subscribe, SECOND.get, () => initial);
 }
