@@ -101,7 +101,7 @@ export default function TierList({ data }) {
   const [busy, setBusy] = useState(false);
   const loaded = useRef(false);
   const dragRef = useRef(null);
-  dragRef.current = drag;
+  const initialState = useRef(state);
 
   // Restore: shared link wins, then saved progress.
   useEffect(() => {
@@ -110,18 +110,15 @@ export default function TierList({ data }) {
       setState(decode(window.location.hash, valid));
       setShared(true);
     } else {
-      try {
-        const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
-        if (saved) setState(decode(saved, valid));
-      } catch {
-        /* ignore corrupt state */
-      }
+      const saved = localStorage.getItem(storageKey);
+      if (saved) setState(decode(saved, valid));
     }
     loaded.current = true;
   }, [pool, storageKey]);
 
   useEffect(() => {
-    if (loaded.current && !shared) localStorage.setItem(storageKey, encode(state));
+    // Skip the initial empty state so a restore is never overwritten before it applies.
+    if (loaded.current && !shared && state !== initialState.current) localStorage.setItem(storageKey, encode(state));
   }, [state, shared, storageKey]);
 
   const flash = (msg) => {
@@ -153,27 +150,35 @@ export default function TierList({ data }) {
     const item = el?.closest('[data-item]');
     return zone ? { tier: zone.dataset.zone, before: item ? Number(item.dataset.item) : null } : null;
   };
-  useEffect(() => {
-    if (!drag) return;
-    const onMove = (e) => {
-      setDrag((d) => d && { ...d, x: e.clientX, y: e.clientY, moved: d.moved || Math.hypot(e.clientX - d.sx, e.clientY - d.sy) > 6 });
-      setOver(targetAt(e.clientX, e.clientY)?.tier || null);
-    };
-    const onUp = (e) => {
+  // Listeners attach synchronously on pointerdown so even a very fast flick is tracked.
+  const startDrag = (e, id) => {
+    const start = { id, x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, moved: false };
+    dragRef.current = start;
+    setDrag(start);
+    const onMove = (ev) => {
       const d = dragRef.current;
-      const t = targetAt(e.clientX, e.clientY);
-      if (d?.moved && t) move(d.id, t.tier, t.before === d.id ? null : t.before);
-      else if (d && !d.moved) setSelected((cur) => (cur === d.id ? null : d.id)); // tap = select
+      if (!d) return;
+      const next = { ...d, x: ev.clientX, y: ev.clientY, moved: d.moved || Math.hypot(ev.clientX - d.sx, ev.clientY - d.sy) > 6 };
+      dragRef.current = next;
+      setDrag(next);
+      setOver(targetAt(ev.clientX, ev.clientY)?.tier || null);
+    };
+    const onUp = (ev) => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointercancel', onUp);
+      const d = dragRef.current;
+      const t = targetAt(ev.clientX, ev.clientY);
+      const moved = d && (d.moved || Math.hypot(ev.clientX - d.sx, ev.clientY - d.sy) > 6);
+      if (ev.type === 'pointerup' && moved && t) move(d.id, t.tier, t.before === d.id ? null : t.before);
+      else if (ev.type === 'pointerup' && d && !moved) setSelected((cur) => (cur === d.id ? null : d.id)); // tap = select
+      dragRef.current = null;
       setDrag(null);
       setOver(null);
     };
     window.addEventListener('pointermove', onMove);
     window.addEventListener('pointerup', onUp, { once: true });
-    return () => {
-      window.removeEventListener('pointermove', onMove);
-      window.removeEventListener('pointerup', onUp);
-    };
-  }, [drag?.id, move]); // eslint-disable-line react-hooks/exhaustive-deps
+    window.addEventListener('pointercancel', onUp, { once: true });
+  };
 
   const Item = ({ g }) => (
     <button
@@ -187,7 +192,7 @@ export default function TierList({ data }) {
       onPointerDown={(e) => {
         if (e.button !== 0) return;
         e.preventDefault();
-        setDrag({ id: g.id, x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, moved: false });
+        startDrag(e, g.id);
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
