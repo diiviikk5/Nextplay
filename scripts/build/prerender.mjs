@@ -11,7 +11,7 @@ const ROOT = path.resolve(import.meta.dirname, '../..');
 const DIST = path.resolve(ROOT, process.env.OUT_DIR || 'dist');
 const started = Date.now();
 
-const { render, headHtml } = await import(pathToFileURL(`${DIST}-ssr/entry-server.js`).href);
+const { render, headHtml } = await import(pathToFileURL(path.join(ROOT, 'dist-ssr/entry-server.js')).href);
 const loaders = await import(pathToFileURL(path.join(ROOT, 'server/loaders.js')).href);
 const db = await import(pathToFileURL(path.join(ROOT, 'server/db.js')).href);
 const { SITE } = await import(pathToFileURL(path.join(ROOT, 'server/seo.js')).href);

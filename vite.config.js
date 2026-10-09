@@ -43,7 +43,7 @@ export default defineConfig(({ isSsrBuild }) => ({
   build: {
     target: 'es2022',
     cssCodeSplit: false,
-    outDir: isSsrBuild ? `${OUT}-ssr` : OUT,
+    outDir: isSsrBuild ? 'dist-ssr' : OUT, // SSR bundle stays in-repo so it can resolve node_modules
     emptyOutDir: true,
   },
   ssr: {
