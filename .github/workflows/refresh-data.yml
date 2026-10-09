@@ -14,6 +14,9 @@ concurrency:
   group: refresh-data
   cancel-in-progress: false
 
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -53,9 +56,14 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Wait for Vercel deploy
-        if: steps.commit.outputs.changed == 'true'
-        run: sleep 600
+      # This project deploys with the Vercel CLI (no Git integration). Add a VERCEL_TOKEN secret to enable.
+      - name: Deploy to Vercel
+        if: steps.commit.outputs.changed == 'true' && env.VERCEL_TOKEN != ''
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_mzpr4Ksm1pC0nhTZbD24jpkq
+          VERCEL_PROJECT_ID: prj_ZSgpPHAnR2YFYcAOhzifTfNMg8Mv
+        run: npx --yes vercel@latest deploy --prod --yes --token="$VERCEL_TOKEN"
 
       - name: Ping IndexNow
         if: steps.commit.outputs.changed == 'true'
