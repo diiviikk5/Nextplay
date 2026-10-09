@@ -1,76 +1,386 @@
 {
-    "cleanUrls": true,
-    "rewrites": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/trends",
+      "destination": "/trending",
+      "permanent": true
+    },
+    {
+      "source": "/trends/:path*",
+      "destination": "/trending",
+      "permanent": true
+    },
+    {
+      "source": "/compare",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/battles",
+      "destination": "/most-anticipated",
+      "permanent": true
+    },
+    {
+      "source": "/bracket",
+      "destination": "/tier-list",
+      "permanent": true
+    },
+    {
+      "source": "/game-finder",
+      "destination": "/upcoming",
+      "permanent": true
+    },
+    {
+      "source": "/my-top-5",
+      "destination": "/tier-list",
+      "permanent": true
+    },
+    {
+      "source": "/embed",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/service/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/calendar",
+      "destination": "/releases",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-01",
+      "destination": "/releases/2026/january",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-02",
+      "destination": "/releases/2026/february",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-03",
+      "destination": "/releases/2026/march",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-04",
+      "destination": "/releases/2026/april",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-05",
+      "destination": "/releases/2026/may",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-06",
+      "destination": "/releases/2026/june",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-07",
+      "destination": "/releases/2026/july",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-08",
+      "destination": "/releases/2026/august",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-09",
+      "destination": "/releases/2026/september",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-10",
+      "destination": "/releases/2026/october",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-11",
+      "destination": "/releases/2026/november",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/2026-12",
+      "destination": "/releases/2026/december",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/01",
+      "destination": "/releases/2026/january",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/02",
+      "destination": "/releases/2026/february",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/03",
+      "destination": "/releases/2026/march",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/04",
+      "destination": "/releases/2026/april",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/05",
+      "destination": "/releases/2026/may",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/06",
+      "destination": "/releases/2026/june",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/07",
+      "destination": "/releases/2026/july",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/08",
+      "destination": "/releases/2026/august",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/09",
+      "destination": "/releases/2026/september",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/10",
+      "destination": "/releases/2026/october",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/11",
+      "destination": "/releases/2026/november",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/12",
+      "destination": "/releases/2026/december",
+      "permanent": true
+    },
+    {
+      "source": "/calendar/:quarter(q[1-4]-2026)",
+      "destination": "/releases/2026",
+      "permanent": true
+    },
+    {
+      "source": "/upcoming-:category-games-2026",
+      "destination": "/upcoming",
+      "permanent": true
+    },
+    {
+      "source": "/releases",
+      "destination": "/releases/2026",
+      "permanent": true
+    },
+    {
+      "source": "/genre/rpg",
+      "destination": "/genre/role-playing-rpg",
+      "permanent": true
+    },
+    {
+      "source": "/genre/platformer",
+      "destination": "/genre/platform",
+      "permanent": true
+    },
+    {
+      "source": "/genre/sports",
+      "destination": "/genre/sport",
+      "permanent": true
+    },
+    {
+      "source": "/genre/simulation",
+      "destination": "/genre/simulator",
+      "permanent": true
+    },
+    {
+      "source": "/genre/card-game",
+      "destination": "/genre/card-board-game",
+      "permanent": true
+    },
+    {
+      "source": "/game/crimson-desert",
+      "destination": "/game/crimson-desert-enhanced--1",
+      "permanent": true
+    },
+    {
+      "source": "/games-like/crimson-desert",
+      "destination": "/games-like/crimson-desert-enhanced--1",
+      "permanent": true
+    },
+    {
+      "source": "/system-requirements/crimson-desert",
+      "destination": "/system-requirements/crimson-desert-enhanced--1",
+      "permanent": true
+    },
+    {
+      "source": "/game/lost-in-cheese",
+      "destination": "/game/lost-in-cheese--1",
+      "permanent": true
+    },
+    {
+      "source": "/games-like/lost-in-cheese",
+      "destination": "/games-like/lost-in-cheese--1",
+      "permanent": true
+    },
+    {
+      "source": "/system-requirements/lost-in-cheese",
+      "destination": "/system-requirements/lost-in-cheese--1",
+      "permanent": true
+    },
+    {
+      "source": "/game/megastore-simulator",
+      "destination": "/game/megastore-simulator--1",
+      "permanent": true
+    },
+    {
+      "source": "/games-like/megastore-simulator",
+      "destination": "/games-like/megastore-simulator--1",
+      "permanent": true
+    },
+    {
+      "source": "/system-requirements/megastore-simulator",
+      "destination": "/system-requirements/megastore-simulator--1",
+      "permanent": true
+    },
+    {
+      "source": "/game/resident-evil-9-requiem",
+      "destination": "/game/resident-evil-requiem",
+      "permanent": true
+    },
+    {
+      "source": "/games-like/resident-evil-9-requiem",
+      "destination": "/games-like/resident-evil-requiem",
+      "permanent": true
+    },
+    {
+      "source": "/system-requirements/resident-evil-9-requiem",
+      "destination": "/system-requirements/resident-evil-requiem",
+      "permanent": true
+    },
+    {
+      "source": "/game/restory",
+      "destination": "/game/restory-chill-electronics-repairs",
+      "permanent": true
+    },
+    {
+      "source": "/games-like/restory",
+      "destination": "/games-like/restory-chill-electronics-repairs",
+      "permanent": true
+    },
+    {
+      "source": "/system-requirements/restory",
+      "destination": "/system-requirements/restory-chill-electronics-repairs",
+      "permanent": true
+    },
+    {
+      "source": "/game/the-dark-pictures-directive-8020",
+      "destination": "/game/directive-8020",
+      "permanent": true
+    },
+    {
+      "source": "/games-like/the-dark-pictures-directive-8020",
+      "destination": "/games-like/directive-8020",
+      "permanent": true
+    },
+    {
+      "source": "/system-requirements/the-dark-pictures-directive-8020",
+      "destination": "/system-requirements/directive-8020",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/games-like/:slug",
+      "destination": "/game/:slug"
+    },
+    {
+      "source": "/system-requirements/:slug",
+      "destination": "/game/:slug"
+    },
+    {
+      "source": "/games/:platform/:genre",
+      "destination": "/platform/:platform"
+    },
+    {
+      "source": "/developer/:slug",
+      "destination": "/developer"
+    },
+    {
+      "source": "/publisher/:slug",
+      "destination": "/publisher"
+    },
+    {
+      "source": "/genre/:slug",
+      "destination": "/genre"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
         {
-            "source": "/sitemap(.*)\\.xml",
-            "destination": "/sitemap$1.xml"
-        },
-        {
-            "source": "/robots.txt",
-            "destination": "/robots.txt"
-        },
-        {
-            "source": "/llms(.*)\\.txt",
-            "destination": "/llms$1.txt"
-        },
-        {
-            "source": "/((?!sitemap.*\\.xml|robots\\.txt|llms.*\\.txt).*)",
-            "destination": "/index.html"
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
-    ],
-    "headers": [
+      ]
+    },
+    {
+      "source": "/data/(.*)",
+      "headers": [
         {
-            "source": "/sitemap(.*)\\.xml",
-            "headers": [
-                {
-                    "key": "Content-Type",
-                    "value": "application/xml; charset=utf-8"
-                }
-            ]
-        },
-        {
-            "source": "/robots.txt",
-            "headers": [
-                {
-                    "key": "Content-Type",
-                    "value": "text/plain; charset=utf-8"
-                }
-            ]
-        },
-        {
-            "source": "/llms(.*)\\.txt",
-            "headers": [
-                {
-                    "key": "Content-Type",
-                    "value": "text/markdown; charset=utf-8"
-                }
-            ]
-        },
-        {
-            "source": "/(.*)",
-            "headers": [
-                {
-                    "key": "X-Content-Type-Options",
-                    "value": "nosniff"
-                },
-                {
-                    "key": "X-Frame-Options",
-                    "value": "DENY"
-                },
-                {
-                    "key": "X-XSS-Protection",
-                    "value": "1; mode=block"
-                }
-            ]
-        },
-        {
-            "source": "/assets/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                }
-            ]
+          "key": "Cache-Control",
+          "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400"
         }
-    ]
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    },
+    {
+      "source": "/llms(.*).txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    }
+  ]
 }
