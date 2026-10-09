@@ -15,9 +15,9 @@ function Hero({ game, builtAt }) {
       </div>
       <div className="container hero-inner">
         <div>
-          <p className="eyebrow">
-            <span className="accent">●</span> The biggest release on the calendar
-          </p>
+          <h1 className="eyebrow">
+            <span className="accent">●</span> Game release dates & countdowns · next big launch
+          </h1>
           <h2 id="hero-title" className="display">
             <Link to={`/game/${game.slug}`}>{game.name}</Link>
           </h2>
@@ -81,7 +81,6 @@ export default function Home({ data }) {
   const year = new Date(builtAt * 1000).getUTCFullYear();
   return (
     <>
-      <h1 className="sr-only">Video game release dates, countdowns and upcoming games {year}–{year + 1}</h1>
       <Hero game={hero} builtAt={builtAt} />
 
       <section className="container section" aria-labelledby="radar">
