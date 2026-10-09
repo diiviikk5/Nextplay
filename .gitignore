@@ -24,3 +24,11 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# secrets
+.env
+.env.*
+!.env.example
+
+# data cache
+data/cache/
