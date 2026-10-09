@@ -50,7 +50,7 @@ export function PlatformChips({ platforms = [], max = 4, link = false }) {
     <ul className="chips" role="list" aria-label="Platforms">
       {shown.map((p) => (
         <li key={p}>
-          {link ? (
+          {link && PLATFORMS[p]?.slug ? (
             <Link className="chip" data-p data-f={PLATFORMS[p]?.family} to={`/platform/${PLATFORMS[p].slug}`}>
               {platformShort(p)}
             </Link>

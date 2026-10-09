@@ -42,6 +42,8 @@ export const PLATFORMS = {
   6: 'pc', 167: 'ps5', 169: 'xsx', 130: 'switch', 508: 'switch-2', 48: 'ps4', 49: 'xone',
   14: 'mac', 3: 'linux', 34: 'android', 39: 'ios', 82: 'browser', 163: 'steamvr',
   386: 'quest-2', 471: 'quest-3', 390: 'psvr2',
+  // legacy (display only)
+  9: 'ps3', 8: 'ps2', 7: 'ps1', 38: 'psp', 46: 'vita', 12: 'x360', 11: 'xbox', 41: 'wiiu', 5: 'wii', 37: '3ds', 20: 'ds', 21: 'gc', 4: 'n64', 24: 'gba', 19: 'snes', 18: 'nes', 23: 'dc',
 };
 
 const DATE_PRECISION = { 0: 'day', 1: 'month', 2: 'year', 3: 'q1', 4: 'q2', 5: 'q3', 6: 'q4', 7: 'tbd' };
