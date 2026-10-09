@@ -14,6 +14,9 @@ const YEAR = new Date(NOW * 1000).getUTCFullYear();
 const NEXT = YEAR + 1;
 const UPDATED = new Date(db.meta.fetchedAt || NOW * 1000).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
+// URLs that already earn impressions keep their page even below the normal quality bar.
+const KEEP = new Set(db.keepPaths);
+
 const MIN = { hub: 6, matrix: 8, company: 4, companyScore: 40, gamesLike: 6, gamesLikeScore: 30, bestOf: 10 };
 
 // Old slugs that changed meaning -> new location.
@@ -83,7 +86,8 @@ function loadGamesLike({ slug }) {
   const g = bySlug.get(slug);
   if (!g) return notFound();
   const list = db.similarTo(g, 20);
-  if (list.length < MIN.gamesLike || g.score <= MIN.gamesLikeScore) return redirect(`/game/${slug}`);
+  const kept = KEEP.has(`/games-like/${slug}`);
+  if (kept ? list.length < 4 : list.length < MIN.gamesLike || g.score <= MIN.gamesLikeScore) return redirect(`/game/${slug}`);
   const path = `/games-like/${slug}`;
   const shared = (x) => [...x.genres.filter((a) => g.genres.some((b) => b.slug === a.slug)), ...x.themes.filter((a) => g.themes.some((b) => b.slug === a.slug))].map((t) => t.name).slice(0, 3);
   const items = list.map((x) => ({ ...card(x), summary: truncate(x.summary, 220), shared: shared(x) }));
@@ -502,7 +506,7 @@ function loadMatrix({ platform, genre }) {
   if (!code) return notFound();
   if (g !== genre) return redirect(`/games/${platform}/${g}`);
   const list = matrixList(code, genre);
-  if (list.length < MIN.matrix) return redirect(genreLookup(genre) ? `/genre/${genre}` : `/platform/${platform}`);
+  if (list.length < (KEEP.has(`/games/${platform}/${genre}`) ? 3 : MIN.matrix)) return redirect(genreLookup(genre) ? `/genre/${genre}` : `/platform/${platform}`);
   const name = `${PLATFORMS[code].name} ${shortGenre(genreLookup(genre).name)}`;
   const path = `/games/${platform}/${genre}`;
   const h = hubData(list);
@@ -534,7 +538,7 @@ function loadCompanyIndex(_, route) {
 function loadCompany({ slug }, route) {
   const map = route.kind === 'developer' ? db.byDeveloper : db.byPublisher;
   const list = map.get(slug);
-  if (!list || !companyEligible(list)) return notFound();
+  if (!list || !(companyEligible(list) || KEEP.has(`/${route.kind}/${slug}`))) return notFound();
   const name = db.companyNames.get(slug);
   const up = list.filter((g) => g.upcoming && notCancelled(g)).sort(sorters.byDateAsc);
   const rel = list.filter((g) => g.released).sort(sorters.byDateDesc);
@@ -718,7 +722,7 @@ export function allPaths() {
   const paths = new Set(['/', '/upcoming', '/new-releases', '/most-anticipated', '/trending', '/can-i-run-it', '/platform', '/genre', '/developer', '/publisher', '/series', '/tier-list', '/watchlist', '/search', '/news', '/blog', '/about', '/contact', '/privacy', '/terms', '/disclaimer']);
   games.forEach((g) => {
     paths.add(`/game/${g.slug}`);
-    if (g.score > MIN.gamesLikeScore && db.similarTo(g, 20).length >= MIN.gamesLike) paths.add(`/games-like/${g.slug}`);
+    if ((g.score > MIN.gamesLikeScore && db.similarTo(g, 20).length >= MIN.gamesLike) || KEEP.has(`/games-like/${g.slug}`)) paths.add(`/games-like/${g.slug}`);
     if (g.steam?.pc?.min) paths.add(`/system-requirements/${g.slug}`);
   });
   RELEASE_YEARS().forEach((y) => {
@@ -729,9 +733,9 @@ export function allPaths() {
   PLATFORM_ORDER.forEach((p) => paths.add(`/platform/${PLATFORMS[p].slug}`));
   [...db.byGenre.keys(), ...db.byTheme.keys()].forEach((s) => {
     paths.add(`/genre/${s}`);
-    PLATFORM_ORDER.forEach((p) => matrixEligible(p, s) && paths.add(`/games/${PLATFORMS[p].slug}/${s}`));
+    PLATFORM_ORDER.forEach((p) => (matrixEligible(p, s) || (KEEP.has(`/games/${PLATFORMS[p].slug}/${s}`) && matrixList(p, s).length >= 3)) && paths.add(`/games/${PLATFORMS[p].slug}/${s}`));
   });
-  for (const [kind, map] of [['developer', db.byDeveloper], ['publisher', db.byPublisher]]) map.forEach((l, s) => companyEligible(l) && paths.add(`/${kind}/${s}`));
+  for (const [kind, map] of [['developer', db.byDeveloper], ['publisher', db.byPublisher]]) map.forEach((l, s) => (companyEligible(l) || KEEP.has(`/${kind}/${s}`)) && paths.add(`/${kind}/${s}`));
   db.seriesList.forEach((s) => paths.add(`/series/${s.slug}`));
   Object.keys(TIER_TEMPLATES).filter((k) => k !== 'default').forEach((k) => paths.add(`/tier-list/${k}`));
   db.news.forEach((a) => paths.add(`/news/${a.slug}`));

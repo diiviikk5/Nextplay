@@ -17,6 +17,7 @@ const steam = read('data/db/steam.json', {});
 export const seriesList = read('data/db/series.json', []);
 export const meta = read('data/db/meta.json', {});
 export const aliases = read('data/db/slug-aliases.json', {});
+export const keepPaths = read('data/db/keep-paths.json', []);
 export const news = read('content/news.json', []);
 export const blog = read('content/blog.json', []);
 

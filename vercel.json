@@ -309,6 +309,26 @@
       "source": "/system-requirements/the-dark-pictures-directive-8020",
       "destination": "/system-requirements/directive-8020",
       "permanent": true
+    },
+    {
+      "source": "/games/ps5/:genre",
+      "destination": "/games/playstation-5/:genre",
+      "permanent": true
+    },
+    {
+      "source": "/games/xbox/:genre",
+      "destination": "/games/xbox-series-x-s/:genre",
+      "permanent": true
+    },
+    {
+      "source": "/games/switch/:genre",
+      "destination": "/games/nintendo-switch/:genre",
+      "permanent": true
+    },
+    {
+      "source": "/games/switch-2/:genre",
+      "destination": "/games/nintendo-switch-2/:genre",
+      "permanent": true
     }
   ],
   "rewrites": [
