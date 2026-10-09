@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+data/cache
+data/*.zip
+data/report-*
+data/*.csv
+dist
+dist-ssr
+node_modules
+.claude
