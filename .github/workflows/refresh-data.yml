@@ -1,0 +1,63 @@
+name: Refresh game data
+
+# Daily: pull fresh IGDB + Steam data, record which pages changed, commit (Vercel redeploys on push),
+# then tell IndexNow about the changed URLs once the deploy is live.
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Fetch IGDB
+        env:
+          IGDB_CLIENT_ID: ${{ secrets.IGDB_CLIENT_ID }}
+          IGDB_CLIENT_SECRET: ${{ secrets.IGDB_CLIENT_SECRET }}
+        run: node scripts/data/fetch-igdb.mjs
+
+      - name: Fetch Steam (incremental)
+        run: node scripts/data/fetch-steam.mjs --budget=900
+        continue-on-error: true
+
+      - name: Record changed pages
+        run: node scripts/build/prerender.mjs --lastmod-only
+
+      - name: Commit
+        id: commit
+        run: |
+          git config user.name "nextplay-bot"
+          git config user.email "nextplay-bot@users.noreply.github.com"
+          git add data/db
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "data: daily refresh $(date -u +%F) ($(node -p "require('./data/db/changed.json').length") pages changed)"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Wait for Vercel deploy
+        if: steps.commit.outputs.changed == 'true'
+        run: sleep 600
+
+      - name: Ping IndexNow
+        if: steps.commit.outputs.changed == 'true'
+        run: node scripts/ping_indexnow.js
+        continue-on-error: true

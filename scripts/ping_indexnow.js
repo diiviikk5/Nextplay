@@ -1,66 +1,31 @@
-import fs from 'fs';
-import path from 'path';
-import https from 'https';
-import { fileURLToPath } from 'url';
+// Submits pages whose content changed (data/db/changed.json, written by `prerender --lastmod-only`)
+// to IndexNow (Bing, Yandex, Seznam, Naver…). Key file: public/<KEY>.txt
+// Usage: node scripts/ping_indexnow.js [--all-hubs]
+import fs from 'node:fs';
+import path from 'node:path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const HOST = 'www.nextplaygame.me';
+const ROOT = path.resolve(import.meta.dirname, '..');
+const HOST = 'nextplaygame.me';
 const KEY = 'c0a87f2e1b4d9e3f8a5c2d6e7f1a0b3c';
-const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
-// Collect top URLs to ping
-const gamesPath = path.join(__dirname, '..', 'src', 'data', 'games.json');
-const trendsPath = path.join(__dirname, '..', 'src', 'data', 'gaming_trends_ontology.json');
+const changedFile = path.join(ROOT, 'data/db/changed.json');
+const changed = fs.existsSync(changedFile) ? JSON.parse(fs.readFileSync(changedFile, 'utf8')) : [];
+const hubs = ['/', '/upcoming', '/new-releases', '/trending', '/most-anticipated'];
+const urls = [...new Set([...hubs, ...changed])].map((p) => `https://${HOST}${p}`);
 
-const games = fs.existsSync(gamesPath) ? JSON.parse(fs.readFileSync(gamesPath, 'utf8')) : [];
-const trends = fs.existsSync(trendsPath) ? JSON.parse(fs.readFileSync(trendsPath, 'utf8')) : [];
+if (!urls.length) {
+  console.log('[indexnow] nothing changed');
+  process.exit(0);
+}
 
-const urlList = [
-    `https://${HOST}/`,
-    `https://${HOST}/trends`,
-    `https://${HOST}/calendar`,
-    `https://${HOST}/can-i-run-it`,
-    `https://${HOST}/battles`,
-    `https://${HOST}/tier-list`,
-    `https://${HOST}/compare`,
-    `https://${HOST}/system-requirements`,
-    `https://${HOST}/games-like`,
-    ...trends.slice(0, 100).map(t => `https://${HOST}/trends/${t.slug}`),
-    ...games.slice(0, 50).map(g => `https://${HOST}/game/${g.slug}`)
-];
-
-const payload = JSON.stringify({
-    host: HOST,
-    key: KEY,
-    keyLocation: KEY_LOCATION,
-    urlList: urlList
-});
-
-console.log(`📡 Pinging Bing IndexNow with ${urlList.length} high-velocity URLs...`);
-
-const options = {
-    hostname: 'www.bing.com',
-    port: 443,
-    path: '/indexnow',
+// IndexNow accepts up to 10,000 URLs per request.
+for (let i = 0; i < urls.length; i += 10000) {
+  const urlList = urls.slice(i, i + 10000);
+  const res = await fetch('https://api.indexnow.org/indexnow', {
     method: 'POST',
-    headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Content-Length': Buffer.byteLength(payload)
-    }
-};
-
-const req = https.request(options, (res) => {
-    console.log(`Bing IndexNow Response: ${res.statusCode} ${res.statusMessage}`);
-    if (res.statusCode === 200 || res.statusCode === 202) {
-        console.log(`✅ Bing & partner engines accepted ${urlList.length} URLs for immediate crawl!`);
-    }
-});
-
-req.on('error', (e) => {
-    console.warn(`IndexNow notice: ${e.message}`);
-});
-
-req.write(payload);
-req.end();
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    body: JSON.stringify({ host: HOST, key: KEY, keyLocation: `https://${HOST}/${KEY}.txt`, urlList }),
+  });
+  console.log(`[indexnow] ${urlList.length} URLs -> ${res.status} ${res.statusText}`);
+  if (res.status >= 400) process.exitCode = 1;
+}

@@ -13,15 +13,17 @@ import { pathToFileURL } from 'node:url';
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const DIST = path.resolve(ROOT, process.env.OUT_DIR || 'dist');
 const started = Date.now();
+// --lastmod-only: resolve + hash every route (no HTML). Used by the daily data job to record which pages changed.
+const LASTMOD_ONLY = process.argv.includes('--lastmod-only');
 
-const { render, headHtml } = await import(pathToFileURL(path.join(ROOT, 'dist-ssr/entry-server.js')).href);
+const { render, headHtml } = LASTMOD_ONLY ? {} : await import(pathToFileURL(path.join(ROOT, 'dist-ssr/entry-server.js')).href);
 const loaders = await import(pathToFileURL(path.join(ROOT, 'server/loaders.js')).href);
 const db = await import(pathToFileURL(path.join(ROOT, 'server/db.js')).href);
 const { SITE } = await import(pathToFileURL(path.join(ROOT, 'server/seo.js')).href);
 const { releaseLabel, isoDate } = await import(pathToFileURL(path.join(ROOT, 'src/lib/format.js')).href);
 const { platformName } = await import(pathToFileURL(path.join(ROOT, 'src/lib/platforms.js')).href);
 
-const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
+const template = LASTMOD_ONLY ? '' : fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
 const safeJson = (v) => JSON.stringify(v).replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
 
 function write(file, content) {
@@ -44,10 +46,14 @@ async function page(p, data) {
 const LASTMOD_FILE = path.join(ROOT, 'data/db/lastmod.json');
 const lastmod = fs.existsSync(LASTMOD_FILE) ? JSON.parse(fs.readFileSync(LASTMOD_FILE, 'utf8')) : {};
 const today = new Date(db.NOW * 1000).toISOString().slice(0, 10);
+const changed = [];
 function touch(p, data) {
   const { builtAt, updated, ...stable } = data;
   const hash = crypto.createHash('sha1').update(JSON.stringify(stable)).digest('base64url').slice(0, 12);
-  if (lastmod[p]?.h !== hash) lastmod[p] = { h: hash, d: today };
+  if (lastmod[p]?.h !== hash) {
+    lastmod[p] = { h: hash, d: today };
+    if (!data.seo?.noindex) changed.push(p);
+  }
   return lastmod[p].d;
 }
 
@@ -68,6 +74,10 @@ for (let i = 0; i < paths.length; i += BATCH) {
     paths.slice(i, i + BATCH).map(async (p) => {
       try {
         const r = loaders.resolve(p);
+        if (LASTMOD_ONLY) {
+          if (r.status === 200) touch(p, r.data);
+          return;
+        }
         if (r.redirect) {
           write(dataFile(p), JSON.stringify({ redirect: r.redirect }));
           redirects++;
@@ -93,6 +103,13 @@ console.log(`\n[prerender] ${ok} pages, ${redirects} redirects, ${missing} skipp
 if (errors.length) {
   console.error(`[prerender] ${errors.length} errors:\n` + errors.slice(0, 10).join('\n'));
   process.exit(1);
+}
+
+if (LASTMOD_ONLY) {
+  fs.writeFileSync(LASTMOD_FILE, JSON.stringify(lastmod));
+  fs.writeFileSync(path.join(ROOT, 'data/db/changed.json'), JSON.stringify(changed));
+  console.log(`[lastmod] ${changed.length} pages changed`);
+  process.exit(0);
 }
 
 // 404 page (Vercel serves dist/404.html with a 404 status)
