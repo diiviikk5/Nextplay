@@ -5,10 +5,11 @@ import { SITE, BRAND, CONTACT, FOUNDED, DESCRIPTION, SOURCES, TAGLINE } from '..
 import { ranked, upcomingByHype, games, upcoming } from '../db.js';
 import { YEAR } from '../loaders.js';
 import { renderMarkdown } from './registry.js';
-import { abs, mdPath } from './format.js';
+import { abs, mdPath, gameList } from './format.js';
 
 // Paths no crawler or agent should fetch (personal or query pages). Mirrored in ai.txt [scope].
-export const PRIVATE_PATHS = ['/search', '/watchlist', '/api/', '/data/'];
+// /data/ and /api/md/ stay crawlable: the app loads route data from /data/ and llms.txt links the catalog.
+export const PRIVATE_PATHS = ['/search', '/watchlist'];
 // AI search and user-fetch agents: they decide whether answer engines can cite us. Always allowed.
 const SEARCH_BOTS = ['OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User'];
 // Training crawlers: allowed (owner's decision, 2026-10-28).
@@ -77,25 +78,35 @@ ${ABOUT.map(item).join('\n')}
 `;
 }
 
-// Core -> browse -> top games by rank -> about/legal, capped at FULL_LIMIT characters.
+// Index pages that are mostly links; llms-full.txt points to them instead of inlining them.
+const LINK_ONLY = new Set(['/can-i-run-it', '/series', '/developer', '/publisher', '/most-anticipated']);
+
+// Core pages -> full upcoming release schedule (one line per game) -> top games by rank -> about/legal,
+// capped at FULL_LIMIT characters.
 export function llmsFullTxt(today, lastmodOf) {
   const page = (p) => {
-    const r = renderMarkdown(p, { lastmod: lastmodOf(p) });
+    const r = renderMarkdown(p, { lastmod: lastmodOf(p), compact: true });
     return r.status === 200 ? `---\n<!-- source: ${abs(p)} -->\n${r.body}` : '';
   };
+  const dated = upcoming.filter((g) => g.status !== 'cancelled' && g.date && g.precision !== 'tbd').sort((a, b) => a.date - b.date);
+  const schedule = `---\n<!-- source: ${abs('/upcoming')} -->\n# Upcoming video game release schedule\n\n> All ${dated.length.toLocaleString('en-US')} upcoming games with an announced date or window, soonest first.\n\n${gameList(dated)}\n`;
   const head = `# ${BRAND} - full content\n> ${DESCRIPTION}\nGenerated: ${today}\n`;
   const tail = ABOUT.map(([p]) => page(p)).join('\n');
-  const out = [head, ...CORE.map(([p]) => page(p)), ...BROWSE.map(([p]) => page(p))];
-  let size = out.join('\n').length + tail.length;
+  const out = [head, ...[...CORE, ...BROWSE].filter(([p]) => !LINK_ONLY.has(p)).map(([p]) => page(p)), schedule];
+  let size = out.join('\n').length + tail.length + 600;
   let n = 0;
   for (const g of ranked) {
     const chunk = page(`/game/${g.slug}`);
-    if (size + chunk.length > FULL_LIMIT - 400) break;
+    if (size + chunk.length > FULL_LIMIT) break;
     out.push(chunk);
     size += chunk.length;
     n++;
   }
-  out.splice(1, 0, `This file includes the ${n} most popular game pages. Every other page is in the catalog: ${SITE}/api/md/_catalog\n`);
+  out.splice(
+    1,
+    0,
+    `Contents: core pages, the full upcoming release schedule (${dated.length.toLocaleString('en-US')} games), and the ${n} most popular game pages (without their related-game lists). Every other page, including ${[...LINK_ONLY].join(', ')}, is in the catalog: ${SITE}/api/md/_catalog\n`
+  );
   out.push(tail);
   const text = out.join('\n');
   if (text.length > FULL_LIMIT) console.warn(`[md] llms-full.txt is ${text.length} chars (limit ${FULL_LIMIT})`);

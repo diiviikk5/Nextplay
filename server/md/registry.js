@@ -49,7 +49,7 @@ const RENDERERS = {
     };
   },
 
-  game(d) {
+  game(d, _route, { compact } = {}) {
     const g = d.game;
     const steam = g.steam;
     const releases = (g.releases || []).map((r) => [platformName(r.platform), releaseLabel(r.date, r.precision, { long: true }), r.region || 'worldwide']);
@@ -84,9 +84,9 @@ const RENDERERS = {
         section('Ratings and price', table(['', ''], scores)),
         section('Where to buy', list(stores.map(([k, name]) => `[${name}](${g.websites[k]})`))),
         section('FAQ', faq(d.faq)),
-        section('Similar games', gameList(d.similar)),
-        d.series && section(`${d.series.name} series`, gameList(d.series.games)),
-        d.moreFromDev.length && section(`More from ${g.developers[0]?.name}`, gameList(d.moreFromDev)),
+        !compact && section('Similar games', gameList(d.similar)),
+        !compact && d.series && section(`${d.series.name} series`, gameList(d.series.games)),
+        !compact && d.moreFromDev.length && section(`More from ${g.developers[0]?.name}`, gameList(d.moreFromDev)),
       ],
       related: [
         d.hasRequirements && { name: `${g.name} system requirements`, path: `/system-requirements/${g.slug}` },
@@ -309,12 +309,13 @@ const notFoundMd = (pathname) => ({
 
 // pathname is the HTML path ("/", "/game/x"). lastmod: "YYYY-MM-DD" for the "Last updated" line.
 // resolved: the loader result, when the caller already has it (the prerenderer does).
-export function renderMarkdown(pathname, { lastmod, resolved } = {}) {
+// compact: drop related-game lists (used by llms-full.txt to fit more pages).
+export function renderMarkdown(pathname, { lastmod, resolved, compact = false } = {}) {
   const route = pageOf(pathname);
   if (!route || SKIP[route.page]) return notFoundMd(pathname);
   const r = resolved || resolve(pathname);
   if (r.status !== 200 || r.data.seo?.noindex) return notFoundMd(pathname);
-  const { sections, related } = RENDERERS[route.page](r.data, route);
+  const { sections, related } = RENDERERS[route.page](r.data, route, { compact });
   const { seo } = r.data;
   return {
     status: 200,

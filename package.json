@@ -11,7 +11,8 @@
     "data": "npm run data:igdb && npm run data:steam",
     "lint": "eslint .",
     "preview": "vite preview",
-    "indexnow": "node scripts/ping_indexnow.js"
+    "indexnow": "node scripts/ping_indexnow.js",
+    "check:md": "node scripts/check-md.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
