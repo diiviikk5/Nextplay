@@ -8,7 +8,7 @@
     "build": "vite build && vite build --ssr src/entry-server.jsx && node scripts/build/prerender.mjs",
     "data:igdb": "node --env-file-if-exists=.env scripts/data/fetch-igdb.mjs",
     "data:steam": "node scripts/data/fetch-steam.mjs",
-    "data": "npm run data:igdb && npm run data:steam",
+    "data": "npm run data:igdb && npm run data:steam && node scripts/data/fetch-gamepass.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "indexnow": "node scripts/ping_indexnow.js",

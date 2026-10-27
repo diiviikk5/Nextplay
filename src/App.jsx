@@ -16,6 +16,7 @@ export const PAGE_FILES = {
   newReleases: 'NewReleases',
   anticipated: 'Anticipated',
   trending: 'Trending',
+  gamePass: 'GamePass',
   releasesIndex: 'ReleasesYear',
   releasesYear: 'ReleasesYear',
   releasesMonth: 'ReleasesMonth',

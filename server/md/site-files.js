@@ -24,6 +24,7 @@ const CORE = [
   ['/most-anticipated', 'Most anticipated games', 'top 100 upcoming games ranked by IGDB followers'],
   ['/trending', 'Trending games', 'most visited, watched on Twitch and played on Steam this week'],
   ['/new-releases', 'New releases', 'every notable game released in the last six weeks'],
+  ['/game-pass', 'Xbox Game Pass games', 'coming soon, leaving soon and recently added, from the official US catalog, checked daily'],
   [`/releases/${YEAR}`, `${YEAR} release calendar`, 'every game releasing this year, month by month'],
   [`/best-games/${YEAR}`, `Best games of ${YEAR}`, 'highest-rated releases this year by critic and player score'],
   ['/can-i-run-it', 'Can I run it?', 'official minimum GPU for 400 PC games, from Steam'],

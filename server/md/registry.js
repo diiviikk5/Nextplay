@@ -166,6 +166,23 @@ const RENDERERS = {
     };
   },
 
+  gamePass(d) {
+    const where = (g) => [g.gp.console && 'console', g.gp.pc && 'PC'].filter(Boolean).join(' + ');
+    const gpList = (games) => list(games.map((g) => gameLine(g, where(g) ? `Game Pass: ${where(g)}` : '')));
+    return {
+      sections: [
+        `From the official US Xbox Game Pass catalog: ${d.counts.console} games on console and ${d.counts.pc} on PC. Checked ${d.checked}.`,
+        section('Coming to Game Pass', gpList(d.coming)),
+        section('Leaving soon', gpList(d.leaving)),
+        section('Recently added', gpList(d.recentlyAdded)),
+        section('New releases on Game Pass', gpList(d.newest)),
+        section('Most popular on Game Pass', gpList(d.popular)),
+        section('FAQ', faq(d.faq)),
+      ],
+      related: [{ name: 'Xbox Series X|S games', path: '/platform/xbox-series-x-s' }, { name: 'Upcoming games', path: '/upcoming' }],
+    };
+  },
+
   releasesYear(d) {
     return {
       sections: [

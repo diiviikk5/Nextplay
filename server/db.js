@@ -59,6 +59,39 @@ export const games = rawGames.map((g) => {
   return game;
 });
 
+// ---------- Xbox Game Pass (data/db/gamepass.json) ----------
+// Match by Microsoft Store product ID from the IGDB Xbox store link, then by normalised title.
+const gamePassData = read('data/db/gamepass.json', { items: {} });
+export const gamePassFetchedAt = gamePassData.fetchedAt || null;
+const gpCount = (l) => Object.values(gamePassData.items).filter((x) => x.lists.includes(l)).length;
+export const gamePassCounts = { console: gpCount('console'), pc: gpCount('pc'), coming: gpCount('coming'), leaving: gpCount('leaving'), recent: gpCount('recent') };
+const normTitle = (s = '') =>
+  s
+    .toLowerCase()
+    .replace(/[™®©]/g, '')
+    .replace(/\s+[-–]\s+.*\b(bundle|edition|pack)\b.*$/, '')
+    .replace(/\((pc|windows|xbox|game preview)\)/g, '')
+    .replace(/\b(standard|deluxe|ultimate|complete|definitive|game of the year|goty|anniversary)( edition)?\b/g, '')
+    .replace(/\b(for windows( 10)?|xbox series x\|s|xbox one)\b/g, '')
+    .replace(/[^a-z0-9]+/g, '');
+const storeId = (url = '') => url.match(/\/([0-9A-Z]{12})(?:[/?#]|$)/i)?.[1]?.toUpperCase();
+{
+  const byStoreId = new Map(games.filter((g) => g.websites?.xbox).map((g) => [storeId(g.websites.xbox), g]));
+  const byTitle = new Map();
+  for (const g of [...games].sort(byScoreFirst)) {
+    for (const t of [g.name, ...(g.aka || [])]) if (!byTitle.has(normTitle(t))) byTitle.set(normTitle(t), g);
+  }
+  for (const [pid, item] of Object.entries(gamePassData.items)) {
+    const g = byStoreId.get(pid) || byTitle.get(normTitle(item.title));
+    if (!g) continue;
+    const gp = (g.gamePass ||= { console: false, pc: false, coming: false, leaving: false, recent: false });
+    item.lists.forEach((l) => (gp[l] = true));
+  }
+}
+function byScoreFirst(a, b) {
+  return b.score - a.score;
+}
+
 export const byId = new Map(games.map((g) => [g.id, g]));
 export const bySlug = new Map(games.map((g) => [g.slug, g]));
 

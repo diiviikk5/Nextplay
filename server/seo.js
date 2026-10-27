@@ -3,7 +3,7 @@
 import { releaseLabel, isoDate, truncate, listJoin } from '../src/lib/format.js';
 import { PLATFORMS, MAJOR_PLATFORMS, platformName, platformShort } from '../src/lib/platforms.js';
 import { cover, ogImage } from '../src/lib/images.js';
-import { NOW } from './db.js';
+import { NOW, gamePassFetchedAt } from './db.js';
 
 import { SITE, BRAND, CONTACT, DESCRIPTION } from '../src/lib/site.js';
 
@@ -93,6 +93,20 @@ export function gameDescription(g) {
   return lead + gap + dev + extras;
 }
 
+// Xbox Game Pass status (US catalog). "No" is only stated when the game has an Xbox store link, because then
+// the match is an exact product-ID check; a title-only miss could just be a naming difference.
+const gamePassDate = () => new Date(gamePassFetchedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+export function gamePassAnswer(g) {
+  if (!gamePassFetchedAt) return null;
+  const gp = g.gamePass;
+  const where = gp && listJoin([gp.console && 'Xbox consoles', gp.pc && 'PC'].filter(Boolean));
+  if (gp?.leaving) return { yes: true, text: `Yes, for now. ${g.name} is on Game Pass${where ? ` (${where})` : ''} but is leaving the catalog soon. US catalog, checked ${gamePassDate()}.` };
+  if (gp?.console || gp?.pc) return { yes: true, text: `Yes. ${g.name} is included with Xbox Game Pass on ${where}. US catalog, checked ${gamePassDate()}.` };
+  if (gp?.coming) return { yes: true, text: `Soon. ${g.name} is listed as coming to Xbox Game Pass. US catalog, checked ${gamePassDate()}.` };
+  if (g.websites?.xbox && (g.platforms.includes('xsx') || g.platforms.includes('xone'))) return { yes: false, text: `No. ${g.name} is not in the Xbox Game Pass catalog right now (US, checked ${gamePassDate()}). It is sold separately on the Xbox Store.` };
+  return null;
+}
+
 export function gameFaq(g, ctx) {
   const faq = [];
   const date = headlineDate(g, true);
@@ -115,6 +129,8 @@ export function gameFaq(g, ctx) {
     if (code === 'pc' && g.platforms.includes('pc')) continue;
     faq.push({ q: `Is ${g.name} on ${platformName(code)}?`, a: platformAnswer(g, code).text });
   }
+  const gp = gamePassAnswer(g);
+  if (gp) faq.push({ q: `Is ${g.name} on Game Pass?`, a: gp.text });
   if (g.developers.length) {
     const pub = g.publishers.filter((p) => !g.developers.some((d) => d.slug === p.slug));
     faq.push({ q: `Who is making ${g.name}?`, a: `${g.name} is developed by ${listJoin(g.developers.map((d) => d.name))}${pub.length ? ` and published by ${listJoin(pub.map((p) => p.name))}` : ''}.` });

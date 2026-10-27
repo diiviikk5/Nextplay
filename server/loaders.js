@@ -300,6 +300,48 @@ function loadTrending() {
   });
 }
 
+// ---------- Xbox Game Pass ----------
+
+function loadGamePass() {
+  if (!db.gamePassFetchedAt) return notFound();
+  const on = games.filter((g) => g.gamePass);
+  const inCatalog = on.filter((g) => g.gamePass.console || g.gamePass.pc);
+  const coming = on.filter((g) => g.gamePass.coming && !g.gamePass.console && !g.gamePass.pc).sort(sorters.byDateAsc);
+  const leaving = on.filter((g) => g.gamePass.leaving).sort(sorters.byScore);
+  const recentlyAdded = on.filter((g) => g.gamePass.recent).sort(sorters.byScore);
+  const popular = [...inCatalog].sort(sorters.byScore).slice(0, 48);
+  const newest = inCatalog.filter((g) => g.released && g.date > NOW - 365 * DAY).sort(sorters.byDateDesc).slice(0, 24);
+  const gpCard = (g) => ({ ...card(g), gp: { console: g.gamePass.console, pc: g.gamePass.pc } });
+  const checked = new Date(db.gamePassFetchedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  const c = db.gamePassCounts;
+  const month = `${MONTHS[new Date(NOW * 1000).getUTCMonth()]} ${YEAR}`;
+  const faq = [
+    { q: 'How many games are on Xbox Game Pass?', a: `The US Game Pass catalog has ${c.console} games on Xbox consoles and ${c.pc} on PC (checked ${checked}). Many are on both.` },
+    coming.length && { q: 'What games are coming to Game Pass?', a: `Announced next: ${listJoin(coming.slice(0, 8).map((g) => g.name))}.` },
+    leaving.length && { q: 'What games are leaving Game Pass?', a: `Leaving soon: ${listJoin(leaving.slice(0, 8).map((g) => g.name))}. Play them or buy them before they go.` },
+    recentlyAdded.length && { q: 'What was added to Game Pass recently?', a: `Recently added: ${listJoin(recentlyAdded.slice(0, 8).map((g) => g.name))}.` },
+  ].filter(Boolean);
+  return ok({
+    checked,
+    counts: c,
+    coming: coming.map(gpCard),
+    leaving: leaving.map(gpCard),
+    recentlyAdded: recentlyAdded.map(gpCard),
+    newest: newest.map(gpCard),
+    popular: popular.map(gpCard),
+    faq,
+    seo: seo({
+      path: '/game-pass',
+      title: fitTitle([`Xbox Game Pass Games (${month}): Coming Soon, Leaving & New`, `Xbox Game Pass Games List (${month})`, 'Xbox Game Pass Games List']),
+      description: `Every Xbox Game Pass change, checked daily: ${coming.length ? `coming soon ${listJoin(coming.slice(0, 3).map((g) => g.name))}` : 'what is new'}${leaving.length ? `; leaving ${leaving.slice(0, 2).map((g) => g.name).join(' and ')}` : ''}. ${c.console} console and ${c.pc} PC games in the catalog.`,
+      aiSummary: `What is on Xbox Game Pass (US) as of ${checked}: games coming soon, leaving soon and recently added, plus the most popular games in the ${c.console}-game console and ${c.pc}-game PC catalog.`,
+      image: imageOf(coming[0] || recentlyAdded[0] || popular[0]),
+      jsonLd: [itemListLd('Xbox Game Pass games', '/game-pass', [...coming, ...recentlyAdded, ...popular]), faqLd(faq)],
+      breadcrumbs: [{ name: 'Xbox Game Pass', path: '/game-pass' }],
+    }),
+  });
+}
+
 // ---------- Release calendar ----------
 
 const RELEASE_YEARS = () => [...db.byYear.keys()].filter((y) => y >= YEAR - 1 && y <= YEAR + 2 && db.byYear.get(y).length >= 20).sort();
@@ -678,6 +720,7 @@ const LOADERS = {
   newReleases: loadNewReleases,
   anticipated: loadAnticipated,
   trending: loadTrending,
+  gamePass: loadGamePass,
   releasesIndex: loadReleasesIndex,
   releasesYear: loadReleasesYear,
   releasesMonth: loadReleasesMonth,
@@ -722,7 +765,7 @@ export function resolve(pathname) {
 }
 
 export function allPaths() {
-  const paths = new Set(['/', '/upcoming', '/new-releases', '/most-anticipated', '/trending', '/can-i-run-it', '/platform', '/genre', '/developer', '/publisher', '/series', '/tier-list', '/watchlist', '/search', '/news', '/blog', '/about', '/contact', '/privacy', '/terms', '/disclaimer']);
+  const paths = new Set(['/', '/upcoming', '/new-releases', '/most-anticipated', '/trending', '/game-pass', '/can-i-run-it', '/platform', '/genre', '/developer', '/publisher', '/series', '/tier-list', '/watchlist', '/search', '/news', '/blog', '/about', '/contact', '/privacy', '/terms', '/disclaimer']);
   games.forEach((g) => {
     paths.add(`/game/${g.slug}`);
     if ((g.score > MIN.gamesLikeScore && db.similarTo(g, 20).length >= MIN.gamesLike) || KEEP.has(`/games-like/${g.slug}`)) paths.add(`/games-like/${g.slug}`);
