@@ -140,6 +140,15 @@ export function gameFaq(g, ctx) {
     faq.push({ q: `Is ${g.name} multiplayer?`, a: multi ? `Yes. ${g.name} supports ${listJoin(g.modes.map((m) => m.toLowerCase()))}.` : `No. ${g.name} is ${listJoin(g.modes.map((m) => m.toLowerCase()))} only.` });
   }
   const st = g.steam;
+  if (st?.players >= 50 && st.playersAt) {
+    const on = new Date(st.playersAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+    const recent = (st.history || []).filter(([d]) => d >= new Date((NOW - 30 * 86400) * 1000).toISOString().slice(0, 10));
+    const peak = recent.length >= 7 ? Math.max(...recent.map(([, n]) => n)) : null;
+    faq.push({
+      q: `How many people play ${g.name}?`,
+      a: `${st.players.toLocaleString('en-US')} people were playing ${g.name} on Steam on ${on} (daily reading, about 04:00 UTC).${peak ? ` The highest daily reading in the last 30 days was ${peak.toLocaleString('en-US')}.` : ''} Console players are not included.`,
+    });
+  }
   if (st?.free) faq.push({ q: `Is ${g.name} free to play?`, a: `Yes, ${g.name} is free to play on Steam.` });
   else if (st?.price) faq.push({ q: `How much does ${g.name} cost?`, a: `${g.name} costs $${st.price.final.toFixed(2)} on Steam${st.price.discount ? ` (${st.price.discount}% off, normally $${st.price.initial.toFixed(2)})` : ''}. Prices checked ${ctx.updated}.` });
   if (st?.reviews?.total >= 50) {

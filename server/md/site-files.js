@@ -20,10 +20,12 @@ const md = (p) => abs(mdPath(p));
 
 const CORE = [
   ['/', 'Home', 'next big release, 7-day release radar, trending and most anticipated games'],
+  ['/this-week', 'Games coming out this week', 'every release this week, Monday to Sunday, by day'],
   ['/upcoming', 'Upcoming games', 'notable releases for each of the next six months'],
   ['/most-anticipated', 'Most anticipated games', 'top 100 upcoming games ranked by IGDB followers'],
   ['/trending', 'Trending games', 'most visited, watched on Twitch and played on Steam this week'],
   ['/new-releases', 'New releases', 'every notable game released in the last six weeks'],
+  ['/most-played', 'Most played Steam games', 'top 100 by concurrent players from the Steam API, daily, with 7- and 30-day trends'],
   ['/game-pass', 'Xbox Game Pass games', 'coming soon, leaving soon and recently added, from the official US catalog, checked daily'],
   [`/releases/${YEAR}`, `${YEAR} release calendar`, 'every game releasing this year, month by month'],
   [`/best-games/${YEAR}`, `Best games of ${YEAR}`, 'highest-rated releases this year by critic and player score'],

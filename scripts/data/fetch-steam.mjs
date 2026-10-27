@@ -126,13 +126,25 @@ for (const g of candidates) {
 }
 
 // Pass 2: live player counts for the top released games (separate, more lenient API host).
+// One reading per app per day goes into data/db/players.json (90 days) for trend lines and peaks. The daily job
+// runs at the same UTC time, so readings are comparable day to day.
+const HISTORY = path.join(DB, 'players.json');
+const history = fs.existsSync(HISTORY) ? JSON.parse(fs.readFileSync(HISTORY, 'utf8')) : {};
+const day = new Date(now).toISOString().slice(0, 10);
+const cutoff = new Date(now - 90 * 86400000).toISOString().slice(0, 10);
 const live = candidates.filter((g) => g.date && g.date < nowSec).slice(0, 400);
 for (const g of live) {
   const entry = (cache[g.steamAppId] ||= {});
   entry.players = await fetchPlayers(g.steamAppId);
   entry.playersAt = now;
+  if (entry.players != null) {
+    const rows = (history[g.steamAppId] || []).filter(([d]) => d !== day && d >= cutoff);
+    history[g.steamAppId] = [...rows, [day, entry.players]];
+  }
   await sleep(120);
 }
 
 save();
+fs.writeFileSync(`${HISTORY}.tmp`, '{\n' + Object.keys(history).sort((a, b) => a - b).map((k) => `${JSON.stringify(k)}:${JSON.stringify(history[k])}`).join(',\n') + '\n}\n');
+fs.renameSync(`${HISTORY}.tmp`, HISTORY);
 console.log(`[steam] done. ${spent} store requests, ${Object.keys(cache).length} apps cached, ${live.length} player counts`);

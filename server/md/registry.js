@@ -148,6 +148,18 @@ const RENDERERS = {
     return { sections: d.weeks.map((w) => section(w.label, gameList(w.games))), related: [{ name: 'Upcoming games', path: '/upcoming' }] };
   },
 
+  thisWeek(d) {
+    return {
+      sections: [
+        `${d.total} notable releases in the week of ${d.range}, by day.`,
+        ...d.days.map((day) => section(`${day.label}${day.today ? ' (today)' : ''}`, gameList(day.games) || 'No notable releases.')),
+        section('Next week', gameList(d.nextWeek)),
+        section('FAQ', faq(d.faq)),
+      ],
+      related: [{ name: 'Upcoming games', path: '/upcoming' }, { name: 'New releases', path: '/new-releases' }],
+    };
+  },
+
   anticipated(d) {
     return {
       sections: ['Ranked by the number of people following each game on IGDB.', d.items.map((x) => `${h3(`${x.rank}. ${x.name}`)}\n\n${gameLine(x)}${x.developer ? ` · by ${x.developer}` : ''}\n\n${x.summary}`).join('\n\n')],
@@ -163,6 +175,21 @@ const RENDERERS = {
         section('Most watched on Twitch', gameList(d.twitch)),
         section('Most wishlisted upcoming games', gameList(d.wishlisted)),
       ],
+    };
+  },
+
+  mostPlayed(d) {
+    const pct = (v) => (v == null ? '' : `${v >= 0 ? '+' : ''}${v}%`);
+    return {
+      sections: [
+        `Concurrent players from the official Steam API, read once a day at about 04:00 UTC. Latest reading: ${d.checked}.`,
+        table(
+          ['#', 'Game', 'Playing now', '7 days', '30 days', '30-day peak'],
+          d.items.map((g) => [g.rank, link(g.name, `/game/${g.slug}`), g.players.toLocaleString('en-US'), pct(g.change7), pct(g.change30), g.peak30?.toLocaleString('en-US') || ''])
+        ),
+        section('FAQ', faq(d.faq)),
+      ],
+      related: [{ name: 'Trending games', path: '/trending' }],
     };
   },
 

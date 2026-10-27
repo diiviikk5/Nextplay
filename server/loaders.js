@@ -262,6 +262,43 @@ function loadNewReleases() {
   });
 }
 
+// Monday-Sunday of the current week (UTC), every dated release grouped by day. One URL, fresh every week.
+function loadThisWeek() {
+  const today = Math.floor(NOW / DAY) * DAY;
+  const monday = today - ((new Date(today * 1000).getUTCDay() + 6) % 7) * DAY;
+  const fmt = (ts, o) => new Date(ts * 1000).toLocaleDateString('en-US', { timeZone: 'UTC', ...o });
+  const range = `${fmt(monday, { month: 'short', day: 'numeric' })} – ${fmt(monday + 6 * DAY, { month: 'short', day: 'numeric', year: 'numeric' })}`;
+  const days = [];
+  for (let i = 0; i < 7; i++) {
+    const from = monday + i * DAY;
+    const list = games.filter((g) => g.precision === 'day' && g.date >= from && g.date < from + DAY && notCancelled(g) && g.score > 3).sort(sorters.byScore);
+    days.push({ ts: from, label: fmt(from, { weekday: 'long', month: 'long', day: 'numeric' }), today: from === today, past: from < today, games: cards(list) });
+  }
+  const all = days.flatMap((d) => d.games);
+  const top = [...all].sort((x, y) => (y.hypes || 0) - (x.hypes || 0)).slice(0, 4);
+  const nextWeek = games.filter((g) => g.precision === 'day' && g.date >= monday + 7 * DAY && g.date < monday + 14 * DAY && notCancelled(g)).sort(sorters.byScore).slice(0, 12);
+  const faq = [
+    { q: 'What games come out this week?', a: all.length ? `${all.length} notable games release this week (${range}), including ${listJoin(top.map((g) => `${g.name} (${fmt(g.date, { weekday: 'long' })})`))}.` : `No notable games have a release date this week (${range}).` },
+    nextWeek.length && { q: 'What games come out next week?', a: `Next week: ${listJoin(nextWeek.slice(0, 5).map((g) => `${g.name} (${releaseLabel(g.date, 'day')})`))}.` },
+  ].filter(Boolean);
+  return ok({
+    range,
+    days,
+    total: all.length,
+    nextWeek: cards(nextWeek),
+    faq,
+    seo: seo({
+      path: '/this-week',
+      title: fitTitle([`Games Coming Out This Week (${range})`, `New Games This Week (${range})`]),
+      description: `${all.length} games releasing this week, ${range}: ${listJoin(top.map((g) => g.name))}. Every release day by day on PS5, Xbox, Switch 2 and PC.`,
+      aiSummary: `Every notable video game released or releasing in the week of ${range}, grouped by day, plus the biggest releases next week.`,
+      image: imageOf(top[0] && bySlug.get(top[0].slug)),
+      jsonLd: [itemListLd(`Games coming out this week (${range})`, '/this-week', all), faqLd(faq)],
+      breadcrumbs: [{ name: 'This week', path: '/this-week' }],
+    }),
+  });
+}
+
 function loadAnticipated() {
   const list = upcomingByHype.filter(notCancelled).slice(0, 100);
   return ok({
@@ -296,6 +333,46 @@ function loadTrending() {
       description: `What everyone is playing and watching right now: ${listJoin(overall.slice(0, 4).map((g) => g.name))}. Live Steam player counts, Twitch and wishlist charts. Updated ${UPDATED}.`,
       jsonLd: [itemListLd('Trending games', '/trending', overall)],
       breadcrumbs: [{ name: 'Trending', path: '/trending' }],
+    }),
+  });
+}
+
+// ---------- Steam player counts ----------
+
+// history: [[YYYY-MM-DD, players], ...] one reading per day. Change vs the reading closest to n days ago.
+function playerStats(g) {
+  const h = g.steam?.history || [];
+  const peak = h.reduce((m, [, n]) => Math.max(m, n), g.steam?.players || 0);
+  const ago = (n) => {
+    const target = new Date((NOW - n * DAY) * 1000).toISOString().slice(0, 10);
+    const row = [...h].reverse().find(([d]) => d <= target);
+    return row && row[1] > 0 ? Math.round(((g.steam.players - row[1]) / row[1]) * 100) : null;
+  };
+  return { players: g.steam.players, peak30: h.length >= 7 ? h.filter(([d]) => d >= new Date((NOW - 30 * DAY) * 1000).toISOString().slice(0, 10)).reduce((m, [, n]) => Math.max(m, n), g.steam.players) : null, peak, change7: ago(7), change30: ago(30), days: h.length };
+}
+
+function loadMostPlayed() {
+  const list = games.filter((g) => g.steam?.players > 0).sort((a, b) => b.steam.players - a.steam.players).slice(0, 100);
+  if (list.length < 20) return notFound();
+  const checkedAt = list[0].steam.playersAt;
+  const checked = checkedAt ? new Date(checkedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }) : UPDATED;
+  const items = list.map((g, i) => ({ ...card(g), rank: i + 1, ...playerStats(g), reviews: g.steam.reviews?.label || null }));
+  const faq = [
+    { q: 'What is the most played game on Steam right now?', a: `${list[0].name}, with ${list[0].steam.players.toLocaleString('en-US')} people playing (checked ${checked}). Next: ${listJoin(list.slice(1, 4).map((g) => `${g.name} (${g.steam.players.toLocaleString('en-US')})`))}.` },
+    { q: 'How are these player counts measured?', a: 'They are concurrent players reported by the official Steam API, read once a day at the same time (about 04:00 UTC), so daily changes are comparable. Peak numbers are the highest daily reading we recorded, not Steam’s all-time peak.' },
+  ];
+  return ok({
+    checked,
+    items,
+    faq,
+    seo: seo({
+      path: '/most-played',
+      title: fitTitle([`Most Played Steam Games Right Now (${MONTHS[new Date(NOW * 1000).getUTCMonth()]} ${YEAR}): Live Player Counts`, 'Most Played Steam Games Right Now', 'Most Played Steam Games']),
+      description: `Top 100 Steam games by players right now: ${listJoin(list.slice(0, 3).map((g) => `${g.name} (${g.steam.players.toLocaleString('en-US')})`))}. Daily player counts with 7- and 30-day trends.`,
+      aiSummary: `The 100 most played games on Steam by concurrent players from the official Steam API, read daily at about 04:00 UTC (latest: ${checked}), with 7-day and 30-day changes.`,
+      image: imageOf(list[0]),
+      jsonLd: [itemListLd('Most played Steam games', '/most-played', list), faqLd(faq)],
+      breadcrumbs: [{ name: 'Most played on Steam', path: '/most-played' }],
     }),
   });
 }
@@ -718,9 +795,11 @@ const LOADERS = {
   canIRunIt: loadCanIRunIt,
   upcoming: loadUpcoming,
   newReleases: loadNewReleases,
+  thisWeek: loadThisWeek,
   anticipated: loadAnticipated,
   trending: loadTrending,
   gamePass: loadGamePass,
+  mostPlayed: loadMostPlayed,
   releasesIndex: loadReleasesIndex,
   releasesYear: loadReleasesYear,
   releasesMonth: loadReleasesMonth,
@@ -765,7 +844,7 @@ export function resolve(pathname) {
 }
 
 export function allPaths() {
-  const paths = new Set(['/', '/upcoming', '/new-releases', '/most-anticipated', '/trending', '/game-pass', '/can-i-run-it', '/platform', '/genre', '/developer', '/publisher', '/series', '/tier-list', '/watchlist', '/search', '/news', '/blog', '/about', '/contact', '/privacy', '/terms', '/disclaimer']);
+  const paths = new Set(['/', '/upcoming', '/new-releases', '/most-anticipated', '/trending', '/game-pass', '/this-week', '/most-played', '/can-i-run-it', '/platform', '/genre', '/developer', '/publisher', '/series', '/tier-list', '/watchlist', '/search', '/news', '/blog', '/about', '/contact', '/privacy', '/terms', '/disclaimer']);
   games.forEach((g) => {
     paths.add(`/game/${g.slug}`);
     if ((g.score > MIN.gamesLikeScore && db.similarTo(g, 20).length >= MIN.gamesLike) || KEEP.has(`/games-like/${g.slug}`)) paths.add(`/games-like/${g.slug}`);

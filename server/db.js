@@ -14,6 +14,7 @@ const DAY = 86400;
 const rawGames = read('data/db/games.json', []);
 const signals = read('data/db/signals.json', {});
 const steam = read('data/db/steam.json', {});
+const playerHistory = read('data/db/players.json', {});
 export const seriesList = read('data/db/series.json', []);
 export const meta = read('data/db/meta.json', {});
 export const aliases = read('data/db/slug-aliases.json', {});
@@ -39,7 +40,7 @@ export const games = rawGames.map((g) => {
     ...g,
     platforms: sortPlatforms(g.platforms.filter((p) => PLATFORMS[p])),
     signals: s,
-    steam: st ? { reviews: st.reviews || null, players: st.players ?? null, ...(st.details || {}) } : null,
+    steam: st ? { reviews: st.reviews || null, players: st.players ?? null, playersAt: st.playersAt || null, history: playerHistory[g.steamAppId] || null, ...(st.details || {}) } : null,
   };
   // IGDB leaves first_release_date empty when the only dated release is Early Access; use it anyway.
   const firstDated = g.releases.filter((r) => r.date && r.precision !== 'tbd').sort((a, b) => a.date - b.date)[0];
