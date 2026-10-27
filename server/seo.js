@@ -5,8 +5,9 @@ import { PLATFORMS, MAJOR_PLATFORMS, platformName, platformShort } from '../src/
 import { cover, ogImage } from '../src/lib/images.js';
 import { NOW } from './db.js';
 
-export const SITE = 'https://nextplaygame.me';
-export const BRAND = 'NextPlay';
+import { SITE, BRAND, CONTACT, DESCRIPTION } from '../src/lib/site.js';
+
+export { SITE, BRAND };
 const ORG_ID = `${SITE}/#org`;
 
 // Pick the longest candidate that fits; append brand only when there is room.
@@ -193,6 +194,9 @@ export const orgLd = {
   name: BRAND,
   url: SITE,
   logo: `${SITE}/icon-512.png`,
+  description: DESCRIPTION,
+  email: CONTACT,
+  contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: CONTACT },
   sameAs: ['https://github.com/diiviikk5/Nextplay'],
 };
 
