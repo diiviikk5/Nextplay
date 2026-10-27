@@ -386,7 +386,7 @@ function loadMostPlayed() {
   const items = list.map((g, i) => ({ ...card(g), rank: i + 1, ...playerStats(g), reviews: g.steam.reviews?.label || null }));
   const faq = [
     { q: 'What is the most played game on Steam right now?', a: `${list[0].name}, with ${list[0].steam.players.toLocaleString('en-US')} people playing (checked ${checked}). Next: ${listJoin(list.slice(1, 4).map((g) => `${g.name} (${g.steam.players.toLocaleString('en-US')})`))}.` },
-    { q: 'How are these player counts measured?', a: 'They are concurrent players reported by the official Steam API, read once a day at the same time (about 04:00 UTC), so daily changes are comparable. Peak numbers are the highest daily reading we recorded, not Steam’s all-time peak.' },
+    { q: 'How are these player counts measured?', a: 'They are concurrent players reported by the official Steam API, read once a day by our daily update, so day-to-day changes are comparable. Peak numbers are the highest daily reading we recorded, not Steam’s all-time peak.' },
   ];
   return ok({
     checked,
@@ -396,7 +396,7 @@ function loadMostPlayed() {
       path: '/most-played',
       title: fitTitle([`Most Played Steam Games Right Now (${MONTHS[new Date(NOW * 1000).getUTCMonth()]} ${YEAR}): Live Player Counts`, 'Most Played Steam Games Right Now', 'Most Played Steam Games']),
       description: `Top 100 Steam games by players right now: ${listJoin(list.slice(0, 3).map((g) => `${g.name} (${g.steam.players.toLocaleString('en-US')})`))}. Daily player counts with 7- and 30-day trends.`,
-      aiSummary: `The 100 most played games on Steam by concurrent players from the official Steam API, read daily at about 04:00 UTC (latest: ${checked}), with 7-day and 30-day changes.`,
+      aiSummary: `The 100 most played games on Steam by concurrent players from the official Steam API, read once a day (latest: ${checked}), with 7-day and 30-day changes.`,
       image: imageOf(list[0]),
       jsonLd: [itemListLd('Most played Steam games', '/most-played', list), faqLd(faq)],
       breadcrumbs: [{ name: 'Most played on Steam', path: '/most-played' }],

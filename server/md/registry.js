@@ -186,7 +186,7 @@ const RENDERERS = {
     const pct = (v) => (v == null ? '' : `${v >= 0 ? '+' : ''}${v}%`);
     return {
       sections: [
-        `Concurrent players from the official Steam API, read once a day at about 04:00 UTC. Latest reading: ${d.checked}.`,
+        `Concurrent players from the official Steam API, read once a day. Latest reading: ${d.checked}.`,
         table(
           ['#', 'Game', 'Playing now', '7 days', '30 days', '30-day peak'],
           d.items.map((g) => [g.rank, link(g.name, `/game/${g.slug}`), g.players.toLocaleString('en-US'), pct(g.change7), pct(g.change30), g.peak30?.toLocaleString('en-US') || ''])

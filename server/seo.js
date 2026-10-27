@@ -146,7 +146,7 @@ export function gameFaq(g, ctx) {
     const peak = recent.length >= 7 ? Math.max(...recent.map(([, n]) => n)) : null;
     faq.push({
       q: `How many people play ${g.name}?`,
-      a: `${st.players.toLocaleString('en-US')} people were playing ${g.name} on Steam on ${on} (daily reading, about 04:00 UTC).${peak ? ` The highest daily reading in the last 30 days was ${peak.toLocaleString('en-US')}.` : ''} Console players are not included.`,
+      a: `${st.players.toLocaleString('en-US')} people were playing ${g.name} on Steam on ${on} (one reading per day).${peak ? ` The highest daily reading in the last 30 days was ${peak.toLocaleString('en-US')}.` : ''} Console players are not included.`,
     });
   }
   if (st?.free) faq.push({ q: `Is ${g.name} free to play?`, a: `Yes, ${g.name} is free to play on Steam.` });
