@@ -16,7 +16,8 @@ export function fitTitle(candidates, max = 62) {
   return fit.length + BRAND.length + 3 <= max ? `${fit} | ${BRAND}` : fit;
 }
 
-export function seo({ path, title, description, image, type = 'website', noindex = false, jsonLd = [], breadcrumbs }) {
+// aiSummary: 1-2 factual sentences for agents (<meta name="ai-summary">); defaults to the description.
+export function seo({ path, title, description, aiSummary, image, type = 'website', noindex = false, jsonLd = [], breadcrumbs }) {
   const url = `${SITE}${path === '/' ? '/' : path}`;
   const ld = [...jsonLd];
   if (breadcrumbs?.length) {
@@ -26,7 +27,7 @@ export function seo({ path, title, description, image, type = 'website', noindex
       itemListElement: [{ name: 'Home', path: '/' }, ...breadcrumbs].map((b, i) => ({ '@type': 'ListItem', position: i + 1, name: b.name, item: `${SITE}${b.path}` })),
     });
   }
-  return { title, description: truncate(description, 160), url, image: image || `${SITE}/og-default.png`, type, noindex, jsonLd: ld, crumbs: breadcrumbs || [] };
+  return { title, description: truncate(description, 160), aiSummary, url, image: image || `${SITE}/og-default.png`, type, noindex, jsonLd: ld, crumbs: breadcrumbs || [] };
 }
 
 export const platformsPhrase = (codes, long = true) => listJoin(codes.map((c) => (long ? platformName(c) : platformShort(c))));

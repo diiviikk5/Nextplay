@@ -4,12 +4,17 @@ const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').r
 // JSON-LD inside <script>: only "<" needs neutralising.
 const ldJson = (obj) => JSON.stringify(obj).replace(/</g, '\\u003c');
 
+// Markdown alternate of an HTML URL: https://x/ -> https://x/index.md, https://x/game/y -> https://x/game/y.md
+const mdUrl = (url) => (url.endsWith('/') ? `${url}index.md` : `${url}.md`);
+
 function tags(seo) {
   const robots = seo.noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
   return [
     ['meta', { name: 'description', content: seo.description }],
+    ['meta', { name: 'ai-summary', content: seo.aiSummary || seo.description }],
     ['meta', { name: 'robots', content: robots }],
     ['link', { rel: 'canonical', href: seo.url }],
+    ...(seo.noindex ? [] : [['link', { rel: 'alternate', type: 'text/markdown', href: mdUrl(seo.url) }]]),
     ['meta', { property: 'og:type', content: seo.type === 'video.game' ? 'website' : seo.type }],
     ['meta', { property: 'og:site_name', content: 'NextPlay' }],
     ['meta', { property: 'og:title', content: seo.title }],

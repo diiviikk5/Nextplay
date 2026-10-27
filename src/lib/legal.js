@@ -7,6 +7,7 @@ export const LEGAL = {
     body: [
       ['What we collect', 'NextPlay does not have accounts and does not ask for personal information. Your watchlist and tier lists are stored only in your own browser (localStorage) and never sent to us.'],
       ['Analytics', 'We use Vercel Web Analytics to count page views. It is cookieless and does not track you across sites.'],
+      ['Microsoft Clarity', 'We use Microsoft Clarity to see how visitors use the site (clicks, scrolling and anonymised session replays) so we can improve it. Clarity sets cookies and is run by Microsoft under the Microsoft Privacy Statement (privacy.microsoft.com).'],
       ['Embedded content', 'Trailers load from youtube-nocookie.com only after you press play. Images load from the IGDB image CDN.'],
       ['Contact', `Questions about privacy: ${CONTACT}.`],
     ],

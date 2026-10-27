@@ -1,7 +1,8 @@
 // Static site generation: renders every route with React on the server and writes
 //   dist/<route>/index.html     full HTML (what Google/AI crawlers read)
 //   dist/data/<route>.json      route data for client-side navigation
-// plus sitemaps, robots.txt, llms.txt, rss.xml and the search index.
+//   dist/<route>.md             markdown version for AI agents (server/md)
+// plus sitemaps, robots.txt, llms.txt, llms-full.txt, ai.txt, rss.xml and the search index.
 // Must be set before React loads: the development build is ~20x slower to render.
 process.env.NODE_ENV = 'production';
 
@@ -22,6 +23,9 @@ const db = await import(pathToFileURL(path.join(ROOT, 'server/db.js')).href);
 const { SITE } = await import(pathToFileURL(path.join(ROOT, 'server/seo.js')).href);
 const { releaseLabel, isoDate } = await import(pathToFileURL(path.join(ROOT, 'src/lib/format.js')).href);
 const { platformName } = await import(pathToFileURL(path.join(ROOT, 'src/lib/platforms.js')).href);
+const md = await import(pathToFileURL(path.join(ROOT, 'server/md/registry.js')).href);
+const siteFiles = await import(pathToFileURL(path.join(ROOT, 'server/md/site-files.js')).href);
+md.checkCoverage();
 
 const template = LASTMOD_ONLY ? '' : fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
 const safeJson = (v) => JSON.stringify(v).replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
@@ -32,6 +36,7 @@ function write(file, content) {
 }
 
 const htmlFile = (p) => (p === '/' ? path.join(DIST, 'index.html') : path.join(DIST, p.slice(1), 'index.html'));
+const mdFile = (p) => path.join(DIST, p === '/' ? 'index.md' : `${p.slice(1)}.md`);
 const dataFile = (p) => path.join(DIST, 'data', `${p === '/' ? 'index' : p.slice(1)}.json`);
 
 async function page(p, data) {
@@ -67,6 +72,7 @@ const addToSitemap = (p, date) => {
 };
 
 let ok = 0, redirects = 0, missing = 0;
+const mdRoutes = []; // { path, title } for the markdown catalog
 const errors = [];
 const BATCH = 24;
 for (let i = 0; i < paths.length; i += BATCH) {
@@ -91,6 +97,11 @@ for (let i = 0; i < paths.length; i += BATCH) {
         write(dataFile(p), JSON.stringify(r.data));
         const date = touch(p, r.data);
         if (!r.data.seo?.noindex) addToSitemap(p, date);
+        const m = md.renderMarkdown(p, { lastmod: date, resolved: r });
+        if (m.status === 200) {
+          write(mdFile(p), m.body);
+          mdRoutes.push({ path: p, title: m.title });
+        }
         ok++;
       } catch (e) {
         errors.push(`${p}: ${e.stack || e.message}`);
@@ -131,21 +142,14 @@ for (const [group, urls] of sitemap) {
 write(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapFiles.map((s) => `<sitemap><loc>${SITE}/${s.name}</loc><lastmod>${s.lastmod}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
 fs.writeFileSync(LASTMOD_FILE, JSON.stringify(lastmod));
 
-// robots.txt — explicitly welcome AI/answer-engine crawlers.
-write(
-  path.join(DIST, 'robots.txt'),
-  `User-agent: *\nAllow: /\nDisallow: /search\nDisallow: /watchlist\n\n# AI and answer engines are welcome\nUser-agent: GPTBot\nAllow: /\nUser-agent: OAI-SearchBot\nAllow: /\nUser-agent: ChatGPT-User\nAllow: /\nUser-agent: ClaudeBot\nAllow: /\nUser-agent: Claude-SearchBot\nAllow: /\nUser-agent: PerplexityBot\nAllow: /\nUser-agent: Google-Extended\nAllow: /\nUser-agent: Applebot-Extended\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`
-);
-
-// llms.txt (concise map) + llms-full.txt (the full upcoming release schedule as plain markdown)
-const up = db.upcoming.filter((g) => g.status !== 'cancelled' && g.date && g.precision !== 'tbd').sort((a, b) => a.date - b.date);
-const line = (g) => `- [${g.name}](${SITE}/game/${g.slug}): ${releaseLabel(g.date, g.precision, { long: true })}${g.early ? ' (Early Access)' : ''} — ${g.platforms.map(platformName).join(', ') || 'platforms TBA'}`;
-const year = new Date(db.NOW * 1000).getUTCFullYear();
-write(
-  path.join(DIST, 'llms.txt'),
-  `# NextPlay\n\n> Video game release dates, countdowns and platform availability for ${db.games.length.toLocaleString('en-US')} games (${db.upcoming.length.toLocaleString('en-US')} upcoming). Data from IGDB and Steam, refreshed daily. Last update: ${today}.\n\nEach game page answers: release date (per platform, with date precision), whether it is on PS5 / Xbox Series X|S / Nintendo Switch 2 / PC, developer, price, Steam reviews and official PC requirements.\n\n## Key pages\n- [Upcoming games](${SITE}/upcoming): next six months of releases\n- [${year} release calendar](${SITE}/releases/${year}): every game by month\n- [Most anticipated games](${SITE}/most-anticipated): top 100 by follower count\n- [Trending games](${SITE}/trending): most visited, watched and played this week\n- [New releases](${SITE}/new-releases): last six weeks\n- [Best games of ${year}](${SITE}/best-games/${year}): ranked by review scores\n- [Game series in order](${SITE}/series)\n- [Full release schedule (plain text)](${SITE}/llms-full.txt)\n\n## Most anticipated right now\n${db.upcomingByHype.slice(0, 40).map(line).join('\n')}\n`
-);
-write(path.join(DIST, 'llms-full.txt'), `# NextPlay upcoming video game release schedule\n\nGenerated ${today}. ${up.length} upcoming games with announced dates, soonest first. Source: ${SITE}\n\n${up.map(line).join('\n')}\n`);
+// AI-agent files (server/md/site-files.js) + robots.txt, all generated so they never go stale.
+mdRoutes.sort((x, y) => x.path.localeCompare(y.path));
+write(path.join(DIST, 'robots.txt'), siteFiles.robotsTxt());
+write(path.join(DIST, 'llms.txt'), siteFiles.llmsTxt(today));
+write(path.join(DIST, 'llms-full.txt'), siteFiles.llmsFullTxt(today, (p) => lastmod[p]?.d));
+write(path.join(DIST, 'ai.txt'), siteFiles.aiTxt(today));
+write(path.join(DIST, 'md-catalog.json'), siteFiles.catalog(mdRoutes, today));
+console.log(`[prerender] markdown: ${mdRoutes.length} pages`);
 
 // RSS: notable releases from the last 14 days + next 14 days.
 const feedItems = db.games

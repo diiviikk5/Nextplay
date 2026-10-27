@@ -333,6 +333,18 @@
   ],
   "rewrites": [
     {
+      "source": "/api/md/_catalog",
+      "destination": "/md-catalog.json"
+    },
+    {
+      "source": "/api/md/:path*",
+      "destination": "/api/md?path=:path*"
+    },
+    {
+      "source": "/:path(.*)\\.md",
+      "destination": "/api/md?path=:path&miss=1"
+    },
+    {
       "source": "/games-like/:slug",
       "destination": "/game/:slug"
     },
@@ -390,15 +402,102 @@
         {
           "key": "X-Frame-Options",
           "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Link",
+          "value": "<https://nextplaygame.me/llms.txt>; rel=\"describedby\"; type=\"text/plain\", <https://nextplaygame.me/llms-full.txt>; rel=\"describedby\"; type=\"text/plain\", <https://nextplaygame.me/ai.txt>; rel=\"describedby\"; type=\"text/plain\""
         }
       ]
     },
     {
-      "source": "/llms(.*).txt",
+      "source": "/index.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        },
+        {
+          "key": "Content-Location",
+          "value": "https://nextplaygame.me/"
+        },
+        {
+          "key": "Link",
+          "value": "<https://nextplaygame.me/>; rel=\"canonical\""
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/:path((?!index\\.md$).*)\\.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        },
+        {
+          "key": "Content-Location",
+          "value": "https://nextplaygame.me/:path"
+        },
+        {
+          "key": "Link",
+          "value": "<https://nextplaygame.me/:path>; rel=\"canonical\""
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/(llms.txt|llms-full.txt|ai.txt)",
       "headers": [
         {
           "key": "Content-Type",
           "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/md-catalog.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         }
       ]
     }

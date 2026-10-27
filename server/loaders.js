@@ -205,6 +205,7 @@ function loadHome() {
     seo: seo({
       path: '/',
       title: `NextPlay – Video Game Release Dates, Countdowns & Upcoming Games ${YEAR}–${NEXT}`,
+      aiSummary: `NextPlay home page: the next big release (${heroGame.name}), every dated release in the next 7 days, and trending, newly released and most anticipated games. Data from IGDB and Steam, updated ${UPDATED}.`,
       description: `Every upcoming game release date in one place: ${upcoming.length.toLocaleString('en-US')} games tracked across PS5, Xbox, Switch 2 and PC with live countdowns, release calendars and real Steam data. Updated ${UPDATED}.`,
       image: imageOf(heroGame),
       jsonLd: [websiteLd, orgLd],
@@ -232,6 +233,7 @@ function loadUpcoming() {
     seo: seo({
       path: '/upcoming',
       title: fitTitle([`Upcoming Video Games ${YEAR}–${NEXT}: Full Release Schedule`, `Upcoming Games ${YEAR}–${NEXT}`]),
+      aiSummary: `Release schedule for the next six months: the most notable of ${upcoming.length.toLocaleString('en-US')} upcoming games for each month, plus announced games without an exact date.`,
       description: `${upcoming.length.toLocaleString('en-US')} upcoming games with release dates, month by month. Next up: ${listJoin(next.map((g) => `${g.name} (${releaseLabel(g.date, 'day')})`))}.`,
       jsonLd: [itemListLd('Upcoming video games', '/upcoming', sections.flatMap((s) => s.games))],
       breadcrumbs: [{ name: 'Upcoming games', path: '/upcoming' }],
@@ -267,6 +269,7 @@ function loadAnticipated() {
     seo: seo({
       path: '/most-anticipated',
       title: fitTitle([`100 Most Anticipated Games of ${YEAR}–${NEXT} (Ranked)`, `Most Anticipated Games ${NEXT}`]),
+      aiSummary: `The 100 upcoming games with the most followers on IGDB, ranked, with release dates and platforms. #1 is ${list[0]?.name}.`,
       description: `The most anticipated upcoming games ranked by real follower hype: ${listJoin(list.slice(0, 4).map((g) => g.name))} and more — with release dates and platforms.`,
       image: imageOf(list[0]),
       jsonLd: [itemListLd('Most anticipated games', '/most-anticipated', list)],
@@ -289,6 +292,7 @@ function loadTrending() {
     seo: seo({
       path: '/trending',
       title: fitTitle([`Trending Games Right Now: Most Played & Watched (${MONTHS[new Date(NOW * 1000).getUTCMonth()]} ${YEAR})`, `Trending Games Right Now`]),
+      aiSummary: `Games trending this week by IGDB visits, Twitch watch time and Steam concurrent players, plus the most-wishlisted upcoming games. Updated ${UPDATED}.`,
       description: `What everyone is playing and watching right now: ${listJoin(overall.slice(0, 4).map((g) => g.name))}. Live Steam player counts, Twitch and wishlist charts. Updated ${UPDATED}.`,
       jsonLd: [itemListLd('Trending games', '/trending', overall)],
       breadcrumbs: [{ name: 'Trending', path: '/trending' }],
