@@ -299,10 +299,16 @@ function loadThisWeek() {
   });
 }
 
-function loadAnticipated() {
+// Years with their own "most anticipated games of <year>" page (needs at least 20 dated upcoming games).
+const anticipatedYear = (y) => upcomingByHype.filter((g) => notCancelled(g) && g.date && g.precision !== 'tbd' && new Date(g.date * 1000).getUTCFullYear() === y);
+const ANTICIPATED_YEARS = () => [YEAR, NEXT, NEXT + 1].filter((y) => anticipatedYear(y).length >= 20);
+
+function loadAnticipated({ year } = {}) {
+  if (year) return loadAnticipatedYear(Number(year));
   const list = upcomingByHype.filter(notCancelled).slice(0, 100);
   return ok({
     items: list.map((g, i) => ({ ...card(g), rank: i + 1, summary: truncate(g.summary, 180), developer: g.developers[0]?.name || null })),
+    years: ANTICIPATED_YEARS(),
     seo: seo({
       path: '/most-anticipated',
       title: fitTitle([`100 Most Anticipated Games of ${YEAR}–${NEXT} (Ranked)`, `Most Anticipated Games ${NEXT}`]),
@@ -311,6 +317,27 @@ function loadAnticipated() {
       image: imageOf(list[0]),
       jsonLd: [itemListLd('Most anticipated games', '/most-anticipated', list)],
       breadcrumbs: [{ name: 'Most anticipated', path: '/most-anticipated' }],
+    }),
+  });
+}
+
+function loadAnticipatedYear(y) {
+  if (!ANTICIPATED_YEARS().includes(y)) return notFound();
+  const list = anticipatedYear(y).slice(0, 50);
+  const path = `/most-anticipated/${y}`;
+  const lead = y === YEAR ? `still to come in ${y}` : `of ${y}`;
+  return ok({
+    year: y,
+    items: list.map((g, i) => ({ ...card(g), rank: i + 1, summary: truncate(g.summary, 180), developer: g.developers[0]?.name || null })),
+    years: ANTICIPATED_YEARS(),
+    seo: seo({
+      path,
+      title: fitTitle([`${list.length} Most Anticipated Games ${y === YEAR ? `Still Coming in ${y}` : `of ${y}`} (Ranked)`, `Most Anticipated Games of ${y}`]),
+      description: `The ${list.length} most anticipated games ${lead}, ranked by real follower hype: ${listJoin(list.slice(0, 4).map((g) => `${g.name} (${releaseLabel(g.date, g.precision)})`))}. With release dates and platforms.`,
+      aiSummary: `The ${list.length} upcoming games ${lead} with the most followers on IGDB, ranked, with release dates and platforms. #1 is ${list[0].name}.`,
+      image: imageOf(list[0]),
+      jsonLd: [itemListLd(`Most anticipated games of ${y}`, path, list)],
+      breadcrumbs: [{ name: 'Most anticipated', path: '/most-anticipated' }, { name: String(y), path }],
     }),
   });
 }
@@ -855,6 +882,7 @@ export function allPaths() {
     MONTH_SLUGS.forEach((m, i) => (db.byMonth.get(`${y}-${String(i + 1).padStart(2, '0')}`) || []).length >= MIN.hub && paths.add(`/releases/${y}/${m}`));
   });
   [YEAR - 2, YEAR - 1, YEAR].forEach((y) => paths.add(`/best-games/${y}`));
+  ANTICIPATED_YEARS().forEach((y) => paths.add(`/most-anticipated/${y}`));
   PLATFORM_ORDER.forEach((p) => paths.add(`/platform/${PLATFORMS[p].slug}`));
   [...db.byGenre.keys(), ...db.byTheme.keys()].forEach((s) => {
     paths.add(`/genre/${s}`);

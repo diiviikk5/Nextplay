@@ -5,7 +5,19 @@ export default function Anticipated({ data }) {
   const year = new Date(builtAt * 1000).getUTCFullYear();
   return (
     <>
-      <PageHead crumbs={seo.crumbs} eyebrow="Ranked by follower hype" title={`The 100 most anticipated games of ${year}–${year + 1}`} lede={`Ranked by how many players follow each unreleased game on IGDB, not by our opinion. Updated ${data.updated}.`} />
+      <PageHead crumbs={seo.crumbs} eyebrow="Ranked by follower hype" title={data.year ? `The ${items.length} most anticipated games of ${data.year}` : `The 100 most anticipated games of ${year}–${year + 1}`} lede={`Ranked by how many players follow each unreleased game on IGDB, not by our opinion. Updated ${data.updated}.`} />
+      {data.years?.length ? (
+        <nav className="container row" aria-label="By year" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
+          <Link to="/most-anticipated" className="btn btn-sm" aria-current={!data.year ? 'page' : undefined}>
+            All upcoming
+          </Link>
+          {data.years.map((y) => (
+            <Link key={y} to={`/most-anticipated/${y}`} className="btn btn-sm" aria-current={data.year === y ? 'page' : undefined}>
+              {y}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
       <section className="container" aria-label="Ranking">
         <ol className="rank-list" role="list">
           {items.map((g) => (

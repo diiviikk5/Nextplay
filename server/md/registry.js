@@ -163,7 +163,11 @@ const RENDERERS = {
   anticipated(d) {
     return {
       sections: ['Ranked by the number of people following each game on IGDB.', d.items.map((x) => `${h3(`${x.rank}. ${x.name}`)}\n\n${gameLine(x)}${x.developer ? ` · by ${x.developer}` : ''}\n\n${x.summary}`).join('\n\n')],
-      related: [{ name: 'Upcoming games', path: '/upcoming' }],
+      related: [
+        { name: 'Upcoming games', path: '/upcoming' },
+        d.year && { name: 'Most anticipated (all upcoming)', path: '/most-anticipated' },
+        ...(d.years || []).filter((y) => y !== d.year).map((y) => ({ name: `Most anticipated games of ${y}`, path: `/most-anticipated/${y}` })),
+      ],
     };
   },
 

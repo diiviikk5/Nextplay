@@ -9,6 +9,7 @@ export const ROUTES = [
   { path: '/new-releases', page: 'newReleases' },
   { path: '/this-week', page: 'thisWeek' },
   { path: '/most-anticipated', page: 'anticipated' },
+  { path: '/most-anticipated/:year', page: 'anticipated' },
   { path: '/trending', page: 'trending' },
   { path: '/game-pass', page: 'gamePass' },
   { path: '/most-played', page: 'mostPlayed' },
