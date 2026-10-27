@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { CalendarPlus, Share2, Play, ExternalLink, Check, X as XIcon } from 'lucide-react';
+import { CalendarPlus, Share2, Play, ExternalLink, Check, Code, X as XIcon } from 'lucide-react';
+import { embedCode, widgetPath } from '../lib/widget.js';
 import { Link, Cover, Countdown, Crumbs, Faq, Grid, SectionHead, PlatformChips, WatchButton, RatingBadge } from '../components/ui.jsx';
 import { useNow } from '../lib/data.jsx';
 import { shot, shotSrcSet, youtubeThumb } from '../lib/images.js';
@@ -187,9 +188,39 @@ function ShareButton({ game }) {
   );
 }
 
+function EmbedPanel({ game, onClose }) {
+  const [copied, setCopied] = useState(false);
+  const code = embedCode(game.slug, game.name);
+  const copy = async () => {
+    await navigator.clipboard?.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
+  };
+  return (
+    <div className="embed-panel" role="region" aria-label="Embed countdown">
+      <p style={{ fontWeight: 600, marginBottom: 6 }}>Put this countdown on your site, Discord bot page or stream overlay</p>
+      <iframe src={widgetPath(game.slug)} title={`${game.name} countdown preview`} width="360" height="110" style={{ border: 0, maxWidth: '100%' }} loading="lazy" />
+      <label htmlFor="embed-code" className="sr-only">
+        Embed code
+      </label>
+      <textarea id="embed-code" readOnly value={code} rows={4} onFocus={(e) => e.target.select()} />
+      <div className="row" style={{ gap: 8 }}>
+        <button type="button" className="btn btn-sm" onClick={copy}>
+          {copied ? <Check size={15} aria-hidden="true" /> : <Code size={15} aria-hidden="true" />}
+          {copied ? 'Copied' : 'Copy code'}
+        </button>
+        <button type="button" className="btn btn-sm" onClick={onClose}>
+          Close
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function Game({ data }) {
   const { game, availability, faq, similar, moreFromDev, series, anticipatedRank, monthLink, hasRequirements, hasGamesLike, seo, builtAt } = data;
   const now = useNow();
+  const [embedOpen, setEmbedOpen] = useState(false);
   const upcoming = game.precision === 'day' && game.date > now;
   const backdrop = game.artworks[0] || game.screenshots[0];
   const st = game.steam;
@@ -246,7 +277,13 @@ export default function Game({ data }) {
                   </button>
                 ) : null}
                 <ShareButton game={game} />
+                {upcoming ? (
+                  <button type="button" className="btn" aria-expanded={embedOpen} onClick={() => setEmbedOpen((v) => !v)}>
+                    <Code size={17} aria-hidden="true" /> Embed countdown
+                  </button>
+                ) : null}
               </div>
+              {upcoming && embedOpen ? <EmbedPanel game={game} onClose={() => setEmbedOpen(false)} /> : null}
             </div>
           </div>
         </div>

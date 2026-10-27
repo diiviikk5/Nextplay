@@ -416,3 +416,7 @@ a.chip:hover, button.chip:hover { border-color: var(--line-2); color: var(--text
   .tier-pool { position: sticky; bottom: 0; z-index: 20; flex-wrap: nowrap; overflow-x: auto; min-height: 0; margin-top: 12px; padding: 10px; border-style: solid; background: rgba(11, 11, 13, 0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding-bottom: max(10px, env(safe-area-inset-bottom)); }
   .tier-pool .tier-item { flex: none; width: 58px; }
 }
+
+/* Embed countdown panel (game page) */
+.embed-panel { margin-top: 16px; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--bg-2); display: grid; gap: 12px; max-width: 520px; }
+.embed-panel textarea { width: 100%; font: 12.5px/1.45 var(--mono, ui-monospace, monospace); color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px; resize: vertical; }

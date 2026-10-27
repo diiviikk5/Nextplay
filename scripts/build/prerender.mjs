@@ -25,6 +25,7 @@ const { releaseLabel, isoDate } = await import(pathToFileURL(path.join(ROOT, 'sr
 const { platformName } = await import(pathToFileURL(path.join(ROOT, 'src/lib/platforms.js')).href);
 const md = await import(pathToFileURL(path.join(ROOT, 'server/md/registry.js')).href);
 const siteFiles = await import(pathToFileURL(path.join(ROOT, 'server/md/site-files.js')).href);
+const widgets = await import(pathToFileURL(path.join(ROOT, 'server/widgets.js')).href);
 md.checkCoverage();
 
 const template = LASTMOD_ONLY ? '' : fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
@@ -125,6 +126,11 @@ if (LASTMOD_ONLY) {
 
 // 404 page (Vercel serves dist/404.html with a 404 status)
 write(path.join(DIST, '404.html'), await page('/404-not-found', { status: 404, builtAt: db.NOW }));
+
+// Countdown widgets (iframe embeds), one per game with an exact upcoming release day.
+const widgetList = widgets.widgetGames();
+widgetList.forEach((g) => write(path.join(DIST, `${widgets.widgetPath(g.slug).slice(1)}.html`), widgets.widgetHtml(g)));
+console.log(`[prerender] widgets: ${widgetList.length} countdowns`);
 
 // Search index
 write(path.join(DIST, 'data/search-index.json'), JSON.stringify(loaders.searchIndex()));
