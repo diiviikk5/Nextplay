@@ -8,25 +8,9 @@ import { SPONSOR_URL } from '../lib/site.js';
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-// Open sponsor slots: every slot and the button go to the sponsor checkout.
 const slots = (n) => Array.from({ length: n }, (_, i) => i + 1);
 
-function SponsorStrip() {
-  return (
-    <div className="sponsor-strip" aria-label="Sponsors">
-      <span className="eyebrow">Sponsored by</span>
-      {slots(4).map((n) => (
-        <a key={n} className="sponsor-slot" href={SPONSOR_URL} target="_blank" rel="nofollow noopener">
-          Your logo here
-        </a>
-      ))}
-      <a className="btn btn-sm sponsor-btn" href={SPONSOR_URL} target="_blank" rel="nofollow noopener">
-        <Heart size={14} aria-hidden="true" /> Sponsor NextPlay
-      </a>
-    </div>
-  );
-}
-
+// Open sponsor slots: every slot and the button go to the sponsor checkout.
 function SponsorWall() {
   return (
     <section className="container section" aria-labelledby="sponsors">
@@ -53,7 +37,6 @@ function Hero({ game, builtAt }) {
       </div>
       <div className="container hero-inner">
         <div>
-          <SponsorStrip />
           <h1 className="eyebrow">
             <span className="accent">●</span> Game release dates & countdowns · next big launch
           </h1>
