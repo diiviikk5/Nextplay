@@ -65,29 +65,24 @@ function SponsorDialog({ dialogRef }) {
             <X size={18} aria-hidden="true" />
           </button>
         </header>
-        <p className="muted">Tell us about your brand, then pay on the next page. Your logo goes up in the sponsor section on the NextPlay homepage.</p>
 
         <label className="field">
           <span>Product</span>
-          <input value={form.product} onChange={set('product')} placeholder="e.g. Acme Studio" maxLength={LIMITS.product} autoComplete="organization" required />
+          <input value={form.product} onChange={set('product')} maxLength={LIMITS.product} autoComplete="organization" required />
         </label>
         <label className="field">
-          <span>
-            Link <em>Where it points</em>
-          </span>
-          <input value={form.link} onChange={set('link')} placeholder="example.com" maxLength={LIMITS.link} inputMode="url" autoComplete="url" required />
+          <span>Link</span>
+          <input value={form.link} onChange={set('link')} maxLength={LIMITS.link} inputMode="url" autoComplete="url" required />
         </label>
         <label className="field">
           <span>
             Description <em>{form.description.length}/{LIMITS.description}</em>
           </span>
-          <textarea value={form.description} onChange={set('description')} placeholder="Short description highlighting what your product does." maxLength={LIMITS.description} rows={3} />
+          <textarea value={form.description} onChange={set('description')} maxLength={LIMITS.description} rows={3} />
         </label>
         <label className="field">
-          <span>
-            Email <em>Where we reach you</em>
-          </span>
-          <input type="email" value={form.email} onChange={set('email')} placeholder="you@example.com" autoComplete="email" required />
+          <span>Email</span>
+          <input type="email" value={form.email} onChange={set('email')} autoComplete="email" required />
         </label>
 
         {error ? (
