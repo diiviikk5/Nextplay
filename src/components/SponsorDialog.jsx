@@ -3,7 +3,7 @@ import { X, ArrowRight } from 'lucide-react';
 import { SPONSOR_URL } from '../lib/site.js';
 
 // Sponsor details are sent to Dodo Payments with the checkout link (email prefill + metadata_* fields), so they
-// arrive attached to the payment in the Dodo dashboard. No backend needed.
+// arrive attached to the payment in the Dodo dashboard. /api/sponsor also emails them to the owner (Resend).
 const LIMITS = { product: 60, link: 200, description: 200 };
 
 function normaliseLink(v) {
@@ -51,6 +51,10 @@ function SponsorDialog({ dialogRef }) {
     if (!link) return setError('Add a valid link, like example.com.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) return setError('Add an email we can reach you at.');
     setError('');
+    // email the owner too, even if they never finish paying. sendBeacon survives the page change
+    try {
+      navigator.sendBeacon('/api/sponsor', new Blob([JSON.stringify({ ...form, link })], { type: 'application/json' }));
+    } catch { /* checkout still works without the alert */ }
     window.location.href = checkoutUrl({ ...form, link });
   };
 
