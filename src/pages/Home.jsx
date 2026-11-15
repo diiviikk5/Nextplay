@@ -12,11 +12,25 @@ const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const slots = (n) => Array.from({ length: n }, (_, i) => i + 1);
 
 // Open sponsor slots: every slot and the button go to the sponsor checkout.
-function SponsorWall() {
-  const [openSponsor, sponsorDialog] = useSponsorDialog();
+// Slim bar above the hero so sponsors are seen first; opens the same form as the wall.
+function SponsorBar({ onOpen }) {
+  return (
+    <div className="sponsor-bar">
+      <div className="container sponsor-bar-inner">
+        <span>
+          <span className="accent">●</span> <span className="sponsor-bar-long">Reach players checking release dates · </span>12 sponsor slots open
+        </span>
+        <a className="btn btn-sm btn-accent" href={SPONSOR_URL} rel="nofollow noopener" onClick={onOpen}>
+          <Heart size={14} aria-hidden="true" /> Become a sponsor
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function SponsorWall({ onOpen: openSponsor }) {
   return (
     <section className="container section" aria-labelledby="sponsors">
-      {sponsorDialog}
       <SectionHead id="sponsors" title="Sponsors" sub="Put your game, studio or brand in front of players checking release dates" />
       <div className="sponsor-wall">
         {slots(12).map((n) => (
@@ -104,11 +118,14 @@ function Radar({ days }) {
 export default function Home({ data }) {
   const { hero, radar, trending, outNow, anticipated, months, platforms, stats, builtAt } = data;
   const year = new Date(builtAt * 1000).getUTCFullYear();
+  const [openSponsor, sponsorDialog] = useSponsorDialog();
   return (
     <>
+      {sponsorDialog}
+      <SponsorBar onOpen={openSponsor} />
       <Hero game={hero} builtAt={builtAt} />
 
-      <SponsorWall />
+      <SponsorWall onOpen={openSponsor} />
 
       <section className="container section" aria-labelledby="radar">
         <SectionHead id="radar" title="Release radar" sub="Everything dropping in the next 7 days" to={`/releases/${year}`} more="Full calendar" />
