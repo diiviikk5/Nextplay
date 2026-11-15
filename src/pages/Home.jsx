@@ -1,11 +1,29 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Heart } from 'lucide-react';
 import { Link, Cover, Countdown, Grid, Rail, SectionHead, PlatformChips, WatchButton, When } from '../components/ui.jsx';
 import { useNow } from '../lib/data.jsx';
 import { shot } from '../lib/images.js';
 import { releaseLabel } from '../lib/format.js';
 import { platformShort } from '../lib/platforms.js';
+import { SPONSOR_URL } from '../lib/site.js';
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+// Open sponsor slots: every slot and the button go to the sponsor checkout.
+function SponsorStrip() {
+  return (
+    <div className="sponsor-strip" aria-label="Sponsors">
+      <span className="eyebrow">Sponsored by</span>
+      {[1, 2, 3].map((n) => (
+        <a key={n} className="sponsor-slot" href={SPONSOR_URL} target="_blank" rel="nofollow noopener">
+          Your logo here
+        </a>
+      ))}
+      <a className="btn btn-sm sponsor-btn" href={SPONSOR_URL} target="_blank" rel="nofollow noopener">
+        <Heart size={14} aria-hidden="true" /> Sponsor NextPlay
+      </a>
+    </div>
+  );
+}
 
 function Hero({ game, builtAt }) {
   return (
@@ -15,6 +33,7 @@ function Hero({ game, builtAt }) {
       </div>
       <div className="container hero-inner">
         <div>
+          <SponsorStrip />
           <h1 className="eyebrow">
             <span className="accent">●</span> Game release dates & countdowns · next big launch
           </h1>

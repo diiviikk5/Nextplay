@@ -7,3 +7,5 @@ export const TAGLINE = 'Video game release dates, countdowns and what to play ne
 export const DESCRIPTION =
   'NextPlay is an independent video game release tracker. It lists release dates per platform, countdowns, PC system requirements, prices, Steam reviews and player counts for thousands of games, using IGDB and Steam data refreshed daily.';
 export const SOURCES = 'Game data from IGDB.com (Twitch) and the Steam store.';
+// Sponsor checkout (Dodo Payments). Used by the homepage sponsor strip.
+export const SPONSOR_URL = 'https://checkout.dodopayments.com/buy/pdt_0Ns01N8B37hRWHP1aOoMI?quantity=1';

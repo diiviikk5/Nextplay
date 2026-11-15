@@ -215,6 +215,12 @@ a.chip:hover, button.chip:hover { border-color: var(--line-2); color: var(--text
 .hero .lede { margin-top: 16px; max-width: 54ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 @media (max-width: 760px) { .hero-inner { grid-template-columns: 1fr; } .hero-cover { display: none; } }
+/* Homepage sponsor strip (open slots link to the sponsor checkout) */
+.sponsor-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: clamp(28px, 5vw, 48px); }
+.sponsor-slot { display: grid; place-items: center; width: 132px; height: 40px; border: 1px dashed var(--line-2); border-radius: var(--radius); font: 500 11px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); transition: border-color .15s, color .15s; }
+.sponsor-slot:hover, .sponsor-slot:focus-visible { border-color: var(--accent); color: var(--accent); }
+.sponsor-btn { gap: 6px; }
+@media (max-width: 640px) { .sponsor-slot { width: 100px; height: 34px; font-size: 10px; } .sponsor-slot:nth-of-type(3) { display: none; } }
 
 /* Countdown */
 .countdown { display: inline-flex; gap: clamp(10px, 2vw, 20px); margin-top: 22px; }
