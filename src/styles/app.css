@@ -220,7 +220,16 @@ a.chip:hover, button.chip:hover { border-color: var(--line-2); color: var(--text
 .sponsor-slot { display: grid; place-items: center; width: 132px; height: 40px; border: 1px dashed var(--line-2); border-radius: var(--radius); font: 500 11px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); transition: border-color .15s, color .15s; }
 .sponsor-slot:hover, .sponsor-slot:focus-visible { border-color: var(--accent); color: var(--accent); }
 .sponsor-btn { gap: 6px; }
-@media (max-width: 640px) { .sponsor-slot { width: 100px; height: 34px; font-size: 10px; } .sponsor-slot:nth-of-type(3) { display: none; } }
+.sponsor-wall { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.sponsor-wall .sponsor-slot { width: auto; height: 72px; }
+@media (max-width: 900px) { .sponsor-wall { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .sponsor-strip .sponsor-slot { width: 100px; height: 34px; font-size: 10px; }
+  .sponsor-strip .sponsor-slot:nth-of-type(n + 3) { display: none; }
+  .sponsor-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sponsor-wall .sponsor-slot { height: 60px; }
+  .sponsor-wall .sponsor-slot:nth-child(n + 9) { display: none; }
+}
 
 /* Countdown */
 .countdown { display: inline-flex; gap: clamp(10px, 2vw, 20px); margin-top: 22px; }

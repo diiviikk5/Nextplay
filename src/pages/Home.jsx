@@ -9,11 +9,13 @@ import { SPONSOR_URL } from '../lib/site.js';
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 // Open sponsor slots: every slot and the button go to the sponsor checkout.
+const slots = (n) => Array.from({ length: n }, (_, i) => i + 1);
+
 function SponsorStrip() {
   return (
     <div className="sponsor-strip" aria-label="Sponsors">
       <span className="eyebrow">Sponsored by</span>
-      {[1, 2, 3].map((n) => (
+      {slots(4).map((n) => (
         <a key={n} className="sponsor-slot" href={SPONSOR_URL} target="_blank" rel="nofollow noopener">
           Your logo here
         </a>
@@ -22,6 +24,24 @@ function SponsorStrip() {
         <Heart size={14} aria-hidden="true" /> Sponsor NextPlay
       </a>
     </div>
+  );
+}
+
+function SponsorWall() {
+  return (
+    <section className="container section" aria-labelledby="sponsors">
+      <SectionHead id="sponsors" title="Sponsors" sub="Put your game, studio or brand in front of players checking release dates" />
+      <div className="sponsor-wall">
+        {slots(12).map((n) => (
+          <a key={n} className="sponsor-slot" href={SPONSOR_URL} target="_blank" rel="nofollow noopener">
+            Your logo here
+          </a>
+        ))}
+      </div>
+      <a className="btn btn-accent sponsor-btn" href={SPONSOR_URL} target="_blank" rel="nofollow noopener" style={{ marginTop: 20 }}>
+        <Heart size={16} aria-hidden="true" /> Become a sponsor
+      </a>
+    </section>
   );
 }
 
@@ -101,6 +121,8 @@ export default function Home({ data }) {
   return (
     <>
       <Hero game={hero} builtAt={builtAt} />
+
+      <SponsorWall />
 
       <section className="container section" aria-labelledby="radar">
         <SectionHead id="radar" title="Release radar" sub="Everything dropping in the next 7 days" to={`/releases/${year}`} more="Full calendar" />
