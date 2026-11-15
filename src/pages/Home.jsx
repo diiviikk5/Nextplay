@@ -5,6 +5,7 @@ import { shot } from '../lib/images.js';
 import { releaseLabel } from '../lib/format.js';
 import { platformShort } from '../lib/platforms.js';
 import { SPONSOR_URL } from '../lib/site.js';
+import { useSponsorDialog } from '../components/SponsorDialog.jsx';
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -12,17 +13,19 @@ const slots = (n) => Array.from({ length: n }, (_, i) => i + 1);
 
 // Open sponsor slots: every slot and the button go to the sponsor checkout.
 function SponsorWall() {
+  const [openSponsor, sponsorDialog] = useSponsorDialog();
   return (
     <section className="container section" aria-labelledby="sponsors">
+      {sponsorDialog}
       <SectionHead id="sponsors" title="Sponsors" sub="Put your game, studio or brand in front of players checking release dates" />
       <div className="sponsor-wall">
         {slots(12).map((n) => (
-          <a key={n} className="sponsor-slot" href={SPONSOR_URL} target="_blank" rel="nofollow noopener">
+          <a key={n} className="sponsor-slot" href={SPONSOR_URL} rel="nofollow noopener" onClick={openSponsor}>
             Your logo here
           </a>
         ))}
       </div>
-      <a className="btn btn-accent sponsor-btn" href={SPONSOR_URL} target="_blank" rel="nofollow noopener" style={{ marginTop: 20 }}>
+      <a className="btn btn-accent sponsor-btn" href={SPONSOR_URL} rel="nofollow noopener" onClick={openSponsor} style={{ marginTop: 20 }}>
         <Heart size={16} aria-hidden="true" /> Become a sponsor
       </a>
     </section>

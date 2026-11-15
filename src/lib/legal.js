@@ -9,6 +9,7 @@ export const LEGAL = {
       ['Analytics', 'We use Vercel Web Analytics to count page views. It is cookieless and does not track you across sites.'],
       ['Microsoft Clarity', 'We use Microsoft Clarity to see how visitors use the site (clicks, scrolling and anonymised session replays) so we can improve it. Clarity sets cookies and is run by Microsoft under the Microsoft Privacy Statement (privacy.microsoft.com).'],
       ['Embedded content', 'Trailers load from youtube-nocookie.com only after you press play. Images load from the IGDB image CDN.'],
+      ['Sponsors', 'If you buy a sponsor slot, the product name, link, description and email you enter are sent to Dodo Payments with your checkout and used only to set up and manage your sponsorship.'],
       ['Contact', `Questions about privacy: ${CONTACT}.`],
     ],
   },
