@@ -10,6 +10,7 @@ const yearOf = (ts) => new Date(ts * 1000).getUTCFullYear();
 const SearchDialog = lazy(() => import('./SearchDialog.jsx'));
 
 const nav = (y) => [
+  ['/gta-6', 'GTA 6'],
   ['/upcoming', 'Upcoming'],
   ['/new-releases', 'Out now'],
   ['/trending', 'Trending'],
@@ -108,7 +109,7 @@ export function Header() {
 const footer = (y) => [
   ['Release dates', [['/upcoming', 'Upcoming games'], ['/this-week', 'This week'], ['/new-releases', 'New releases'], [`/releases/${y}`, `${y} calendar`], [`/releases/${y + 1}`, `${y + 1} calendar`], ['/most-anticipated', 'Most anticipated'], [`/best-games/${y}`, `Best of ${y}`]]],
   ['Platforms', [['/platform/playstation-5', 'PS5'], ['/platform/xbox-series-x-s', 'Xbox Series X|S'], ['/platform/nintendo-switch-2', 'Switch 2'], ['/platform/pc', 'PC'], ['/platform/mac', 'Mac'], ['/platform', 'All platforms']]],
-  ['Explore', [['/trending', 'Trending now'], ['/game-pass', 'Game Pass'], ['/most-played', 'Most played on Steam'], ['/genre', 'Genres'], ['/series', 'Game series'], ['/developer', 'Studios'], ['/can-i-run-it', 'Can I run it?'], ['/tier-list', 'Tier list maker']]],
+  ['Explore', [['/gta-6', 'GTA 6 guide'], ['/trending', 'Trending now'], ['/game-pass', 'Game Pass'], ['/most-played', 'Most played on Steam'], ['/genre', 'Genres'], ['/series', 'Game series'], ['/developer', 'Studios'], ['/can-i-run-it', 'Can I run it?'], ['/tier-list', 'Tier list maker']]],
   ['NextPlay', [['/about', 'About'], ['/news', 'News'], ['/blog', 'Blog'], ['/contact', 'Contact'], ['/privacy', 'Privacy'], ['/terms', 'Terms']]],
 ];
 

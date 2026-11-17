@@ -8,6 +8,7 @@ import { NOW, DAY, games, bySlug, byId, card, cards, ranked, upcoming, upcomingB
 import { PLATFORMS, PLATFORM_BY_SLUG, PLATFORM_ORDER, MAJOR_PLATFORMS } from '../src/lib/platforms.js';
 import { releaseLabel, MONTHS, MONTH_SLUGS, monthKey, monthPath, plural, listJoin, truncate } from '../src/lib/format.js';
 import { ogImage } from '../src/lib/images.js';
+import { gta6Pages, characterPage, CHARACTERS, TRAILERS, REGIONS, COMING_AFTER_LAUNCH, GTA_SLUG } from '../content/gta6.js';
 import { seo, fitTitle, gameTitle, gameDescription, gameFaq, gameJsonLd, platformAnswer, itemListLd, faqLd, websiteLd, orgLd, SITE } from './seo.js';
 
 const YEAR = new Date(NOW * 1000).getUTCFullYear();
@@ -360,6 +361,79 @@ function loadTrending() {
       description: `What everyone is playing and watching right now: ${listJoin(overall.slice(0, 4).map((g) => g.name))}. Live Steam player counts, Twitch and wishlist charts. Updated ${UPDATED}.`,
       jsonLd: [itemListLd('Trending games', '/trending', overall)],
       breadcrumbs: [{ name: 'Trending', path: '/trending' }],
+    }),
+  });
+}
+
+// ---------- GTA VI hub (content/gta6.js) ----------
+
+function gta6Context() {
+  const g = bySlug.get(GTA_SLUG);
+  return { g, ctx: { out: !!g?.released, checked: UPDATED } };
+}
+
+function gta6AllPages() {
+  const { ctx } = gta6Context();
+  return [...gta6Pages(ctx), ...CHARACTERS.map(characterPage)];
+}
+
+function loadGta6({ topic, slug } = {}) {
+  const { g, ctx } = gta6Context();
+  if (!g) return notFound();
+  const pages = gta6AllPages();
+  const nav = gta6Pages(ctx).map((p) => ({ path: `/gta-6/${p.slug}`, label: p.h1.replace(/^GTA 6 /, '').replace(/^\w/, (c) => c.toUpperCase()) }));
+  const game = { ...card(g), artwork: g.artworks[0] || g.screenshots[0] || null };
+  const crumbsBase = [{ name: 'GTA 6', path: '/gta-6' }];
+
+  if (!topic && !slug) {
+    const faq = [
+      { q: 'When does GTA 6 come out?', a: `GTA 6 ${ctx.out ? 'came out' : 'comes out'} on November 19, 2026 on PS5 and Xbox Series X|S.` },
+      { q: 'How much is GTA 6?', a: `$79.99 for the Standard Edition and $99.99 for the Ultimate Edition on the US PlayStation Store (checked ${ctx.checked}).` },
+      { q: 'Is GTA 6 on PC?', a: 'Not at launch. Rockstar has only announced PS5 and Xbox Series X|S versions.' },
+      { q: 'Who are the main characters in GTA 6?', a: 'Jason Duval and Lucia Caminos, the two playable protagonists.' },
+      { q: 'Where is GTA 6 set?', a: 'In Leonida, a fictional take on Florida, centred on Vice City.' },
+    ];
+    return ok({
+      kind: 'hub',
+      game,
+      nav,
+      characters: CHARACTERS.map(({ slug: s, name, role }) => ({ slug: s, name, role })),
+      trailers: TRAILERS,
+      regions: REGIONS.map((x) => x.name),
+      comingAfterLaunch: COMING_AFTER_LAUNCH,
+      out: ctx.out,
+      faq,
+      seo: seo({
+        path: '/gta-6',
+        title: fitTitle([`GTA 6: Release Date, Price, Map, Characters & Everything We Know`, 'GTA 6: Everything We Know']),
+        description: `Everything about GTA 6 in one place: ${ctx.out ? 'out now' : 'out November 19, 2026'} on PS5 and Xbox Series X|S, $79.99 price, Leonida map, Jason and Lucia, trailers, music and pre-load. From official sources.`,
+        aiSummary: 'NextPlay’s Grand Theft Auto VI hub: release date (November 19, 2026), price, platforms, pre-load, characters, the Leonida map, trailers, music and leaks, sourced from Rockstar and the PlayStation Store.',
+        image: imageOf(g),
+        jsonLd: [faqLd(faq)],
+        breadcrumbs: crumbsBase,
+      }),
+    });
+  }
+
+  const key = slug ? `characters/${slug}` : topic;
+  const page = pages.find((p) => p.slug === key);
+  if (!page) return notFound();
+  const path = `/gta-6/${page.slug}`;
+  const byKey = new Map(pages.map((p) => [p.slug, p]));
+  return ok({
+    kind: 'page',
+    game,
+    nav,
+    page: { ...page, related: page.related.map((k) => byKey.get(k)).filter(Boolean).map((p) => ({ path: `/gta-6/${p.slug}`, label: p.h1 })) },
+    seo: seo({
+      path,
+      title: fitTitle([page.title, page.h1]),
+      description: page.description,
+      aiSummary: page.aiSummary,
+      image: imageOf(g),
+      type: 'article',
+      jsonLd: [faqLd(page.faq)],
+      breadcrumbs: slug ? [...crumbsBase, { name: 'Characters', path: '/gta-6/characters' }, { name: page.h1.replace(/ \(GTA 6\)$/, ''), path }] : [...crumbsBase, { name: page.h1.replace(/^GTA 6 /, '').replace(/^\w/, (c) => c.toUpperCase()), path }],
     }),
   });
 }
@@ -784,12 +858,20 @@ function loadArticles(_, route) {
   const label = route.section === 'news' ? 'News' : 'Blog';
   return ok({
     section: route.section,
-    items: list.map(({ content, ...a }) => a),
+    items: list.filter((a) => !ARTICLE_REDIRECTS[`${route.section}/${a.slug}`]).map(({ content, ...a }) => a),
     seo: seo({ path: `/${route.section}`, title: fitTitle([`Gaming ${label} & Features`]), description: `NextPlay ${label.toLowerCase()}: release breakdowns, features and opinion on the biggest games.`, breadcrumbs: [{ name: label, path: `/${route.section}` }] }),
   });
 }
 
+// Old articles superseded by maintained pages: 301 so they pass their signals on instead of competing.
+const ARTICLE_REDIRECTS = {
+  'news/gta-6-rockstar-games-latest-updates-january-2026': '/gta-6',
+  'blog/gta-6-release-date-everything-we-know': '/gta-6/release-date',
+};
+
 function loadArticle({ slug }, route) {
+  const moved = ARTICLE_REDIRECTS[`${route.section}/${slug}`];
+  if (moved) return redirect(moved);
   const a = articleList(route.section).find((x) => x.slug === slug);
   if (!a) return notFound();
   const path = `/${route.section}/${slug}`;
@@ -826,6 +908,7 @@ const LOADERS = {
   anticipated: loadAnticipated,
   trending: loadTrending,
   gamePass: loadGamePass,
+  gta6: loadGta6,
   mostPlayed: loadMostPlayed,
   releasesIndex: loadReleasesIndex,
   releasesYear: loadReleasesYear,
@@ -871,7 +954,7 @@ export function resolve(pathname) {
 }
 
 export function allPaths() {
-  const paths = new Set(['/', '/upcoming', '/new-releases', '/most-anticipated', '/trending', '/game-pass', '/this-week', '/most-played', '/can-i-run-it', '/platform', '/genre', '/developer', '/publisher', '/series', '/tier-list', '/watchlist', '/search', '/news', '/blog', '/about', '/contact', '/privacy', '/terms', '/disclaimer']);
+  const paths = new Set(['/', '/upcoming', '/new-releases', '/most-anticipated', '/trending', '/game-pass', '/this-week', '/most-played', '/gta-6', '/can-i-run-it', '/platform', '/genre', '/developer', '/publisher', '/series', '/tier-list', '/watchlist', '/search', '/news', '/blog', '/about', '/contact', '/privacy', '/terms', '/disclaimer']);
   games.forEach((g) => {
     paths.add(`/game/${g.slug}`);
     if ((g.score > MIN.gamesLikeScore && db.similarTo(g, 20).length >= MIN.gamesLike) || KEEP.has(`/games-like/${g.slug}`)) paths.add(`/games-like/${g.slug}`);
@@ -890,9 +973,10 @@ export function allPaths() {
   });
   for (const [kind, map] of [['developer', db.byDeveloper], ['publisher', db.byPublisher]]) map.forEach((l, s) => (companyEligible(l) || KEEP.has(`/${kind}/${s}`)) && paths.add(`/${kind}/${s}`));
   db.seriesList.forEach((s) => paths.add(`/series/${s.slug}`));
+  gta6AllPages().forEach((p) => paths.add(`/gta-6/${p.slug}`));
   Object.keys(TIER_TEMPLATES).filter((k) => k !== 'default').forEach((k) => paths.add(`/tier-list/${k}`));
-  db.news.forEach((a) => paths.add(`/news/${a.slug}`));
-  db.blog.forEach((a) => paths.add(`/blog/${a.slug}`));
+  db.news.forEach((a) => ARTICLE_REDIRECTS[`news/${a.slug}`] || paths.add(`/news/${a.slug}`));
+  db.blog.forEach((a) => ARTICLE_REDIRECTS[`blog/${a.slug}`] || paths.add(`/blog/${a.slug}`));
   return [...paths];
 }
 

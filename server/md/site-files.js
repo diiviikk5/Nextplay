@@ -19,6 +19,7 @@ const FULL_LIMIT = 500_000;
 const md = (p) => abs(mdPath(p));
 
 const CORE = [
+  ['/gta-6', 'GTA 6 hub', 'release date, price, platforms, pre-load, characters, map, trailers, music and leaks for Grand Theft Auto VI'],
   ['/', 'Home', 'next big release, 7-day release radar, trending and most anticipated games'],
   ['/this-week', 'Games coming out this week', 'every release this week, Monday to Sunday, by day'],
   ['/upcoming', 'Upcoming games', 'notable releases for each of the next six months'],

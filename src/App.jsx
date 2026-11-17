@@ -18,6 +18,7 @@ export const PAGE_FILES = {
   anticipated: 'Anticipated',
   trending: 'Trending',
   gamePass: 'GamePass',
+  gta6: 'Gta6',
   mostPlayed: 'MostPlayed',
   releasesIndex: 'ReleasesYear',
   releasesYear: 'ReleasesYear',

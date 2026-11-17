@@ -182,6 +182,32 @@ const RENDERERS = {
     };
   },
 
+  gta6(d) {
+    if (d.kind === 'hub') {
+      return {
+        sections: [
+          `Grand Theft Auto VI ${d.out ? 'came out' : 'comes out'} on November 19, 2026 on PS5 and Xbox Series X|S.`,
+          section('Guide', list(d.nav.map((n) => link(n.label, n.path)))),
+          section('Characters', list(d.characters.map((c) => `${link(c.name, `/gta-6/characters/${c.slug}`)}: ${c.role.toLowerCase()}`))),
+          section('Trailers', list(d.trailers.map((t) => `[${t.name}](https://www.youtube.com/watch?v=${t.id})${t.when ? ` (${t.when})` : ''}`))),
+          section('Map regions', d.regions.join(', ')),
+          section('FAQ', faq(d.faq)),
+        ],
+        related: [{ name: 'Grand Theft Auto VI game page', path: '/game/grand-theft-auto-vi' }],
+      };
+    }
+    const p = d.page;
+    return {
+      sections: [
+        // Body is already markdown; make its internal links absolute like every other page.
+        p.body.trim().replace(/\]\((\/[^)]*)\)/g, (_, path) => `](https://nextplaygame.me${path})`),
+        section('FAQ', faq(p.faq)),
+        section('Sources', list(p.sources.map((s) => `[${s.name}](${s.url})`))),
+      ],
+      related: [{ name: 'GTA 6: everything we know', path: '/gta-6' }, ...p.related.map((r) => ({ name: r.label, path: r.path }))],
+    };
+  },
+
   mostPlayed(d) {
     const pct = (v) => (v == null ? '' : `${v >= 0 ? '+' : ''}${v}%`);
     return {

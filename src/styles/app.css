@@ -448,3 +448,17 @@ a.chip:hover, button.chip:hover { border-color: var(--line-2); color: var(--text
 /* Embed countdown panel (game page) */
 .embed-panel { margin-top: 16px; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--bg-2); display: grid; gap: 12px; max-width: 520px; }
 .embed-panel textarea { width: 100%; font: 12.5px/1.45 var(--mono, ui-monospace, monospace); color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px; resize: vertical; }
+
+/* GTA 6 hub */
+.gta-facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.gta-facts > div { padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.gta-facts dt { font: 500 11px/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.gta-facts dd { margin: 8px 0 0; font-weight: 600; }
+.gta-video { padding: 10px; gap: 10px; justify-content: flex-start; }
+.gta-thumb { position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius); background: var(--bg-2); }
+.gta-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.gta-thumb svg { position: relative; color: #fff; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6)); }
+.gta-nav { display: grid; gap: 2px; }
+.gta-nav a { display: block; padding: 7px 10px; border-radius: var(--radius); color: var(--text-2); }
+.gta-nav a:hover, .gta-nav a[aria-current='page'] { background: var(--bg-2); color: var(--text); }
+.gta-sources { display: grid; gap: 6px; padding-left: 18px; font-size: 0.9rem; color: var(--text-2); }

@@ -440,6 +440,7 @@ export default function Game({ data }) {
           <nav className="panel" aria-label="More about this game">
             <h2>Explore</h2>
             <div className="stores">
+              {game.slug === 'grand-theft-auto-vi' ? <Link to="/gta-6">GTA 6 guide: price, map, characters</Link> : null}
               {hasGamesLike ? <Link to={`/games-like/${game.slug}`}>Games like {game.name}</Link> : null}
               {hasRequirements ? <Link to={`/system-requirements/${game.slug}`}>PC system requirements</Link> : null}
               {monthLink ? <Link to={monthLink.path}>All {monthLink.label} releases</Link> : null}

@@ -67,7 +67,7 @@ const paths = loaders.allPaths();
 const sitemap = new Map(); // group -> [{loc, lastmod}]
 const addToSitemap = (p, date) => {
   const seg = p.split('/')[1] || 'pages';
-  const group = { game: 'games', 'games-like': 'games-like', 'system-requirements': 'requirements', developer: 'studios', publisher: 'studios', series: 'series' }[seg] || 'hubs';
+  const group = { game: 'games', 'games-like': 'games-like', 'system-requirements': 'requirements', developer: 'studios', publisher: 'studios', series: 'series', 'gta-6': 'gta6' }[seg] || 'hubs';
   if (!sitemap.has(group)) sitemap.set(group, []);
   sitemap.get(group).push({ loc: `${SITE}${p}`, lastmod: date });
 };

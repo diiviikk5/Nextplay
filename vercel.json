@@ -329,6 +329,41 @@
       "source": "/games/switch-2/:genre",
       "destination": "/games/nintendo-switch-2/:genre",
       "permanent": true
+    },
+    {
+      "source": "/gta6",
+      "destination": "/gta-6",
+      "permanent": true
+    },
+    {
+      "source": "/gta-vi",
+      "destination": "/gta-6",
+      "permanent": true
+    },
+    {
+      "source": "/gta6/:path*",
+      "destination": "/gta-6/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/gta-vi/:path*",
+      "destination": "/gta-6/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/gta-6-release-date",
+      "destination": "/gta-6/release-date",
+      "permanent": true
+    },
+    {
+      "source": "/news/gta-6-rockstar-games-latest-updates-january-2026",
+      "destination": "/gta-6",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gta-6-release-date-everything-we-know",
+      "destination": "/gta-6/release-date",
+      "permanent": true
     }
   ],
   "rewrites": [
